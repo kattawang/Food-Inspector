@@ -15,6 +15,7 @@
 		480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */; };
 		480F5B0A21DE763000B0CFB5 /* CareItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B0921DE763000B0CFB5 /* CareItTests.swift */; };
 		480F5B1521DE763000B0CFB5 /* CareItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B1421DE763000B0CFB5 /* CareItUITests.swift */; };
+		480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		480F5B1021DE763000B0CFB5 /* CareItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		480F5B1421DE763000B0CFB5 /* CareItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareItUITests.swift; sourceTree = "<group>"; };
 		480F5B1621DE763100B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */,
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
+				480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */,
 				480F5AFB21DE763000B0CFB5 /* Assets.xcassets */,
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				480F5B0021DE763000B0CFB5 /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D28239F21DE7D66009D0318 /* Styles.swift in Sources */,
+				480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */,
 				480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */,
 				480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */,
 			);

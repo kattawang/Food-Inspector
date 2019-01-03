@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera Test View Controller-->
         <scene sceneID="bL1-5D-tjN">
             <objects>
-                <viewController id="NUy-6V-PJG" sceneMemberID="viewController">
+                <viewController id="NUy-6V-PJG" customClass="CameraTestViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z4H-5e-UiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
