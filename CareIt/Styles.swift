@@ -7,6 +7,10 @@
 //
 import Foundation
 
+/*
+ This styles enum probably needs changing, but it's fine for now.
+ -Hughes
+ */
 enum Styles: String {
     case font = "helvetica neue"
     case color = "ffffff"
