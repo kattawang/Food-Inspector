@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */; };
 		3D28239F21DE7D66009D0318 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28239E21DE7D66009D0318 /* Styles.swift */; };
+		4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3021DFDA100067E2DD /* SignUpViewController.swift */; };
+		4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */; };
+		4802AD3521DFDC8F0067E2DD /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 4802AD3421DFDC8F0067E2DD /* GoogleService-Info (1).plist */; };
 		480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */; };
 		480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5AF621DE762D00B0CFB5 /* ViewController.swift */; };
 		480F5AFA21DE762D00B0CFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AF821DE762D00B0CFB5 /* Main.storyboard */; };
@@ -37,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		3D28239E21DE7D66009D0318 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		4802AD3021DFDA100067E2DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4802AD3421DFDC8F0067E2DD /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		480F5AF121DE762D00B0CFB5 /* CareIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		480F5AF621DE762D00B0CFB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +58,9 @@
 		480F5B1421DE763000B0CFB5 /* CareItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareItUITests.swift; sourceTree = "<group>"; };
 		480F5B1621DE763100B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTestViewController.swift; sourceTree = "<group>"; };
+		4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.debug.xcconfig"; sourceTree = "<group>"; };
+		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
+		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3807BB853C7C15BA3641063E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */,
+				C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		480F5AE821DE762D00B0CFB5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +105,8 @@
 				480F5B0821DE763000B0CFB5 /* CareItTests */,
 				480F5B1321DE763000B0CFB5 /* CareItUITests */,
 				480F5AF221DE762D00B0CFB5 /* Products */,
+				3807BB853C7C15BA3641063E /* Pods */,
+				F200B6DEFC465B800FED912B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +123,7 @@
 		480F5AF321DE762D00B0CFB5 /* CareIt */ = {
 			isa = PBXGroup;
 			children = (
+				4802AD3421DFDC8F0067E2DD /* GoogleService-Info (1).plist */,
 				480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */,
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
@@ -109,6 +132,8 @@
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				480F5B0021DE763000B0CFB5 /* Info.plist */,
 				3D28239E21DE7D66009D0318 /* Styles.swift */,
+				4802AD3021DFDA100067E2DD /* SignUpViewController.swift */,
+				4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */,
 			);
 			path = CareIt;
 			sourceTree = "<group>";
@@ -131,6 +156,14 @@
 			path = CareItUITests;
 			sourceTree = "<group>";
 		};
+		F200B6DEFC465B800FED912B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 480F5B1921DE763100B0CFB5 /* Build configuration list for PBXNativeTarget "CareIt" */;
 			buildPhases = (
+				AFBD48360F13C49C9DEE6EC9 /* [CP] Check Pods Manifest.lock */,
 				480F5AED21DE762D00B0CFB5 /* Sources */,
 				480F5AEE21DE762D00B0CFB5 /* Frameworks */,
 				480F5AEF21DE762D00B0CFB5 /* Resources */,
+				F00A825F280CC7464879280B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,6 +273,7 @@
 				480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */,
 				480F5AFC21DE763000B0CFB5 /* Assets.xcassets in Resources */,
 				480F5AFA21DE762D00B0CFB5 /* Main.storyboard in Resources */,
+				4802AD3521DFDC8F0067E2DD /* GoogleService-Info (1).plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +293,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AFBD48360F13C49C9DEE6EC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CareIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F00A825F280CC7464879280B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CareIt/Pods-CareIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CareIt/Pods-CareIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		480F5AED21DE762D00B0CFB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,8 +353,10 @@
 			files = (
 				3D28239F21DE7D66009D0318 /* Styles.swift in Sources */,
 				480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */,
+				4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */,
 				480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */,
 				480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */,
+				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +527,7 @@
 		};
 		480F5B1A21DE763100B0CFB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,6 +545,7 @@
 		};
 		480F5B1B21DE763100B0CFB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

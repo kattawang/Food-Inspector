@@ -26,11 +26,31 @@
                                     <segue destination="NUy-6V-PJG" kind="show" id="C2n-H1-VSE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-Ml-acZ">
+                                <rect key="frame" x="135" y="399" width="105" height="46"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <segue destination="aRh-k8-1Nc" kind="show" id="V63-Ym-L1p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHG-fv-Lmq">
+                                <rect key="frame" x="149" y="520" width="76" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Log In"/>
+                                <connections>
+                                    <segue destination="LO7-Wg-soH" kind="show" id="JM8-XR-cMF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nWe-g8-y4B" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BGT-Fe-a69"/>
+                            <constraint firstItem="uHG-fv-Lmq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ONR-8c-ltd"/>
+                            <constraint firstItem="uHG-fv-Lmq" firstAttribute="top" secondItem="dbx-Ml-acZ" secondAttribute="bottom" constant="75" id="TbB-he-y3T"/>
                             <constraint firstItem="nWe-g8-y4B" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cZp-Ic-LYp"/>
+                            <constraint firstItem="dbx-Ml-acZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hYc-Au-xJD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uHG-fv-Lmq" secondAttribute="bottom" constant="100" id="oWM-X1-4UI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +58,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="XaB-4o-5jX">
+            <objects>
+                <viewController id="aRh-k8-1Nc" customClass="SignUpViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ckq-Y9-d3V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b5S-n2-nma"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lsS-61-MUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="-558"/>
         </scene>
         <!--Camera Test View Controller-->
         <scene sceneID="bL1-5D-tjN">
@@ -84,6 +119,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1036" y="117"/>
+        </scene>
+        <!--Log In View Controller-->
+        <scene sceneID="sFF-bh-CnD">
+            <objects>
+                <viewController id="LO7-Wg-soH" customClass="LogInViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W0L-IQ-BmT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nDm-e8-DYt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSv-y3-ZJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="880"/>
         </scene>
     </scenes>
 </document>
