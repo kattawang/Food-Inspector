@@ -83,6 +83,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
+                    <connections>
+                        <outlet property="analyzePictureButton" destination="MiG-En-VzS" id="oB1-qv-EPZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

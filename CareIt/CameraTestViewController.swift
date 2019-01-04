@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Vision
 
 /*
  Ideally, this screen should allow you to pick either an image or take a photo. Then it should
@@ -15,9 +16,9 @@ import UIKit
 class CameraTestViewController: UIViewController, UIImagePickerControllerDelegate {
     
     var imagePicker: UIImagePickerController = UIImagePickerController()
-    var currentImage: CIImage?
+    var currentImage: UIImage?
+    @IBOutlet weak var analyzePictureButton: UIButton!
     
-
     /*
      This action should allow the user to choose a picture, instead of having to go and take a picture.
      This will probably be useful for when we don't have an actual camera to work with (like, maybe when
@@ -25,12 +26,17 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
      -Hughes
      */
     @IBAction func choosePictureTouchedUpInside(_ sender: Any) {
-        self.imagePicker.sourceType = .photoLibrary
-        self.present(imagePicker, animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        analyzePictureButton.isEnabled = true
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
+    
     @IBAction func analyzePictureTouchedUpInside(_ sender: Any) {
-        guard let currentImage = currentImage else {return}
+        guard let image = currentImage else {return}
+        guard let convertedImage = CIImage(image: image) else {return}
+        let imageAnalyzer = VNImageRequestHandler(ciImage: convertedImage, orientation: .up, options: [:])
         
     }
     
@@ -45,17 +51,20 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
+        imagePicker.dismiss(animated:true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        //we should check here to make absolutely sure that the image they picked is actually a still image
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+            currentImage = pickedImage
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        analyzePictureButton.isEnabled = false //we're going to disable the button until the person uploads an image
     }
     
     
