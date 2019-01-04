@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWe-g8-y4B">
                                 <rect key="frame" x="35" y="224" width="304" height="219"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Move"/>
+                                <state key="normal" title="To Test Screen"/>
                                 <connections>
                                     <segue destination="NUy-6V-PJG" kind="show" id="C2n-H1-VSE"/>
                                 </connections>
@@ -46,7 +46,38 @@
                     <view key="view" contentMode="scaleToFill" id="Z4H-5e-UiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-78-AbG">
+                                <rect key="frame" x="109" y="293" width="156" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="qKl-ni-e5t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiG-En-VzS">
+                                <rect key="frame" x="72" y="479" width="231" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Analyze Picture"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkC-67-YcP">
+                                <rect key="frame" x="89" y="178" width="197" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Choose Picture"/>
+                                <connections>
+                                    <action selector="choosePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="7Ce-5N-1zk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qit-78-AbG" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="156-mA-QdC"/>
+                            <constraint firstItem="MiG-En-VzS" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="H5K-Yi-l4Y"/>
+                            <constraint firstItem="Qit-78-AbG" firstAttribute="top" secondItem="wkC-67-YcP" secondAttribute="bottom" constant="67" id="Mxf-rT-PmC"/>
+                            <constraint firstItem="wkC-67-YcP" firstAttribute="top" secondItem="fwV-9b-vHJ" secondAttribute="top" constant="158" id="XNl-be-iS9"/>
+                            <constraint firstItem="fwV-9b-vHJ" firstAttribute="bottom" secondItem="MiG-En-VzS" secondAttribute="bottom" constant="134" id="YJh-NA-Cu1"/>
+                            <constraint firstItem="wkC-67-YcP" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="wf0-6I-dIn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
                 </viewController>
