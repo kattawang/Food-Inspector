@@ -15,6 +15,7 @@ import UIKit
 class CameraTestViewController: UIViewController, UIImagePickerControllerDelegate {
     
     var imagePicker: UIImagePickerController = UIImagePickerController()
+    var currentImage: CIImage?
     
 
     /*
@@ -24,6 +25,12 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
      -Hughes
      */
     @IBAction func choosePictureTouchedUpInside(_ sender: Any) {
+        self.imagePicker.sourceType = .photoLibrary
+        self.present(imagePicker, animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+    }
+    
+    @IBAction func analyzePictureTouchedUpInside(_ sender: Any) {
+        guard let currentImage = currentImage else {return}
         
     }
     
