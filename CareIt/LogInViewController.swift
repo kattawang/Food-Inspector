@@ -7,18 +7,47 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
+    @IBAction func logInButtonTouchedUp(_ sender: UIButton) {
+        
+        // all code in this method is the same as the firebase
+        guard let email = emailTextField.text else {return}
+        guard let password = passwordTextField.text else {return}
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error)
+            in
+            
+            if error == nil && user != nil{
+                self.dismiss(animated: false, completion: nil)
+            }
+            else{
+                print(error!.localizedDescription)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        emailTextField.becomeFirstResponder()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // switches which text field the curser is in when the user hits enter on the keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if emailTextField.isFirstResponder{
+            passwordTextField.becomeFirstResponder()
+        }
+        else if passwordTextField.isFirstResponder{
+            passwordTextField.resignFirstResponder()
+            logInButton.isEnabled = true
+        }
+        return true
     }
 
 
