@@ -1,0 +1,6 @@
+framework module Pods_CareIt {
+  umbrella header "Pods-CareIt-umbrella.h"
+
+  export *
+  module * { export * }
+}
