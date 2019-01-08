@@ -37,6 +37,14 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
         guard let image = currentImage else {return}
         guard let convertedImage = CIImage(image: image) else {return}
         let imageAnalyzer = VNImageRequestHandler(ciImage: convertedImage, orientation: .up, options: [:])
+        let barcodeRequest = VNDetectBarcodesRequest()
+        do {
+            try imageAnalyzer.perform([barcodeRequest])//maybe we should add a text request too?
+        } catch {
+            //TODO: insert an error message here asking the user to retry.
+        }
+        
+        
         
     }
     
