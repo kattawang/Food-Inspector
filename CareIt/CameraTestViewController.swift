@@ -22,7 +22,7 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
     /*
      This action should allow the user to choose a picture, instead of having to go and take a picture.
      This will probably be useful for when we don't have an actual camera to work with (like, maybe when
-     we're testing on our laptops.) chicken?
+     we're testing on our laptops.)
      -Hughes
      */
     @IBAction func choosePictureTouchedUpInside(_ sender: Any) {
