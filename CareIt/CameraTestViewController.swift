@@ -34,17 +34,21 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     @IBAction func analyzePictureTouchedUpInside(_ sender: Any) {
-        guard let image = currentImage else {return}
+        guard let image = currentImage else {print("no image");return}
         guard let convertedImage = CIImage(image: image) else {return}
         let imageAnalyzer = VNImageRequestHandler(ciImage: convertedImage, orientation: .up, options: [:])
         let barcodeRequest = VNDetectBarcodesRequest()
         do {
             try imageAnalyzer.perform([barcodeRequest])//maybe we should add a text request too?
+            print("analyzing")
         } catch {
             //TODO: insert an error message here asking the user to retry.
         }
-        
-        
+        if barcodeRequest.results == nil {
+            print("this shit don't work")
+        } else {
+            print(barcodeRequest.results!)
+        }
         
     }
     
@@ -66,7 +70,8 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-            currentImage = pickedImage
+            self.currentImage = pickedImage
+            print("gottem!")
         }
     }
     
