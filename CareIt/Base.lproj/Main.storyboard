@@ -186,6 +186,9 @@
                                 <rect key="frame" x="72" y="479" width="231" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Analyze Picture"/>
+                                <connections>
+                                    <action selector="analyzePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="ncG-GY-8KM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkC-67-YcP">
                                 <rect key="frame" x="89" y="178" width="197" height="48"/>
@@ -207,6 +210,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
+                    <connections>
+                        <outlet property="analyzePictureButton" destination="MiG-En-VzS" id="oB1-qv-EPZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
