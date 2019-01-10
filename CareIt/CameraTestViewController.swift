@@ -13,7 +13,7 @@ import Vision
  Ideally, this screen should allow you to pick either an image or take a photo. Then it should
  analyze whatever image is given to look for a barcode.
  */
-class CameraTestViewController: UIViewController, UIImagePickerControllerDelegate {
+class CameraTestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imagePicker: UIImagePickerController = UIImagePickerController()
     var currentImage: UIImage?
@@ -32,24 +32,25 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    
     @IBAction func analyzePictureTouchedUpInside(_ sender: Any) {
         guard let image = currentImage else {print("no image");return}
         guard let convertedImage = CIImage(image: image) else {return}
         let imageAnalyzer = VNImageRequestHandler(ciImage: convertedImage, orientation: .up, options: [:])
         let barcodeRequest = VNDetectBarcodesRequest()
         do {
-            try imageAnalyzer.perform([barcodeRequest])//maybe we should add a text request too?
+            try imageAnalyzer.perform([barcodeRequest])
             print("analyzing")
         } catch {
-            //TODO: insert an error message here asking the user to retry.
-        }
-        if barcodeRequest.results == nil {
-            print("this shit don't work")
-        } else {
-            print(barcodeRequest.results!)
+            
         }
         
+        if let results = barcodeRequest.results {
+            for i in results {
+                if let barcode = i as? VNBarcodeObservation {
+                    print(barcode.payloadStringValue)
+                }
+            }
+        }
     }
     
     /*
@@ -60,7 +61,7 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
      -Hughes
      */
     @IBAction func takePictureTouchedUpInside(_ sender: Any) {
-        
+        tryToEnablePictureButton()
     }
     
     
@@ -71,13 +72,14 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.currentImage = pickedImage
-            print("gottem!")
+            imagePicker.dismiss(animated: true, completion: nil)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         analyzePictureButton.isEnabled = false //we're going to disable the button until the person uploads an image
+        imagePicker.delegate = self
     }
     
     
