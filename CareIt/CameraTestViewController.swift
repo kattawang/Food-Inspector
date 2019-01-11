@@ -43,11 +43,10 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
         } catch {
             
         }
-        
         if let results = barcodeRequest.results {
             for i in results {
                 if let barcode = i as? VNBarcodeObservation {
-                    print(barcode.payloadStringValue)
+                    print(barcode.payloadStringValue!)
                 }
             }
         }
@@ -61,7 +60,6 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
      -Hughes
      */
     @IBAction func takePictureTouchedUpInside(_ sender: Any) {
-        tryToEnablePictureButton()
     }
     
     
