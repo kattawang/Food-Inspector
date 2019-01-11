@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */; };
-		3D28239F21DE7D66009D0318 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28239E21DE7D66009D0318 /* Styles.swift */; };
 		4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3021DFDA100067E2DD /* SignUpViewController.swift */; };
 		4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */; };
 		4802AD3521DFDC8F0067E2DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4802AD3421DFDC8F0067E2DD /* GoogleService-Info.plist */; };
@@ -20,6 +19,7 @@
 		480F5B0A21DE763000B0CFB5 /* CareItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B0921DE763000B0CFB5 /* CareItTests.swift */; };
 		480F5B1521DE763000B0CFB5 /* CareItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B1421DE763000B0CFB5 /* CareItUITests.swift */; };
 		480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */; };
+		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D28239E21DE7D66009D0318 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		4802AD3021DFDA100067E2DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4802AD3421DFDC8F0067E2DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4F660621E9220F004C3444 /* AddExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExtensions.swift; path = ../AddExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +128,10 @@
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
 				480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */,
+				EB4F660621E9220F004C3444 /* AddExtensions.swift */,
 				480F5AFB21DE763000B0CFB5 /* Assets.xcassets */,
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				480F5B0021DE763000B0CFB5 /* Info.plist */,
-				3D28239E21DE7D66009D0318 /* Styles.swift */,
 				4802AD3021DFDA100067E2DD /* SignUpViewController.swift */,
 				4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */,
 			);
@@ -343,8 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D28239F21DE7D66009D0318 /* Styles.swift in Sources */,
 				480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */,
+				EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */,
 				4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */,
 				480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */,
 				480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */,
