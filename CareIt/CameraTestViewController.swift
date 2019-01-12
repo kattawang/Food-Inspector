@@ -15,6 +15,7 @@ import Vision
  */
 class CameraTestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var barcodeText: UILabel!
     var imagePicker: UIImagePickerController = UIImagePickerController()
     var currentImage: UIImage?
     @IBOutlet weak var analyzePictureButton: UIButton!
@@ -47,6 +48,7 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
             for i in results {
                 if let barcode = i as? VNBarcodeObservation {
                     print(barcode.payloadStringValue!)
+                    barcodeText.text = barcode.payloadStringValue!
                 }
             }
         }
@@ -60,6 +62,15 @@ class CameraTestViewController: UIViewController, UIImagePickerControllerDelegat
      -Hughes
      */
     @IBAction func takePictureTouchedUpInside(_ sender: Any) {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+        {
+            analyzePictureButton.isEnabled = true
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        } else {
+            barcodeText.text = "no camera recognized"
+        }
     }
     
     

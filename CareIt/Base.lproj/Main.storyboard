@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHG-fv-Lmq">
-                                <rect key="frame" x="149" y="520" width="76" height="47"/>
+                                <rect key="frame" x="149.5" y="520" width="76" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-78-AbG">
-                                <rect key="frame" x="109" y="293" width="156" height="48"/>
+                                <rect key="frame" x="109.5" y="293" width="156" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Take Picture"/>
                                 <connections>
@@ -198,25 +198,35 @@
                                     <action selector="choosePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="7Ce-5N-1zk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Barcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAT-LR-9Ig">
+                                <rect key="frame" x="72" y="381" width="224" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qit-78-AbG" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="156-mA-QdC"/>
+                            <constraint firstItem="uAT-LR-9Ig" firstAttribute="top" secondItem="Qit-78-AbG" secondAttribute="bottom" constant="40" id="6kn-3U-aKP"/>
                             <constraint firstItem="MiG-En-VzS" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="H5K-Yi-l4Y"/>
                             <constraint firstItem="Qit-78-AbG" firstAttribute="top" secondItem="wkC-67-YcP" secondAttribute="bottom" constant="67" id="Mxf-rT-PmC"/>
                             <constraint firstItem="wkC-67-YcP" firstAttribute="top" secondItem="fwV-9b-vHJ" secondAttribute="top" constant="158" id="XNl-be-iS9"/>
                             <constraint firstItem="fwV-9b-vHJ" firstAttribute="bottom" secondItem="MiG-En-VzS" secondAttribute="bottom" constant="134" id="YJh-NA-Cu1"/>
+                            <constraint firstItem="uAT-LR-9Ig" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="o2b-9e-3yM"/>
                             <constraint firstItem="wkC-67-YcP" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="wf0-6I-dIn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
                     <connections>
+                        <outlet property="BarcodeText" destination="uAT-LR-9Ig" id="apx-Y9-DaO"/>
                         <outlet property="analyzePictureButton" destination="MiG-En-VzS" id="oB1-qv-EPZ"/>
+                        <outlet property="barcodeText" destination="uAT-LR-9Ig" id="HK7-lS-oB8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="117"/>
+            <point key="canvasLocation" x="1036" y="116.49175412293854"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="sFF-bh-CnD">
@@ -227,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QL-fW-cut">
-                                <rect key="frame" x="88" y="567" width="200" height="50"/>
+                                <rect key="frame" x="87.5" y="567" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.81176470590000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="kCi-lF-TZ5"/>
