@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */; };
+		3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */; };
+		3D38C75521EFAC600027A3B1 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75421EFAC600027A3B1 /* Food.swift */; };
 		4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3021DFDA100067E2DD /* SignUpViewController.swift */; };
 		4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */; };
 		4802AD3521DFDC8F0067E2DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4802AD3421DFDC8F0067E2DD /* GoogleService-Info.plist */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRequests.swift; sourceTree = "<group>"; };
+		3D38C75421EFAC600027A3B1 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		4802AD3021DFDA100067E2DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4802AD3421DFDC8F0067E2DD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -128,12 +132,14 @@
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
 				480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */,
+				3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */,
 				EB4F660621E9220F004C3444 /* AddExtensions.swift */,
 				480F5AFB21DE763000B0CFB5 /* Assets.xcassets */,
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				480F5B0021DE763000B0CFB5 /* Info.plist */,
 				4802AD3021DFDA100067E2DD /* SignUpViewController.swift */,
 				4802AD3221DFDA2C0067E2DD /* LogInViewController.swift */,
+				3D38C75421EFAC600027A3B1 /* Food.swift */,
 			);
 			path = CareIt;
 			sourceTree = "<group>";
@@ -348,6 +354,8 @@
 				4802AD3321DFDA2C0067E2DD /* LogInViewController.swift in Sources */,
 				480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */,
 				480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */,
+				3D38C75521EFAC600027A3B1 /* Food.swift in Sources */,
+				3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */,
 				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
