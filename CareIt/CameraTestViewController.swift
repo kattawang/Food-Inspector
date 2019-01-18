@@ -77,10 +77,12 @@ class CameraTestViewController:
             //empty catch statement, we should add a little alert here too if the analysis fails
         }
         if let results = barcodeRequest.results { //if the code works, then slap the last element of the results up on the label on the screen
-            for i in results {
-                if let barcode = i as? VNBarcodeObservation {
-                    print(barcode.payloadStringValue!)
-                    barcodeText.text = barcode.payloadStringValue!
+            if let barcode = results[0] as? VNBarcodeObservation {
+                let databaseReq = DatabaseRequests(barcodeString: barcode.payloadStringValue!, beforeLoading: {self.barcodeText.text = "loading"}, afterLoading: {self.barcodeText.text = "Done loading"})
+                if databaseReq.result != nil {
+                    barcodeText.text = databaseReq.result
+                } else {
+                    barcodeText.text = "An error occurred."
                 }
             }
         }
