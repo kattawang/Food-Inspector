@@ -9,12 +9,20 @@
 import Foundation
 
 struct NDBDatabaseRequest: Decodable {
-    let foods: [Food]
+    let foods: [IntermediateFood]
+}
+
+struct IntermediateFood: Decodable {
+    let food: Food
 }
 
 struct Food: Decodable {
-    let name: String
+    let desc: Description
     let ing: Ingredients
+}
+
+struct Description: Decodable {
+    let name: String
 }
 
 struct Ingredients: Decodable {

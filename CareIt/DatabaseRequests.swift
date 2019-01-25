@@ -21,7 +21,7 @@ class DatabaseRequests {
         URLSession.shared.dataTask(with: url) { (data, request, error) in
             guard let data = data else {return}
             do{
-                
+                print(data)
                 let res = try JSONDecoder().decode(FoodIDDatabaseRequest.self, from: data)
                 
                 let ndbno = res.list.item[0].ndbno
@@ -35,8 +35,7 @@ class DatabaseRequests {
                     guard let data = data else {return}
                     do {
                         let res = try JSONDecoder().decode(NDBDatabaseRequest.self, from: data)
-                        
-                        self.result = res.foods[0].ing.desc
+                        self.result = res.foods[0].food.ing.desc
                        
                     } catch let jsonError {print(jsonError)}
                     

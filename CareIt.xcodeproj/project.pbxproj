@@ -19,8 +19,6 @@
 		480F5AFA21DE762D00B0CFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AF821DE762D00B0CFB5 /* Main.storyboard */; };
 		480F5AFC21DE763000B0CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFB21DE763000B0CFB5 /* Assets.xcassets */; };
 		480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */; };
-		480F5B0A21DE763000B0CFB5 /* CareItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B0921DE763000B0CFB5 /* CareItTests.swift */; };
-		480F5B1521DE763000B0CFB5 /* CareItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B1421DE763000B0CFB5 /* CareItUITests.swift */; };
 		480F5B2321DE807500B0CFB5 /* CameraTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */; };
 		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -57,11 +55,7 @@
 		480F5AFE21DE763000B0CFB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		480F5B0021DE763000B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480F5B0521DE763000B0CFB5 /* CareItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		480F5B0921DE763000B0CFB5 /* CareItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareItTests.swift; sourceTree = "<group>"; };
-		480F5B0B21DE763000B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480F5B1021DE763000B0CFB5 /* CareItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		480F5B1421DE763000B0CFB5 /* CareItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareItUITests.swift; sourceTree = "<group>"; };
-		480F5B1621DE763100B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480F5B2221DE807500B0CFB5 /* CameraTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraTestViewController.swift; sourceTree = "<group>"; };
 		4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,8 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				480F5AF321DE762D00B0CFB5 /* CareIt */,
-				480F5B0821DE763000B0CFB5 /* CareItTests */,
-				480F5B1321DE763000B0CFB5 /* CareItUITests */,
 				480F5AF221DE762D00B0CFB5 /* Products */,
 				3807BB853C7C15BA3641063E /* Pods */,
 				F200B6DEFC465B800FED912B /* Frameworks */,
@@ -145,24 +137,6 @@
 				3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */,
 			);
 			path = CareIt;
-			sourceTree = "<group>";
-		};
-		480F5B0821DE763000B0CFB5 /* CareItTests */ = {
-			isa = PBXGroup;
-			children = (
-				480F5B0921DE763000B0CFB5 /* CareItTests.swift */,
-				480F5B0B21DE763000B0CFB5 /* Info.plist */,
-			);
-			path = CareItTests;
-			sourceTree = "<group>";
-		};
-		480F5B1321DE763000B0CFB5 /* CareItUITests */ = {
-			isa = PBXGroup;
-			children = (
-				480F5B1421DE763000B0CFB5 /* CareItUITests.swift */,
-				480F5B1621DE763100B0CFB5 /* Info.plist */,
-			);
-			path = CareItUITests;
 			sourceTree = "<group>";
 		};
 		F200B6DEFC465B800FED912B /* Frameworks */ = {
@@ -368,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				480F5B0A21DE763000B0CFB5 /* CareItTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +349,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				480F5B1521DE763000B0CFB5 /* CareItUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

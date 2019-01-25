@@ -205,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.54750050298347952" blue="0.47592818201481868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Qit-78-AbG" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="156-mA-QdC"/>
                             <constraint firstItem="uAT-LR-9Ig" firstAttribute="top" secondItem="Qit-78-AbG" secondAttribute="bottom" constant="40" id="6kn-3U-aKP"/>
@@ -222,11 +222,31 @@
                         <outlet property="BarcodeText" destination="uAT-LR-9Ig" id="apx-Y9-DaO"/>
                         <outlet property="analyzePictureButton" destination="MiG-En-VzS" id="oB1-qv-EPZ"/>
                         <outlet property="barcodeText" destination="uAT-LR-9Ig" id="HK7-lS-oB8"/>
+                        <outlet property="choosePictureButton" destination="wkC-67-YcP" id="y8F-CM-nve"/>
+                        <outlet property="loadingPopover" destination="IPO-SS-GaB" id="sic-Jb-WZc"/>
+                        <outlet property="takePictureButton" destination="Qit-78-AbG" id="8Um-Yl-rnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="IPO-SS-GaB">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="156"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNo-e7-22J">
+                            <rect key="frame" x="30" y="60.5" width="101" height="35"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="UNo-e7-22J" firstAttribute="leading" secondItem="LHn-oK-T36" secondAttribute="leading" constant="30" id="QUZ-me-yW9"/>
+                        <constraint firstItem="UNo-e7-22J" firstAttribute="centerY" secondItem="LHn-oK-T36" secondAttribute="centerY" id="S7M-SU-4ZD"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="LHn-oK-T36"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1036" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1586" y="221"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="sFF-bh-CnD">

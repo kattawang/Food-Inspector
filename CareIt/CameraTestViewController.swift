@@ -18,6 +18,15 @@ class CameraTestViewController:
     UINavigationControllerDelegate /* For some reason, this is needed so that the imagePicker actually works. */
     {
     
+    var contractionAnimation: CABasicAnimation?
+    
+    var databaseReq: DatabaseRequests?
+    
+    @IBOutlet var loadingPopover: UIView!
+    
+    @IBOutlet weak var takePictureButton: UIButton!
+
+    @IBOutlet weak var choosePictureButton: UIButton!
     /*
      This is a placeholder right now for what we'll do with the barcode information.
      For now, I'm displaying it after analyzing for debugging purposes.
@@ -76,14 +85,11 @@ class CameraTestViewController:
         } catch {
             //empty catch statement, we should add a little alert here too if the analysis fails
         }
+        
         if let results = barcodeRequest.results { //if the code works, then slap the last element of the results up on the label on the screen
-            if let barcode = results[0] as? VNBarcodeObservation {
-                let databaseReq = DatabaseRequests(barcodeString: barcode.payloadStringValue!, beforeLoading: {self.barcodeText.text = "loading"}, afterLoading: {self.barcodeText.text = "Done loading"})
-                if databaseReq.result != nil {
-                    barcodeText.text = databaseReq.result
-                } else {
-                    barcodeText.text = "An error occurred."
-                }
+            if results.count > 0, let barcode = results[0] as? VNBarcodeObservation {
+                let databaseReq = DatabaseRequests(barcodeString: barcode.payloadStringValue!, beforeLoading: {self.startLoad()}, afterLoading: {self.endLoad()})
+                self.barcodeText.text = databaseReq.result
             }
         }
     }
@@ -125,18 +131,102 @@ class CameraTestViewController:
         }
     }
     
+    func startLoad() {
+        self.view.addSubview(loadingPopover)
+        loadingPopover.center = self.view.center
+        self.analyzePictureButton.isEnabled = false
+        self.choosePictureButton.isEnabled = false
+        self.takePictureButton.isEnabled = false
+        
+        let shape1 = smallOpening()
+        let shape2 = largeOpening()
+        let shapeLayer = CAShapeLayer()
+        loadingPopover.layer.addSublayer(shapeLayer)
+        self.contractionAnimation = CABasicAnimation(keyPath: "path" )
+        guard let contractionAnimation = self.contractionAnimation else {return}
+        contractionAnimation.fromValue = shape1.cgPath
+        contractionAnimation.toValue = shape2.cgPath
+        contractionAnimation.duration = 1.0
+        contractionAnimation.fillMode = kCAFillModeForwards
+        contractionAnimation.isRemovedOnCompletion = false
+        contractionAnimation.autoreverses = true
+        contractionAnimation.repeatCount = 100 //unsure how to make this loop indefinitely
+        shapeLayer.path = shape1.cgPath
+        shapeLayer.fillColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.add(contractionAnimation, forKey: "path")
+    }
+    
+    func endLoad() {
+        self.loadingPopover.removeFromSuperview()
+        self.contractionAnimation?.isRemovedOnCompletion = true
+        self.analyzePictureButton.isEnabled = true
+        self.choosePictureButton.isEnabled = true
+        self.takePictureButton.isEnabled = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         analyzePictureButton.isEnabled = false //we're going to disable the button until the person uploads an image
         imagePicker.delegate = self //this line of code is needed, for some weird reason. ¯\_(ツ)_/¯
+        self.databaseReq = DatabaseRequests(barcodeString: "075856055399", beforeLoading: {self.startLoad()}, afterLoading: {self.endLoad(); print("done"); self.analysisFinished()})
+        
     }
     
+    func analysisFinished() {
+        self.barcodeText.text = String((databaseReq!.result?[(databaseReq?.result?.startIndex)!...(databaseReq?.result?.index((databaseReq?.result?.startIndex)!, offsetBy: 10))!])!)
+    }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func smallOpening() -> UIBezierPath {
+        let bezierPath = UIBezierPath(arcCenter: CGPoint(x: self.loadingPopover.bounds.width/12 * 9, y: self.loadingPopover.bounds.height/2), radius: self.loadingPopover.bounds.height/10, startAngle: 0, endAngle: 2*3.141, clockwise: true)
+//        bezierPath.move(to: self.loadingPopover.center)
+//        bezierPath.addLine(to: CGPoint(x: 41.5, y: 42.5))
+//        bezierPath.addLine(to: CGPoint(x: 47.5, y: 42.5))
+//        bezierPath.addLine(to: CGPoint(x: 47.5, y: 42.5))
+//        bezierPath.addLine(to: CGPoint(x: 59.5, y: 49.5))
+//        bezierPath.addLine(to: CGPoint(x: 66.5, y: 57.5))
+//        bezierPath.addLine(to: CGPoint(x: 59.5, y: 57.5))
+//        bezierPath.addLine(to: CGPoint(x: 47.5, y: 63.5))
+//        bezierPath.addLine(to: CGPoint(x: 35.5, y: 57.5))
+//        bezierPath.addLine(to: CGPoint(x: 35.5, y: 49.5))
+//        bezierPath.addLine(to: CGPoint(x: 35.5, y: 49.5))
+//        bezierPath.close()
+        //UIColor.red.setFill()
+        bezierPath.fill()
+        //UIColor.red.setStroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
+        return bezierPath
+    }
     
+    func largeOpening() -> UIBezierPath {
+        let bezierPath = UIBezierPath(arcCenter: CGPoint(x: self.loadingPopover.bounds.width/12 * 9, y: self.loadingPopover.bounds.height/2), radius: self.loadingPopover.bounds.height/7, startAngle: 0, endAngle: 2*3.141, clockwise: true)
+//        bezierPath.move(to: CGPoint(x: 8.5, y: 82.5))
+//        bezierPath.addLine(to: CGPoint(x: 15.5, y: 51.5))
+//        bezierPath.addLine(to: CGPoint(x: 32.5, y: 21.5))
+//        bezierPath.addLine(to: CGPoint(x: 51.5, y: 11.5))
+//        bezierPath.addLine(to: CGPoint(x: 69.5, y: 21.5))
+//        bezierPath.addLine(to: CGPoint(x: 82.5, y: 41.5))
+//        bezierPath.addLine(to: CGPoint(x: 82.5, y: 64.5))
+//        bezierPath.addLine(to: CGPoint(x: 87.5, y: 82.5))
+//        bezierPath.addLine(to: CGPoint(x: 51.5, y: 91.5))
+//        bezierPath.addLine(to: CGPoint(x: 8.5, y: 82.5))
+//        bezierPath.addLine(to: CGPoint(x: 8.5, y: 82.5))
+//        bezierPath.addLine(to: CGPoint(x: 8.5, y: 82.5))
+//        bezierPath.close()
+        //UIColor.red.setFill()
+        bezierPath.fill()
+        //UIColor.red.setStroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
+        return bezierPath
+    }
 
 }
+
