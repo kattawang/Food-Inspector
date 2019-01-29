@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="1036" y="-558"/>
         </scene>
-        <!--Person-->
+        <!--Personal Info View Controller-->
         <scene sceneID="BFM-jc-plW">
             <objects>
-                <viewController id="lYa-ku-x7r" customClass="person" sceneMemberID="viewController">
+                <viewController id="lYa-ku-x7r" customClass="PersonalInfoViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wRN-3t-ddg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,6 +257,13 @@
                         <viewLayoutGuide key="safeArea" id="AMA-6V-GYe"/>
                     </view>
                     <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
+                        <outlet property="birthday" destination="cKH-2O-IMG" id="Z1F-gP-PXH"/>
+                        <outlet property="height" destination="qsL-vA-3dF" id="fTg-N7-z2Z"/>
+                        <outlet property="sex" destination="Mcv-HL-CRf" id="eX1-M1-EDV"/>
+                        <outlet property="weight" destination="DRf-bJ-MG7" id="GU4-pl-Zk0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnq-4i-lAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

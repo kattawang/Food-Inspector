@@ -7,7 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
-class PersonalInfoViewController{
+class PersonalInfoViewController: UIViewController{
+    
+    @IBOutlet weak var sex: UIPickerView!
+    
+    @IBOutlet weak var birthday: UIDatePicker!
+    
+    @IBOutlet weak var weight: UIPickerView!
+    
+    @IBOutlet weak var height: UIPickerView!
+    
+    @IBOutlet weak var activityLevel: UIPickerView!
+    
     
 }
