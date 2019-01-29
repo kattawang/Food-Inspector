@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -163,6 +163,10 @@
                                             </button>
                                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-QA-D0a">
                                                 <rect key="frame" x="27.5" y="785" width="320" height="71"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lYa-ku-x7r" id="ILB-j2-s2c"/>
+                                                    <outlet property="delegate" destination="lYa-ku-x7r" id="1hd-tD-urN"/>
+                                                </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Activity Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu8-wr-J6h">
                                                 <rect key="frame" x="40" y="756" width="101" height="21"/>
@@ -172,9 +176,17 @@
                                             </label>
                                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-vA-3dF">
                                                 <rect key="frame" x="27.5" y="636" width="320" height="71"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lYa-ku-x7r" id="OBz-br-fvl"/>
+                                                    <outlet property="delegate" destination="lYa-ku-x7r" id="Tv1-W9-m1W"/>
+                                                </connections>
                                             </pickerView>
                                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-bJ-MG7">
                                                 <rect key="frame" x="27.5" y="465" width="320" height="71"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lYa-ku-x7r" id="ayK-Mz-dba"/>
+                                                    <outlet property="delegate" destination="lYa-ku-x7r" id="65D-kT-uIQ"/>
+                                                </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdd-j5-mE3">
                                                 <rect key="frame" x="40" y="607" width="51" height="21"/>
@@ -202,6 +214,10 @@
                                             </label>
                                             <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-HL-CRf">
                                                 <rect key="frame" x="27.5" y="136" width="320" height="71"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lYa-ku-x7r" id="fmr-Pf-6Ec"/>
+                                                    <outlet property="delegate" destination="lYa-ku-x7r" id="vGe-9q-V8i"/>
+                                                </connections>
                                             </pickerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o47-L6-bgP">
                                                 <rect key="frame" x="40" y="107" width="28" height="21"/>
