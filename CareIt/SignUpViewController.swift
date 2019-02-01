@@ -16,7 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     @IBAction func signUpButtonTouchedUp(_ sender: UIButton) {
         // code is the same as the firebase authentication project
-        //
+        // 
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
@@ -30,7 +30,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self

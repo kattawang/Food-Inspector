@@ -87,7 +87,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="signUpButtonTouchedUp:" destination="aRh-k8-1Nc" eventType="touchUpInside" id="WNW-YB-E9O"/>
                                     <segue destination="lYa-ku-x7r" kind="show" id="Q8g-7w-gw7"/>
                                 </connections>
                             </button>
@@ -138,7 +137,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="aUg-rC-NK4" id="h2l-f8-lGE"/>
                         <outlet property="passwordTextField" destination="B0o-CV-mbH" id="ZTF-JM-6u3"/>
-                        <outlet property="signUpButton" destination="RHh-YD-e4r" id="yGL-Ku-3sA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lsS-61-MUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
