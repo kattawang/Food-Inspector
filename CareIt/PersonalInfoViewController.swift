@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
-   
+    
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
     @IBOutlet weak var weight: UIPickerView!
@@ -22,23 +22,23 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var weightOptions: [String] = []
     var heightOptions: [String] = []
     var activityLevelOptions: [String] = []
-
-//    func update(){
-//        let defaults = UserDefaults.standard
-//        print(defaults.integer(forKey: "defaultCelsiusPickerRow"))
-//
-//        var row: Int
-//
-//        if (defaults.integer(forKey: "defaultCelsiusPickerRow") != 0) {
-//            row = defaults.integer(forKey: "defaultCelsiusPickerRow")
-//        }
-//        else{
-//            row = temperaturePicker.numberOfRows(inComponent: 0)/2
-//        }
-//
-//        temperaturePicker.selectRow(row, inComponent: 0, animated: false)
-//        pickerView(temperaturePicker, didSelectRow: row, inComponent: 0)
-//    }
+    
+    //    func update(){
+    //        let defaults = UserDefaults.standard
+    //        print(defaults.integer(forKey: "defaultCelsiusPickerRow"))
+    //
+    //        var row: Int
+    //
+    //        if (defaults.integer(forKey: "defaultCelsiusPickerRow") != 0) {
+    //            row = defaults.integer(forKey: "defaultCelsiusPickerRow")
+    //        }
+    //        else{
+    //            row = temperaturePicker.numberOfRows(inComponent: 0)/2
+    //        }
+    //
+    //        temperaturePicker.selectRow(row, inComponent: 0, animated: false)
+    //        pickerView(temperaturePicker, didSelectRow: row, inComponent: 0)
+    //    }
     
     override func viewDidLoad() {
         sexOptions = ["Male", "Female", "Other"]
