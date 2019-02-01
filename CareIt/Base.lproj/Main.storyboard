@@ -297,11 +297,58 @@
                     <view key="view" contentMode="scaleToFill" id="Z4H-5e-UiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-78-AbG">
+                                <rect key="frame" x="109.5" y="293" width="156" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="qKl-ni-e5t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiG-En-VzS">
+                                <rect key="frame" x="72" y="479" width="231" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <state key="normal" title="Analyze Picture"/>
+                                <connections>
+                                    <action selector="analyzePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="ncG-GY-8KM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkC-67-YcP">
+                                <rect key="frame" x="89" y="178" width="197" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Choose Picture"/>
+                                <connections>
+                                    <action selector="choosePictureTouchedUpInside:" destination="NUy-6V-PJG" eventType="touchUpInside" id="7Ce-5N-1zk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Barcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAT-LR-9Ig">
+                                <rect key="frame" x="72" y="381" width="224" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.54750050298347952" blue="0.47592818201481868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qit-78-AbG" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="156-mA-QdC"/>
+                            <constraint firstItem="uAT-LR-9Ig" firstAttribute="top" secondItem="Qit-78-AbG" secondAttribute="bottom" constant="40" id="6kn-3U-aKP"/>
+                            <constraint firstItem="MiG-En-VzS" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="H5K-Yi-l4Y"/>
+                            <constraint firstItem="Qit-78-AbG" firstAttribute="top" secondItem="wkC-67-YcP" secondAttribute="bottom" constant="67" id="Mxf-rT-PmC"/>
+                            <constraint firstItem="wkC-67-YcP" firstAttribute="top" secondItem="fwV-9b-vHJ" secondAttribute="top" constant="158" id="XNl-be-iS9"/>
+                            <constraint firstItem="fwV-9b-vHJ" firstAttribute="bottom" secondItem="MiG-En-VzS" secondAttribute="bottom" constant="134" id="YJh-NA-Cu1"/>
+                            <constraint firstItem="uAT-LR-9Ig" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="o2b-9e-3yM"/>
+                            <constraint firstItem="wkC-67-YcP" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="wf0-6I-dIn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
                     <connections>
+                        <outlet property="BarcodeText" destination="uAT-LR-9Ig" id="apx-Y9-DaO"/>
+                        <outlet property="analyzePictureButton" destination="MiG-En-VzS" id="oB1-qv-EPZ"/>
+                        <outlet property="barcodeText" destination="uAT-LR-9Ig" id="HK7-lS-oB8"/>
+                        <outlet property="choosePictureButton" destination="wkC-67-YcP" id="y8F-CM-nve"/>
                         <outlet property="loadingPopover" destination="IPO-SS-GaB" id="sic-Jb-WZc"/>
+                        <outlet property="takePictureButton" destination="Qit-78-AbG" id="8Um-Yl-rnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
