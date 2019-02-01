@@ -27,7 +27,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+//this extension is for the back buttons on the sign up
+//and log in view controllers -Jason
+extension ViewController {
+    
+    @IBAction func backToMainViewController(_ segue: UIStoryboardSegue) {
+    }
 }
 
