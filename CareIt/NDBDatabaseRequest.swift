@@ -19,6 +19,7 @@ struct IntermediateFood: Decodable {
 struct Food: Decodable {
     let desc: Description
     let ing: Ingredients
+    let nutrients: [Nutrient]
 }
 
 struct Description: Decodable {
@@ -27,4 +28,9 @@ struct Description: Decodable {
 
 struct Ingredients: Decodable {
     let desc: String
+}
+
+//NOT FINISHED
+struct Nutrient: Decodable {
+    
 }
