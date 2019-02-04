@@ -23,22 +23,21 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var heightOptions: [String] = []
     var activityLevelOptions: [String] = []
     
-    //    func update(){
-    //        let defaults = UserDefaults.standard
-    //        print(defaults.integer(forKey: "defaultCelsiusPickerRow"))
-    //
-    //        var row: Int
-    //
-    //        if (defaults.integer(forKey: "defaultCelsiusPickerRow") != 0) {
-    //            row = defaults.integer(forKey: "defaultCelsiusPickerRow")
-    //        }
-    //        else{
-    //            row = temperaturePicker.numberOfRows(inComponent: 0)/2
-    //        }
-    //
-    //        temperaturePicker.selectRow(row, inComponent: 0, animated: false)
-    //        pickerView(temperaturePicker, didSelectRow: row, inComponent: 0)
-    //    }
+        func update(){
+            let defaults = UserDefaults.standard
+            
+            var row: Int
+    
+            if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
+                row = defaults.integer(forKey: "defaultActivityPickerRow")
+            }
+            else{
+                row = activityLevel.numberOfRows(inComponent: 0)/2
+            }
+    
+            activityLevel.selectRow(row, inComponent: 0, animated: false)
+            pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
+        }
     
     override func viewDidLoad() {
         sexOptions = ["Male", "Female", "Other"]
@@ -48,7 +47,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         activityLevelOptions = ["Low", "Medium", "High"]
         
         super.viewDidLoad()
-        //update()
+        update()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
