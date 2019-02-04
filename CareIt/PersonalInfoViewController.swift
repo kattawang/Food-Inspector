@@ -23,21 +23,21 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var heightOptions: [String] = []
     var activityLevelOptions: [String] = []
     
-        func update(){
-            let defaults = UserDefaults.standard
-            
-            var row: Int
-    
-            if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
-                row = defaults.integer(forKey: "defaultActivityPickerRow")
-            }
-            else{
-                row = activityLevel.numberOfRows(inComponent: 0)/2
-            }
-    
-            activityLevel.selectRow(row, inComponent: 0, animated: false)
-            pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
+    func update(){
+        let defaults = UserDefaults.standard
+        
+        var row: Int
+        
+        if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
+            row = defaults.integer(forKey: "defaultActivityPickerRow")
         }
+        else{
+            row = activityLevel.numberOfRows(inComponent: 0)/2
+        }
+        
+        activityLevel.selectRow(row, inComponent: 0, animated: false)
+        pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
+    }
     
     override func viewDidLoad() {
         sexOptions = ["Male", "Female", "Other"]
