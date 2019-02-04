@@ -40,6 +40,12 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     override func viewDidLoad() {
+        self.sex.tag = 1
+        self.birthday.tag = 2
+        self.weight.tag = 3
+        self.height.tag = 4
+        self.activityLevel.tag = 5
+        
         sexOptions = ["Male", "Female", "Other"]
         birthdayOptions = []
         weightOptions = []
