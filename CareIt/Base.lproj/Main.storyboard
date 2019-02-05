@@ -173,7 +173,7 @@
                                                 <rect key="frame" x="169" y="920" width="37" height="30"/>
                                                 <state key="normal" title="Done"/>
                                             </button>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-QA-D0a">
+                                            <pickerView tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-QA-D0a">
                                                 <rect key="frame" x="27.5" y="780" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="7NS-iX-ghw"/>
@@ -184,7 +184,7 @@
                                                     <outlet property="delegate" destination="lYa-ku-x7r" id="1hd-tD-urN"/>
                                                 </connections>
                                             </pickerView>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-vA-3dF">
+                                            <pickerView tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-vA-3dF">
                                                 <rect key="frame" x="27.5" y="619" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="IcP-zI-I5L"/>
@@ -195,7 +195,7 @@
                                                     <outlet property="delegate" destination="lYa-ku-x7r" id="Tv1-W9-m1W"/>
                                                 </connections>
                                             </pickerView>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-bJ-MG7">
+                                            <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-bJ-MG7">
                                                 <rect key="frame" x="27.5" y="458" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="U67-AX-YVM"/>
@@ -218,7 +218,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cKH-2O-IMG">
+                                            <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cKH-2O-IMG">
                                                 <rect key="frame" x="27.5" y="297" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="afj-b1-MSd"/>
@@ -234,7 +234,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-HL-CRf">
+                                            <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcv-HL-CRf">
                                                 <rect key="frame" x="27.5" y="136" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="FpH-it-v4A"/>
