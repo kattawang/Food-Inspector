@@ -17,43 +17,29 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
     
-    var sexOptions: [String] = []
-    var birthdayOptions: [String] = []
-    var weightOptions: [String] = []
-    var heightOptions: [String] = []
-    var activityLevelOptions: [String] = []
+    var sexOptions = ["Male", "Female", "Other"]
+    var weightOptions = ["b"]
+    var heightOptions = ["c"]
+    var activityLevelOptions = ["Low", "Medium", "High"]
     
-    func update(){
-        let defaults = UserDefaults.standard
-        
-        var row: Int
-        
-        if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
-            row = defaults.integer(forKey: "defaultActivityPickerRow")
-        }
-        else{
-            row = activityLevel.numberOfRows(inComponent: 0)/2
-        }
-        
-        activityLevel.selectRow(row, inComponent: 0, animated: false)
-        pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
-    }
+//    func update(){
+//        let defaults = UserDefaults.standard
+//
+//        var row: Int
+//
+//        if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
+//            row = defaults.integer(forKey: "defaultActivityPickerRow")
+//        }
+//        else{
+//            row = activityLevel.numberOfRows(inComponent: 0)/2
+//        }
+//
+//        activityLevel.selectRow(row, inComponent: 0, animated: false)
+//        pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
+//    }
     
     override func viewDidLoad() {
-        self.sex.tag = 1
-        self.birthday.tag = 2
-        self.weight.tag = 3
-        self.height.tag = 4
-        self.activityLevel.tag = 5
-        
-        sexOptions = ["Male", "Female", "Other"]
-        birthdayOptions = []
-        weightOptions = []
-        heightOptions = []
-        activityLevelOptions = ["Low", "Medium", "High"]
-        
         super.viewDidLoad()
-        update()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -63,9 +49,6 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if (pickerView.tag == 1){
             return sexOptions.count
-        }
-        else if (pickerView.tag == 2){
-            return birthdayOptions.count
         }
         else if (pickerView.tag == 3){
             return weightOptions.count
@@ -78,21 +61,18 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView.tag == 1){
-            return "\(sexOptions[row])"
-        }
-        else if (pickerView.tag == 2){
-            return "\(birthdayOptions[row])"
+            return sexOptions[row]
         }
         else if (pickerView.tag == 3){
-            return "\(weightOptions[row])"
+            return weightOptions[row]
         }
         else if (pickerView.tag == 4){
-            return "\(heightOptions[row])"
+            return heightOptions[row]
         }
         else {
-            return "\(activityLevelOptions[row])"
+            return activityLevelOptions[row]
         }
     }
     
