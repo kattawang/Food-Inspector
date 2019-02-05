@@ -30,7 +30,19 @@ struct Ingredients: Decodable {
     let desc: String
 }
 
-//NOT FINISHED
 struct Nutrient: Decodable {
-    
+    let name: String
+    let measures: [Measure]
 }
+
+struct Measure: Decodable {
+    let value: String
+    let qty: Int
+    let label: String
+}
+
+
+
+
+
+

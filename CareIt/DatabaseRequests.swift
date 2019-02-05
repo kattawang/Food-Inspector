@@ -10,7 +10,7 @@ import Foundation
 
 class DatabaseRequests {
     //doesn't work
-    var result: String?
+    var result: Food?
     
     init(barcodeString: String, beforeLoading: () -> Void, afterLoading: @escaping () -> Void) {
         beforeLoading()
@@ -35,7 +35,8 @@ class DatabaseRequests {
                     guard let data = data else {return}
                     do {
                         let res = try JSONDecoder().decode(NDBDatabaseRequest.self, from: data)
-                        self.result = res.foods[0].food.ing.desc
+                        self.result = res.foods[0].food
+//                            .food.ing.desc
                        
                     } catch let jsonError {print(jsonError)}
                     
