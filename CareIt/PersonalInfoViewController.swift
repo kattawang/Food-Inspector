@@ -18,28 +18,41 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var activityLevel: UIPickerView!
     
     var sexOptions = ["Male", "Female", "Other"]
-    var weightOptions = ["b"]
-    var heightOptions = ["c"]
+    var weightOptions = (0...1400).map{$0}
+    var heightOptions = (0...100).map{$0}
     var activityLevelOptions = ["Low", "Medium", "High"]
     
-//    func update(){
-//        let defaults = UserDefaults.standard
-//
-//        var row: Int
-//
-//        if (defaults.integer(forKey: "defaultActivityPickerRow") != 0) {
-//            row = defaults.integer(forKey: "defaultActivityPickerRow")
-//        }
-//        else{
-//            row = activityLevel.numberOfRows(inComponent: 0)/2
-//        }
-//
-//        activityLevel.selectRow(row, inComponent: 0, animated: false)
-//        pickerView(pickerView: activityLevel, titleForRow: row, forComponent: 0)
-//    }
+    func update(){
+        let defaults = UserDefaults.standard
+
+        var row: Int
+        var row2: Int
+
+        if (defaults.integer(forKey: "defaultWeightPickerRow") != 0) {
+            row = defaults.integer(forKey: "defaultWeightPickerRow")
+        }
+        else{
+            row = weight.numberOfRows(inComponent: 0)/2
+        }
+        
+        if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
+            row2 = defaults.integer(forKey: "defaultHeightPickerRow")
+        }
+        else{
+            row2 = height.numberOfRows(inComponent: 0)/2
+        }
+
+        weight.selectRow(row, inComponent: 0, animated: false)
+        //pickerView(weight, titleForRow: row, forComponent: 0)
+        
+        height.selectRow(row2, inComponent: 0, animated: false)
+        //pickerView(height, titleForRow: row2, forComponent: 0)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        update()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -66,10 +79,10 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             return sexOptions[row]
         }
         else if (pickerView.tag == 3){
-            return weightOptions[row]
+            return "\(weightOptions[row]) lbs"
         }
         else if (pickerView.tag == 4){
-            return heightOptions[row]
+            return "\(heightOptions[row]) inches"
         }
         else {
             return activityLevelOptions[row]
