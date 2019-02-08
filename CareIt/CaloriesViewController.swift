@@ -11,5 +11,32 @@ import UIKit
 
 class CaloriesViewController: UIViewController{
     
+    @IBOutlet weak var recomCalories: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let now = Date()
+        let calendar = Calendar.current
+        
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
+        let age = ageComponents.year!
+        
+        if (sex=="Female") {
+            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
+        }
+        else {
+            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+        }
+        
+        if (activity == "Low") {
+            recomCalories *= 1.2
+        }
+        else if (activity == "Medium") {
+            recomCalories *= 1.3
+        }
+        else {
+            recomCalories *= 1.4
+        }
+    }
 }
