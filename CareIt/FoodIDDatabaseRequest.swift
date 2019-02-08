@@ -19,3 +19,4 @@ struct List: Decodable {
 struct Item: Decodable {
     let ndbno: String
 }
+
