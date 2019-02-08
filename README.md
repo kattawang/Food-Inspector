@@ -1,3 +1,2 @@
 # CareIt
-Scans stuff.
-chicken?
+Scans stuff
