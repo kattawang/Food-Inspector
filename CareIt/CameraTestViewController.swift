@@ -89,7 +89,7 @@ class CameraTestViewController:
         if let results = barcodeRequest.results { //if the code works, then slap the last element of the results up on the label on the screen
             if results.count > 0, let barcode = results[0] as? VNBarcodeObservation {
                 let databaseReq = DatabaseRequests(barcodeString: barcode.payloadStringValue!, beforeLoading: {self.startLoad()}, afterLoading: {self.endLoad()})
-                self.barcodeText.text = databaseReq.result
+//                self.barcodeText.text = databaseReq.result
             }
         }
     }
@@ -174,7 +174,7 @@ class CameraTestViewController:
     }
     
     func analysisFinished() {
-        self.barcodeText.text = String((databaseReq!.result?[(databaseReq?.result?.startIndex)!...(databaseReq?.result?.index((databaseReq?.result?.startIndex)!, offsetBy: 10))!])!)
+//        self.barcodeText.text = String((databaseReq!.result?[(databaseReq?.result?.startIndex)!...(databaseReq?.result?.index((databaseReq?.result?.startIndex)!, offsetBy: 10))!])!)
     }
     
 
@@ -229,4 +229,3 @@ class CameraTestViewController:
     }
 
 }
-

@@ -19,6 +19,7 @@ struct IntermediateFood: Decodable {
 struct Food: Decodable {
     let desc: Description
     let ing: Ingredients
+    let nutrients: [Nutrient]
 }
 
 struct Description: Decodable {
@@ -28,3 +29,18 @@ struct Description: Decodable {
 struct Ingredients: Decodable {
     let desc: String
 }
+
+struct Nutrient: Decodable {
+    let name: String
+    let measures: [Measure]
+}
+
+struct Measure: Decodable {
+    let value: String
+    let qty: Int
+    let label: String
+}
+
+
+
+
