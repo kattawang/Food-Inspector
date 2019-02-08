@@ -32,14 +32,14 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             row = defaults.integer(forKey: "defaultWeightPickerRow")
         }
         else{
-            row = weight.numberOfRows(inComponent: 0)/2
+            row = 150
         }
         
         if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
             row2 = defaults.integer(forKey: "defaultHeightPickerRow")
         }
         else{
-            row2 = height.numberOfRows(inComponent: 0)/2
+            row2 = 70
         }
 
         weight.selectRow(row, inComponent: 0, animated: false)

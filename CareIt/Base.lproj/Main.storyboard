@@ -329,10 +329,10 @@
             </objects>
             <point key="canvasLocation" x="2144.8000000000002" y="-925.63718140929541"/>
         </scene>
-        <!--View Controller-->
+        <!--Calories View Controller-->
         <scene sceneID="Eer-Mq-5jX">
             <objects>
-                <viewController id="jy6-W5-CHp" sceneMemberID="viewController">
+                <viewController id="jy6-W5-CHp" customClass="CaloriesViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HcX-kb-gIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,6 +361,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
                     </view>
+                    <connections>
+                        <outlet property="recomCalories" destination="CdC-PM-srR" id="Yc5-0g-Dmr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJq-5S-LYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
