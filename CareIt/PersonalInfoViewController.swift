@@ -90,6 +90,9 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else {
             return activityLevelOptions[row]
         }
+
+        fatalError()
     }
+    
     
 }
