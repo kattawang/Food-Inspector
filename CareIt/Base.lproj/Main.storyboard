@@ -174,7 +174,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Done"/>
                                                 <connections>
-                                                    <segue destination="jy6-W5-CHp" kind="show" id="31X-lz-9yH"/>
+                                                    <action selector="doneButtonTouchedUp:" destination="lYa-ku-x7r" eventType="touchUpInside" id="LqX-tM-lH1"/>
                                                 </connections>
                                             </button>
                                             <pickerView tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLz-QA-D0a">
@@ -323,6 +323,7 @@
                         <outlet property="height" destination="qsL-vA-3dF" id="fTg-N7-z2Z"/>
                         <outlet property="sex" destination="Mcv-HL-CRf" id="eX1-M1-EDV"/>
                         <outlet property="weight" destination="DRf-bJ-MG7" id="GU4-pl-Zk0"/>
+                        <segue destination="jy6-W5-CHp" kind="show" identifier="toCalorieScreen" id="puz-H6-blj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnq-4i-lAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
