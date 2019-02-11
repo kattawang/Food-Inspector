@@ -17,6 +17,12 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var weight: UIPickerView!
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
+    @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
+        //upload stuff to database here
+        
+        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
+        
+    }
     
     var sexOptions = ["Male", "Female", "Other"]
     var weightOptions = (0...1400).map{$0}
@@ -49,7 +55,6 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         height.selectRow(row2, inComponent: 0, animated: false)
         //pickerView(height, titleForRow: row2, forComponent: 0)
         
-        //JASON'S CODE GOES HERE
     }
     
     override func viewDidLoad() {
