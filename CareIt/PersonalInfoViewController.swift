@@ -18,53 +18,43 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
     @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
-        //upload stuff to database here
+        ref = Database.database().reference()
+        //UPLOAD TO DATABSE HERE
+       // ref?.child("Sex").childByAutoId().setValue(sexChoice)
         
         self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
-        
     }
     
+    var ref: DatabaseReference?
     var sexOptions = ["Male", "Female", "Other"]
     var weightOptions = (0...1400).map{$0}
     var heightOptions = (0...100).map{$0}
     var activityLevelOptions = ["Low", "Medium", "High"]
+    var sexChoice: String?
+    var weightChoice: Int?
+    var heightChoice: Int?
+    var activityChoice: String?
+    var birthDateChoice: Date?
     
-    func update(){
-        let defaults = UserDefaults.standard
-
-        var row: Int
-        var row2: Int
-
-        if (defaults.integer(forKey: "defaultWeightPickerRow") != 0) {
-            row = defaults.integer(forKey: "defaultWeightPickerRow")
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 1{ //sex
+            sexChoice = sexOptions[row]
         }
-        else{
-            row = 150
+        else if pickerView.tag == 3{ //weight
+            weightChoice = weightOptions[row]
+        }
+            
+        else if pickerView.tag == 4{ //height
+            heightChoice = heightOptions[row]
+        }
+            
+        else if pickerView.tag == 5{ //activity
+            activityChoice = activityLevelOptions[row]
+        }
+        else{ //date
+            birthDateChoice = nil //FIX THIS LATER
         }
         
-        if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
-            row2 = defaults.integer(forKey: "defaultHeightPickerRow")
-        }
-        else{
-            row2 = 70
-        }
-
-        weight.selectRow(row, inComponent: 0, animated: false)
-        //pickerView(weight, titleForRow: row, forComponent: 0)
-        
-        height.selectRow(row2, inComponent: 0, animated: false)
-        //pickerView(height, titleForRow: row2, forComponent: 0)
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        update()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -95,8 +85,63 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else {
             return activityLevelOptions[row]
         }
-
-        fatalError()
+    }
+    
+    func update(){
+        let defaults = UserDefaults.standard
+        var weightRow: Int
+        var heightRow: Int
+        var sexRow: Int
+        var activityRow: Int
+        
+        if (defaults.integer(forKey: "defaultWeightPickerRow") != 0) {
+            weightRow = defaults.integer(forKey: "defaultWeightPickerRow")
+        }
+        else{
+            weightRow = 150
+        }
+        
+        if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
+            heightRow = defaults.integer(forKey: "defaultHeightPickerRow")
+        }
+        else{
+            heightRow = 70
+        }
+        
+        if (defaults.integer(forKey: "defaultSexPickerRow") != 0) {
+            sexRow = defaults.integer(forKey: "defaultSexPickerRow")
+        }
+        else{
+            sexRow = 0
+        }
+        if (defaults.integer(forKey: "defaultActivityLevelPickerRow") != 0) {
+            activityRow = defaults.integer(forKey: "defaultActivityLevelPickerRow")
+        }
+        else{
+            activityRow = 0
+        }
+        
+        weight.selectRow(weightRow, inComponent: 0, animated: false)
+        height.selectRow(heightRow, inComponent: 0, animated: false)
+        sex.selectRow(sexRow, inComponent: 0, animated: false)
+        
+        sexChoice = sexOptions[sexRow]
+        weightChoice = weightOptions[weightRow]
+        heightChoice = heightOptions[heightRow]
+        activityChoice = activityLevelOptions[activityRow]
+        //THIS NEEDS TO BE DONE FOR DATE AS WELL
+        
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        update()
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
     
