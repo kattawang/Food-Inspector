@@ -20,10 +20,10 @@ class DatabaseRequests {
        
         let urlString = "https://api.nal.usda.gov/ndb/search/?format=json&q=\(barcodeString)&sort=n&max=25&offset=0&api_key=QeUnhmFwm0AZn3JpYHBwTd1cwx5LMk1zbDwGhgDJ"
     
-        guard let url = URL(string: urlString) else {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+        guard let url = URL(string: urlString) else {print("url error");self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
       
         URLSession.shared.dataTask(with: url) { (data, request, error) in
-            guard let data = data else {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+            guard let data = data else { self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
             
             do{
                 
@@ -41,19 +41,18 @@ class DatabaseRequests {
                     guard let data = data else {self.currentlyProcessing = false; return}
                     do {
                         let res = try JSONDecoder().decode(NDBDatabaseRequest.self, from: data)
-                        self.result = res.foods[0].food
+                        self.result = res.foods.first?.food
                         DispatchQueue.main.async(execute: afterLoading)
-                    } catch let jsonError {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+                    } catch {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
     
     
                 }.resume()
     
-            } catch let jsonError {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+            } catch {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
     
             }.resume()
         
         }
-    
     
     init(barcodeString: String) {
         self.barcodeString = barcodeString

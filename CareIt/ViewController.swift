@@ -23,7 +23,8 @@ class ViewController: UIViewController {
         }
         
         //THIS CODE IS TO TEST STUFF FOR JASON from here to below comment
-        let databaseReq = DatabaseRequests(barcodeString: "602652247798", beforeLoading: {print("Request started")}, afterLoading: {print("Request finished")})
+        let databaseReq = DatabaseRequests(barcodeString: "602652247798")
+        databaseReq.request(beforeLoading:{print("Request started")}, afterLoading: {print("Request finished")})
         
         if let nutrients = databaseReq.result?.nutrients{
             print("there are nutrients")
