@@ -150,7 +150,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         
     }
     
-    
+     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
