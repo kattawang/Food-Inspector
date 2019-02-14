@@ -51,9 +51,11 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else if pickerView.tag == 5{ //activity
             activityChoice = activityLevelOptions[row]
         }
-        else{ //date
-            birthDateChoice = nil //FIX THIS LATER
+        else{
         }
+        
+        print(sexChoice)
+        print(birthDateChoice)
         
     }
     
@@ -125,11 +127,10 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         height.selectRow(heightRow, inComponent: 0, animated: false)
         sex.selectRow(sexRow, inComponent: 0, animated: false)
         
-        sexChoice = sexOptions[sexRow]
-        weightChoice = weightOptions[weightRow]
-        heightChoice = heightOptions[heightRow]
-        activityChoice = activityLevelOptions[activityRow]
-        //THIS NEEDS TO BE DONE FOR DATE AS WELL
+//        sexChoice = sexOptions[sexRow]
+//        weightChoice = weightOptions[weightRow]
+//        heightChoice = heightOptions[heightRow]
+//        activityChoice = activityLevelOptions[activityRow]
         
         
     }
@@ -138,7 +139,17 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         
         update()
+        birthday.addTarget(self, action: Selector(("handler:")), for: UIControlEvents.valueChanged)
     }
+    
+    func handler(sender: UIDatePicker) {
+        var timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = DateFormatter.Style.short
+//        birthDateChoice = timeFormatter.stringFromDate(birthday.date)
+        print(birthDateChoice)
+        
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
