@@ -53,7 +53,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
         else{
         }
-        
+//
         print(sexChoice)
         print(birthDateChoice)
         
@@ -143,10 +143,18 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     func handler(sender: UIDatePicker) {
-        var timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = DateFormatter.Style.short
-//        birthDateChoice = timeFormatter.stringFromDate(birthday.date)
-        print(birthDateChoice)
+        //TO DO: figure out how best to store date object.
+        
+        //stores sender as date object
+        birthDateChoice = birthday.date
+        
+        //stores components of sender date
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            print("\(day) \(month) \(year)")
+        }
+        
+        //print(birthDateChoice?.description)
         
     }
     
