@@ -12,19 +12,6 @@ import UIKit
 
 class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
-    @IBOutlet weak var sex: UIPickerView!
-    @IBOutlet weak var birthday: UIDatePicker!
-    @IBOutlet weak var weight: UIPickerView!
-    @IBOutlet weak var height: UIPickerView!
-    @IBOutlet weak var activityLevel: UIPickerView!
-    @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
-        ref = Database.database().reference()
-        //UPLOAD TO DATABSE HERE
-       // ref?.child("Sex").childByAutoId().setValue(sexChoice)
-        
-        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
-    }
-    
     var ref: DatabaseReference?
     var sexOptions = ["Male", "Female", "Other"]
     var weightOptions = (0...1400).map{$0}
@@ -35,6 +22,33 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var heightChoice: Int?
     var activityChoice: String?
     var birthDateChoice: Date?
+    
+    @IBOutlet weak var sex: UIPickerView!
+    @IBOutlet weak var birthday: UIDatePicker!
+    @IBOutlet weak var weight: UIPickerView!
+    @IBOutlet weak var height: UIPickerView!
+    @IBOutlet weak var activityLevel: UIPickerView!
+    @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
+        ref = Database.database().reference()
+        //UPLOAD TO DATABSE HERE
+        if let sexChoiceActual = sexChoice{
+            ref?.child("Sex").childByAutoId().setValue(sexChoiceActual)
+        }
+        if let weightChoiceActual = weightChoice{
+            ref?.child("Weight").childByAutoId().setValue(weightChoiceActual)
+        }
+        if let heightChoiceActual = heightChoice{
+            ref?.child("Height").childByAutoId().setValue(heightChoiceActual)
+        }
+        if let activityChoiceActual = activityChoice{
+            ref?.child("Activity").childByAutoId().setValue(activityChoiceActual)
+        }
+        if let birthDateChoiceActual = birthDateChoice{
+            ref?.child("Birth Date").childByAutoId().setValue(birthDateChoiceActual)
+        }
+        
+        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
+    }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1{ //sex
@@ -51,11 +65,6 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else if pickerView.tag == 5{ //activity
             activityChoice = activityLevelOptions[row]
         }
-        else{
-        }
-//
-        print(sexChoice)
-        print(birthDateChoice)
         
     }
     
@@ -126,6 +135,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         weight.selectRow(weightRow, inComponent: 0, animated: false)
         height.selectRow(heightRow, inComponent: 0, animated: false)
         sex.selectRow(sexRow, inComponent: 0, animated: false)
+        activityLevel.selectRow(activityRow, inComponent: 0, animated: false)
         
 //        sexChoice = sexOptions[sexRow]
 //        weightChoice = weightOptions[weightRow]
@@ -139,14 +149,14 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         
         update()
-        birthday.addTarget(self, action: Selector(("handler:")), for: UIControlEvents.valueChanged)
+        birthday.addTarget(self, action: Selector(("handler")), for: UIControlEvents.valueChanged)
     }
     
     func handler(sender: UIDatePicker) {
         //TO DO: figure out how best to store date object.
         
         //stores sender as date object
-        birthDateChoice = birthday.date
+//        birthDateChoice = birthday.date
         
         //stores components of sender date
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)

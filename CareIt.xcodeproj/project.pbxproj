@@ -22,6 +22,7 @@
 		480F5AFA21DE762D00B0CFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AF821DE762D00B0CFB5 /* Main.storyboard */; };
 		480F5AFC21DE763000B0CFB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFB21DE763000B0CFB5 /* Assets.xcassets */; };
 		480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */; };
+		4861E7D6221C8FF600D28F19 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */; };
 		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		480F5B0021DE763000B0CFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480F5B0521DE763000B0CFB5 /* CareItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		480F5B1021DE763000B0CFB5 /* CareItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */,
 				3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */,
 				3D3DAFDD22120474005B386F /* CameraViewController.swift */,
+				4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */,
 			);
 			path = CareIt;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */,
 				480F5AF521DE762D00B0CFB5 /* AppDelegate.swift in Sources */,
 				3D3DAFDE22120474005B386F /* CameraViewController.swift in Sources */,
+				4861E7D6221C8FF600D28F19 /* HomeScreenViewController.swift in Sources */,
 				43385F7A2200CF8F008F5F13 /* PersonalInfoViewController.swift in Sources */,
 				3D38C75521EFAC600027A3B1 /* FoodIDDatabaseRequest.swift in Sources */,
 				3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */,
