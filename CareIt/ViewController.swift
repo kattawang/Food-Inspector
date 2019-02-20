@@ -22,7 +22,7 @@ class ViewController: UIViewController {
             self.performSegue(withIdentifier: "toHomeScreen", sender: self)
         }
         
-        //THIS CODE IS TO TEST STUFF FOR JASON from here to below comment
+        //THIS CODE IS TO TEST STUFF FOR JASON
 //        let databaseReq = DatabaseRequests(barcodeString: "602652247798")
 //        databaseReq.request(beforeLoading:{print("Request started")}, afterLoading: {print("Request finished")})
 //
@@ -37,7 +37,6 @@ class ViewController: UIViewController {
 //        else{
 //            print("could not get results")
 //        }
-        //THROUGH HERE
         
     }
 

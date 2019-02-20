@@ -28,9 +28,12 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var weight: UIPickerView!
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
+    
+    //When the done button is pressed on screen, this code uploads all personal info to
+    // the Firebase Database and then segues to the calorie view controller
     @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
         ref = Database.database().reference()
-        //UPLOAD TO DATABSE HERE
+        
         if let sexChoiceActual = sexChoice{
             ref?.child("Sex").childByAutoId().setValue(sexChoiceActual)
         }
