@@ -21,7 +21,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var weightChoice: Int?
     var heightChoice: Int?
     var activityChoice: String?
-    var birthDateChoice: Date?
+    var birthDateChoice: String?
     
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
@@ -139,35 +139,24 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         height.selectRow(heightRow, inComponent: 0, animated: false)
         sex.selectRow(sexRow, inComponent: 0, animated: false)
         activityLevel.selectRow(activityRow, inComponent: 0, animated: false)
-        
-//        sexChoice = sexOptions[sexRow]
-//        weightChoice = weightOptions[weightRow]
-//        heightChoice = heightOptions[heightRow]
-//        activityChoice = activityLevelOptions[activityRow]
-        
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         update()
-        birthday.addTarget(self, action: Selector(("handler")), for: UIControlEvents.valueChanged)
+        birthday.addTarget(self, action: #selector(handler(sender:)), for: UIControlEvents.valueChanged)
     }
     
-    func handler(sender: UIDatePicker) {
-        //TO DO: figure out how best to store date object.
-        
-        //stores sender as date object
-//        birthDateChoice = birthday.date
+    @objc func handler(sender: UIDatePicker) {
         
         //stores components of sender date
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
-        if let day = components.day, let month = components.month, let year = components.year {
-            print("\(day) \(month) \(year)")
-        }
         
-        //print(birthDateChoice?.description)
+        //stores date as string in the format: (date) (month) (year)
+        if let day = components.day, let month = components.month, let year = components.year {
+            birthDateChoice = "\(day) \(month) \(year)"
+        }
         
     }
     

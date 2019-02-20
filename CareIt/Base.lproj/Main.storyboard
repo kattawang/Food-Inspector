@@ -485,27 +485,7 @@
                     <view key="view" contentMode="scaleToFill" id="F7W-wM-qbi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Home Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JI-kd-Pah">
-                                <rect key="frame" x="80" y="104" width="215" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-Ll-tBB">
-                                <rect key="frame" x="139" y="196" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="logoutTouchedUp:" destination="Nvf-lE-sB0" eventType="touchUpInside" id="xXY-gR-xrk"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fgc-Ll-tBB" firstAttribute="top" secondItem="6JI-kd-Pah" secondAttribute="bottom" constant="50" id="I3h-pw-YOg"/>
-                            <constraint firstItem="fgc-Ll-tBB" firstAttribute="centerX" secondItem="F7W-wM-qbi" secondAttribute="centerX" id="rQI-2d-t1W"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YQC-wo-BU5"/>
                     </view>
                 </viewController>
