@@ -12,26 +12,79 @@ import FirebaseAuth
 class HomeScreenViewController: UIViewController {
     
     var logoutButton = UIButton()
-
-    @objc func logoutTouchedUp() {
-        try! Auth.auth().signOut()
-        self.dismiss(animated: false, completion: nil)
-    }
+    var personalInfoButton = UIButton()
+    var calendarButton = UIButton()
+    var cameraButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //sets up the basics for all buttons
         view.addSubview(logoutButton)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.setTitleColor(UIColor.black, for: .normal)
-        logoutButton.backgroundColor = UIColor.yellow
+        logoutButton.backgroundColor = UIColor.blue
         logoutButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
         
+        view.addSubview(personalInfoButton)
+        personalInfoButton.setTitle("Edit Personal Info", for: .normal)
+        personalInfoButton.setTitleColor(UIColor.black, for: .normal)
+        personalInfoButton.backgroundColor = UIColor.blue
+        personalInfoButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
+        
+        view.addSubview(calendarButton)
+        calendarButton.setTitle("Calendar", for: .normal)
+        calendarButton.setTitleColor(UIColor.black, for: .normal)
+        calendarButton.backgroundColor = UIColor.blue
+        calendarButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
+        
+        view.addSubview(cameraButton)
+        cameraButton.setTitle("Camera", for: .normal)
+        cameraButton.setTitleColor(UIColor.black, for: .normal)
+        cameraButton.backgroundColor = UIColor.blue
+        cameraButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
+        
+        //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        logoutButton.topAnchor.constraint(equalTo: personalInfoButton.bottomAnchor, constant: 50).isActive = true
         
+        personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
+        personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        personalInfoButton.topAnchor.constraint(equalTo: calendarButton.bottomAnchor, constant: 50).isActive = true
+        
+        calendarButton.translatesAutoresizingMaskIntoConstraints = false
+        calendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        calendarButton.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 50).isActive = true
+        
+        cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        
+    }
+    
+    @objc func logoutTouchedUp() {
+        try! Auth.auth().signOut()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //NEEDS SEGUE
+    @objc func personalInfoTouchedUp() {
+        self.performSegue(withIdentifier: "", sender: self)
+    }
+    
+    //NEEDS SEGUE
+    @objc func calendarTouchedUp(){
+        self.performSegue(withIdentifier: "", sender: self)
+    }
+    
+    //NEEDS SEGUE
+    @objc func cameraTouchedUp(){
+        self.performSegue(withIdentifier: "", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
