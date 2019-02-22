@@ -11,9 +11,12 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
+    //variables
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    //Sign Up Button
     @IBAction func signUpButtonTouchedUp(_ sender: UIButton) {
         // code is the same as the firebase authentication project
         //
@@ -31,6 +34,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //Sets delegates
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
@@ -38,6 +42,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         emailTextField.becomeFirstResponder()
     }
     
+    //Allows user to move on after all fields are entered
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if emailTextField.isFirstResponder{
             passwordTextField.becomeFirstResponder()
