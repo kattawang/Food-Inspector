@@ -11,9 +11,12 @@ import FirebaseAuth
 
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
+    //variables
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
+    
+    //Log In Button
     @IBAction func logInButtonTouchedUp(_ sender: UIButton) {
         
         // all code in this method is the same as the firebase
@@ -31,6 +34,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    //Sets delegates
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
@@ -47,7 +52,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.resignFirstResponder()
             logInButton.isEnabled = true
         }
-        return true
+        return true 
     }
 
 
