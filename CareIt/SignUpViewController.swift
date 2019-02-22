@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //Sets delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.delegate = self
+        emailTextField.delegate = self  
         passwordTextField.delegate = self
         emailTextField.becomeFirstResponder()
     }

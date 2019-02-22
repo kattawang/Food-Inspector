@@ -52,7 +52,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.resignFirstResponder()
             logInButton.isEnabled = true
         }
-        return true
+        return true 
     }
 
 

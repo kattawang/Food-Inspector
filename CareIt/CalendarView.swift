@@ -72,6 +72,6 @@ class CalendarView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     func getFirstWeekDay() -> Int {
         let day = ("\(currentYear)-\(currentMonthIndex)-01".date?.firstDayOTheMonth.weekday)!
-        return day == 7 ? 1 : day
+        return day == 7 ? 1 : day 
     }
 }
