@@ -61,6 +61,25 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.bringSubview(toFront: barcodeFrameView)
     }
     
+    func showAllergyAlertView(_ food: Food?) {
+        let transparentView = UIView()
+        transparentView.bounds = view.bounds
+        transparentView.backgroundColor = .black
+        transparentView.alpha = 0.5
+        view.addSubview(transparentView)
+        
+        let popupView = UIView()
+        
+        popupView.bounds = CGRect(x: view.bounds.minX + view.bounds.width/6, y: view.bounds.minY + view.bounds.height/6, width: view.bounds.width * 2/3, height: view.bounds.height * 2/3)
+        
+        if let food = food {
+            
+        } else {
+            
+        }
+        view.addSubview(popupView)
+    }
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         if databaseRequest.currentlyProcessing {
@@ -77,6 +96,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
         if metadataObj.type == AVMetadataObject.ObjectType.ean13 {
+            
+            self.performSegue(withIdentifier: "barcode found", sender: self)
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             barcodeFrameView.frame = barcodeObject!.bounds
