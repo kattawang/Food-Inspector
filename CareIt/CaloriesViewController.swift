@@ -28,7 +28,7 @@ class CaloriesViewController: UIViewController{
                     print(sex)
                 }
             }
-        }
+        } 
         
         
         
