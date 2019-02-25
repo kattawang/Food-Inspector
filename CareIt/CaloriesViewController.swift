@@ -19,6 +19,8 @@ class CaloriesViewController: UIViewController{
         let now = Date()
         let calendar = Calendar.current
         
+        //To do: ask jason about getting calories
+        
 //        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
 //        let age = ageComponents.year!
 //
