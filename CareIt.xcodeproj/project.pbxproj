@@ -27,6 +27,7 @@
 		480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */; };
 		4861E7D6221C8FF600D28F19 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */; };
 		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
+		EBE436DA2224786000910145 /* DailyIntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE436D92224786000910145 /* DailyIntakeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F660621E9220F004C3444 /* AddExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExtensions.swift; path = ../AddExtensions.swift; sourceTree = "<group>"; };
+		EBE436D92224786000910145 /* DailyIntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
 				43970133220DF99300CE16DB /* CaloriesViewController.swift */,
+				EBE436D92224786000910145 /* DailyIntakeViewController.swift */,
 				435032C0221C8F2000CB22F9 /* MonthView.swift */,
 				435032C2221C917C00CB22F9 /* WeekdaysView.swift */,
 				4308D27A221F18E3008FB380 /* CalendarView.swift */,
@@ -352,6 +355,7 @@
 				4308D27B221F18E3008FB380 /* CalendarView.swift in Sources */,
 				4861E7D6221C8FF600D28F19 /* HomeScreenViewController.swift in Sources */,
 				43385F7A2200CF8F008F5F13 /* PersonalInfoViewController.swift in Sources */,
+				EBE436DA2224786000910145 /* DailyIntakeViewController.swift in Sources */,
 				3D38C75521EFAC600027A3B1 /* FoodIDDatabaseRequest.swift in Sources */,
 				435032C3221C917C00CB22F9 /* WeekdaysView.swift in Sources */,
 				435032C1221C8F2000CB22F9 /* MonthView.swift in Sources */,
