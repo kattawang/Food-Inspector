@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class CaloriesViewController: UIViewController{
     
@@ -18,6 +19,20 @@ class CaloriesViewController: UIViewController{
         
         let now = Date()
         let calendar = Calendar.current
+        
+        let ref: DatabaseReference!
+        
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children {
+                if let sex = snapshot.value["Sex"] as? String {
+                    print(sex)
+                }
+            }
+        } 
+        
+        
+        
+        //To do: ask jason about getting calories
         
 //        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
 //        let age = ageComponents.year!
