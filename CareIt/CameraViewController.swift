@@ -74,6 +74,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         if let food = food {
             
+            
         } else {
             
         }
@@ -126,6 +127,38 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                     })
             }
         }
+    }
+    
+    func errorFoodRequest(_ view: UIView, error: String?) {
+        view.backgroundColor = .red
+        
+        let errorBanner = UILabel()
+        errorBanner.bounds = CGRect(x: view.bounds.minX, y: view.bounds.minY, width: view.bounds.width, height: view.bounds.height * 3/4)
+        errorBanner.font = UIFont(name: "Helvetica Neue", size: 30)
+        errorBanner.textAlignment = .center
+        errorBanner.numberOfLines = 0
+        errorBanner.lineBreakMode = .byWordWrapping
+        
+        if let error = error {
+            errorBanner.text = error
+        } else {
+            errorBanner.text = "An error occurred."
+        }
+        
+        let dismissButton = UIButton(type: .custom)
+        dismissButton.backgroundColor = .red
+        
+        dismissButton.bounds = CGRect(x: view.bounds.minX + view.bounds.width/3, y: view.bounds.minY + view.bounds.height * 3/4, width: view.bounds.width/3, height: view.bounds.height/4)
+        
+        //kill me
+    }
+    
+    func foodRequest(_ view: UIView) {
+        
+    }
+    
+    @objc func doneButton(_ view: UIView) {
+        view.removeFromSuperview()
     }
     
 }
