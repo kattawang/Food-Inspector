@@ -11,6 +11,7 @@ import Foundation
 class DatabaseRequests {
     //doesn't work
     var result: Food?
+    var error: String?
     var barcodeString: String
     var currentlyProcessing = false
     
@@ -23,7 +24,7 @@ class DatabaseRequests {
         guard let url = URL(string: urlString) else {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
       
         URLSession.shared.dataTask(with: url) { (data, request, error) in
-            guard let data = data else {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+            guard let data = data else {self.internetConnectionError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
             
             do{
                 
@@ -38,17 +39,17 @@ class DatabaseRequests {
                 //second request inside the first
                 URLSession.shared.dataTask(with: url) {
                     (data, request, error) in
-                    guard let data = data else {self.currentlyProcessing = false; return}
+                    guard let data = data else {self.internetConnectionError(); self.currentlyProcessing = false; return}
                     do {
                         let res = try JSONDecoder().decode(NDBDatabaseRequest.self, from: data)
                         self.result = res.foods.first?.food
                         DispatchQueue.main.async(execute: afterLoading)
-                    } catch {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+                    } catch {self.decodingError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
     
     
                 }.resume()
     
-            } catch {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+            } catch {self.decodingError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
     
             }.resume()
         
@@ -56,6 +57,14 @@ class DatabaseRequests {
     
     init(barcodeString: String) {
         self.barcodeString = barcodeString
+    }
+    
+    func internetConnectionError() {
+        self.error = "An error occurred. Please check your internet connection."
+    }
+    
+    func decodingError() {
+        self.error = "An error occurred. The barcode was not found."
     }
 
 }

@@ -8,40 +8,40 @@
 
 import UIKit
 
-struct Colors {
-    static var darkGray = #colorLiteral(red: 0.3764705882, green: 0.3647058824, blue: 0.3647058824, alpha: 1)
-    static var darkRed = #colorLiteral(red: 0.5019607843, green: 0.1529411765, blue: 0.1764705882, alpha: 1)
-}
-
-struct Style {
-    static var bgColor = UIColor.white
-    static var monthViewLblColor = UIColor.white
-    static var monthViewBtnRightColor = UIColor.white
-    static var monthViewBtnLeftColor = UIColor.white
-    static var activeCellLblColor = UIColor.white
-    static var activeCellLblColorHighlighted = UIColor.black
-    static var weekdaysLblColor = UIColor.white
-    
-    static func themeDark(){
-        bgColor = Colors.darkGray
-        monthViewLblColor = UIColor.white
-        monthViewBtnRightColor = UIColor.white
-        monthViewBtnLeftColor = UIColor.white
-        activeCellLblColor = UIColor.white
-        activeCellLblColorHighlighted = UIColor.black
-        weekdaysLblColor = UIColor.white
-    }
-    
-    static func themeLight(){
-        bgColor = UIColor.white
-        monthViewLblColor = UIColor.black
-        monthViewBtnRightColor = UIColor.black
-        monthViewBtnLeftColor = UIColor.black
-        activeCellLblColor = UIColor.black
-        activeCellLblColorHighlighted = UIColor.white
-        weekdaysLblColor = UIColor.black
-    }
-}
+//struct Colors {
+////    static var darkGray = #colorLiteral(red: 0.3764705882, green: 0.3647058824, blue: 0.3647058824, alpha: 1)
+////    static var darkRed = #colorLiteral(red: 0.5019607843, green: 0.1529411765, blue: 0.1764705882, alpha: 1)
+//}
+//
+//struct Style {
+//    static var bgColor = UIColor.white
+//    static var monthViewLblColor = UIColor.white
+//    static var monthViewBtnRightColor = UIColor.white
+//    static var monthViewBtnLeftColor = UIColor.white
+//    static var activeCellLblColor = UIColor.white
+//    static var activeCellLblColorHighlighted = UIColor.black
+//    static var weekdaysLblColor = UIColor.white
+//
+//    static func themeDark(){
+//        bgColor = Colors.darkGray
+//        monthViewLblColor = UIColor.white
+//        monthViewBtnRightColor = UIColor.white
+//        monthViewBtnLeftColor = UIColor.white
+//        activeCellLblColor = UIColor.white
+//        activeCellLblColorHighlighted = UIColor.black
+//        weekdaysLblColor = UIColor.white
+//    }
+//
+//    static func themeLight(){
+//        bgColor = UIColor.white
+//        monthViewLblColor = UIColor.black
+//        monthViewBtnRightColor = UIColor.black
+//        monthViewBtnLeftColor = UIColor.black
+//        activeCellLblColor = UIColor.black
+//        activeCellLblColorHighlighted = UIColor.white
+//        weekdaysLblColor = UIColor.black
+//    }
+//}
 
 class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate {
     
@@ -54,35 +54,38 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
     
     override init(frame: CGRect) {
+        //what
         super.init(frame: frame)
         
         initializeView()
     }
     
-    convenience init(theme: MyTheme) {
-        self.init()
-        
-        if theme == .dark {
-            Style.themeDark()
-        } else {
-            Style.themeLight()
-        }
-        
-        initializeView()
-    }
+    //For changing theme, which we're not doing
+//    convenience init(theme: MyTheme) {
+//        self.init()
+//
+//        if theme == .dark {
+//            Style.themeDark()
+//        } else {
+//            Style.themeLight()
+//        }
+//
+//        initializeView()
+//    }
+//
+//    func changeTheme() {
+//        myCollectionView.reloadData()
+//
+//        monthView.lblName.textColor = Style.monthViewLblColor
+//        monthView.btnRight.setTitleColor(Style.monthViewBtnRightColor, for: .normal)
+//        monthView.btnLeft.setTitleColor(Style.monthViewBtnLeftColor, for: .normal)
+//
+//        for i in 0..<7 {
+//            (weekdaysView.myStackView.subviews[i] as! UILabel).textColor = Style.weekdaysLblColor
+//        }
+//    }
     
-    func changeTheme() {
-        myCollectionView.reloadData()
-        
-        monthView.lblName.textColor = Style.monthViewLblColor
-        monthView.btnRight.setTitleColor(Style.monthViewBtnRightColor, for: .normal)
-        monthView.btnLeft.setTitleColor(Style.monthViewBtnLeftColor, for: .normal)
-        
-        for i in 0..<7 {
-            (weekdaysView.myStackView.subviews[i] as! UILabel).textColor = Style.weekdaysLblColor
-        }
-    }
-    
+    //sets dates and such, also sets delegates
     func initializeView() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())
         currentYear = Calendar.current.component(.year, from: Date())
@@ -105,6 +108,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         myCollectionView.register(dateCVCell.self, forCellWithReuseIdentifier: "Cell")
     }
     
+    //all of these collection view things show a collection of cells, which are presumably the days in the month
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numOfDaysInMonth[currentMonthIndex-1] + firstWeekDayOfMonth - 1
     }
@@ -184,25 +188,28 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         monthView.btnLeft.isEnabled = !(currentMonthIndex == presentMonthIndex && currentYear == presentYear)
     }
     
+    //sets constraints of each component? Sets delegate too
     func setupViews() {
-        addSubview(monthView)
-        monthView.topAnchor.constraint(equalTo: topAnchor).isActive=true
-        monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
-        monthView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        monthView.heightAnchor.constraint(equalToConstant: 35).isActive=true
+//        addSubview(monthView)
+//        monthView.topAnchor.constraint(equalTo: topAnchor).isActive=true
+//        monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
+//        monthView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
+//        monthView.heightAnchor.constraint(equalToConstant: 35).isActive=true
+        
+        //but what about the other variables
         monthView.delegate=self
-        
-        addSubview(weekdaysView)
-        weekdaysView.topAnchor.constraint(equalTo: monthView.bottomAnchor).isActive=true
-        weekdaysView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
-        weekdaysView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
-        weekdaysView.heightAnchor.constraint(equalToConstant: 30).isActive=true
-        
-        addSubview(myCollectionView)
-        myCollectionView.topAnchor.constraint(equalTo: weekdaysView.bottomAnchor, constant: 0).isActive=true
-        myCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive=true
-        myCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive=true
-        myCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
+
+//        addSubview(weekdaysView)
+//        weekdaysView.topAnchor.constraint(equalTo: monthView.bottomAnchor).isActive=true
+//        weekdaysView.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
+//        weekdaysView.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
+//        weekdaysView.heightAnchor.constraint(equalToConstant: 30).isActive=true
+
+//        addSubview(myCollectionView)
+//        myCollectionView.topAnchor.constraint(equalTo: weekdaysView.bottomAnchor, constant: 0).isActive=true
+//        myCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive=true
+//        myCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive=true
+//        myCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
     }
     
     let monthView: MonthView = {
@@ -217,6 +224,8 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return v
     }()
     
+    
+    //initializes myCollectionView
     let myCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -267,28 +276,7 @@ class dateCVCell: UICollectionViewCell {
     }
 }
 
-//get first day of the month
-extension Date {
-    var weekday: Int {
-        return Calendar.current.component(.weekday, from: self)
-    }
-    var firstDayOfTheMonth: Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
-    }
-}
 
-//get date from string
-extension String {
-    static var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-    
-    var date: Date? {
-        return String.dateFormatter.date(from: self)
-    }
-}
 
 
 
