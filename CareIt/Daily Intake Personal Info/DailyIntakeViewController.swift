@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
-class DailyIntakeViewController: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout/*, MonthViewDelegate*/ {
+class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout/*, MonthViewDelegate*/ {
     
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonthIndex: Int = 0
@@ -18,13 +20,17 @@ class DailyIntakeViewController: UIView, UICollectionViewDelegate, UICollectionV
     var presentYear = 0
     var todaysDate = 0
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
+    var userInfo: [String: Any]? = [:]
     
-    //what is this
-    override init(frame: CGRect) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        super.init(frame: frame)
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
         
-        initializeView()
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
     }
     
     //sets dates and such, also sets delegates
