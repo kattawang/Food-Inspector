@@ -19,6 +19,38 @@ class DailyIntakeViewController: UIView, UICollectionViewDelegate, UICollectionV
     var todaysDate = 0
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
     
+    //what is this
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        
+        initializeView()
+    }
+    
+    //sets dates and such, also sets delegates
+    func initializeView() {
+        currentMonthIndex = Calendar.current.component(.month, from: Date())
+        currentYear = Calendar.current.component(.year, from: Date())
+        todaysDate = Calendar.current.component(.day, from: Date())
+        firstWeekDayOfMonth=getFirstWeekDay()
+        
+        //for leap years, make february month of 29 days
+        if currentMonthIndex == 2 && currentYear % 4 == 0 {
+            numOfDaysInMonth[currentMonthIndex-1] = 29
+        }
+        //end
+        
+        presentMonthIndex=currentMonthIndex
+        presentYear=currentYear
+        
+        setupViews()
+        
+        myCollectionView.delegate=self
+        myCollectionView.dataSource=self
+        myCollectionView.register(dateCVCell.self, forCellWithReuseIdentifier: "Cell")
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         <#code#>
     }
