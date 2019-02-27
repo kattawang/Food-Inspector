@@ -64,21 +64,19 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     func showAllergyAlertView(_ request: DatabaseRequests) {
         let transparentView = UIView()
-        transparentView.bounds = view.bounds
-        transparentView.backgroundColor = .black
-        transparentView.alpha = 0.5
         view.addSubview(transparentView)
-        
-        let popupView = UIView()
-        
-        popupView.bounds = CGRect(x: view.bounds.minX + view.bounds.width/6, y: view.bounds.minY + view.bounds.height/6, width: view.bounds.width * 2/3, height: view.bounds.height * 2/3)
+        transparentView.translatesAutoresizingMaskIntoConstraints = false
+        transparentView.heightAnchor.constraint(equalToConstant: view.bounds.height/2).isActive = true
+        transparentView.widthAnchor.constraint(equalToConstant: view.bounds.width/2).isActive = true
+        transparentView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        transparentView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         if let food = request.result {
-            foodRequest(popupView, food: food)
+            foodRequest(transparentView, food: food)
         } else {
-            errorFoodRequest(popupView, error: request.error!)
+            errorFoodRequest(transparentView, error: request.error!)
         }
-        view.addSubview(popupView)
+        view.addSubview(transparentView)
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -98,32 +96,36 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         if metadataObj.type == AVMetadataObject.ObjectType.ean13 {
             
-            self.performSegue(withIdentifier: "barcode found", sender: self)
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             barcodeFrameView.frame = barcodeObject!.bounds
             
             let loadingView = UIView()
+            loadingView.backgroundColor = .black
+            loadingView.alpha = 0.5
             let loadingText = UILabel()
             loadingText.text = "loading..."
+            loadingText.font = UIFont(name: "helvetica neue", size: 30)
+            loadingText.textColor = .white
             
             if let barcodeString = metadataObj.stringValue  {
                 databaseRequest.barcodeString = String(barcodeString[barcodeString.index(after: barcodeString.startIndex)..<barcodeString.endIndex])
                 databaseRequest.request(beforeLoading: {
-                    
+                    self.barcodeFrameView.frame = .zero
                     self.view.addSubview(loadingView)
-                    loadingView.frame = CGRect(x: self.view.frame.minX + self.view.frame.width/3, y: self.view.frame.minY + self.view.frame.height*3/5, width: self.view.frame.width/3, height: self.view.frame.height/5 )
+                    loadingView.translatesAutoresizingMaskIntoConstraints = false
+                    loadingView.heightAnchor.constraint(equalToConstant: view.bounds.height/2).isActive = true
+                    loadingView.widthAnchor.constraint(equalToConstant: view.bounds.width/2).isActive = true
+                    loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                    loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
                     loadingView.addSubview(loadingText)
-                    loadingText.frame = loadingView.frame
+                    loadingText.bounds = loadingView.bounds
                     
                     },
                                         afterLoading: {
-                                            if let result = self.databaseRequest.result {
-                                                print(result)
-                                                
-                                            } else {
-                                            }
-                        loadingView.removeFromSuperview()
+                                            loadingView.removeFromSuperview()
+                                            self.showAllergyAlertView(self.databaseRequest)
+                                            
                     })
             }
         }
@@ -164,7 +166,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
-    @objc func doneButton(_ view: UIView) {
+    @objc func doneButton(_ sender: Any) {
         self.popupView?.removeFromSuperview()
         self.popupView = nil
     }

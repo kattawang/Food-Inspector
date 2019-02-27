@@ -29,7 +29,7 @@ class WeekdaysView: UIView {
             let lbl=UILabel()
             lbl.text=daysArr[i]
             lbl.textAlignment = .center
-            lbl.textColor = Style.weekdaysLblColor
+            lbl.textColor = Style().weekdaysLblColor
             myStackView.addArrangedSubview(lbl)
         }
     }
@@ -44,5 +44,9 @@ class WeekdaysView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+class Style {
+    let weekdaysLblColor = UIColor.black
 }
 
