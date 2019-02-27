@@ -15,6 +15,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     let databaseRequest = DatabaseRequests(barcodeString: "")
+    var popupView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.bringSubview(toFront: barcodeFrameView)
     }
     
-    func showAllergyAlertView(_ food: Food?) {
+    func showAllergyAlertView(_ request: DatabaseRequests) {
         let transparentView = UIView()
         transparentView.bounds = view.bounds
         transparentView.backgroundColor = .black
@@ -72,11 +73,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         popupView.bounds = CGRect(x: view.bounds.minX + view.bounds.width/6, y: view.bounds.minY + view.bounds.height/6, width: view.bounds.width * 2/3, height: view.bounds.height * 2/3)
         
-        if let food = food {
-            
-            
+        if let food = request.result {
+            foodRequest(popupView, food: food)
         } else {
-            
+            errorFoodRequest(popupView, error: request.error!)
         }
         view.addSubview(popupView)
     }
@@ -150,15 +150,23 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         dismissButton.bounds = CGRect(x: view.bounds.minX + view.bounds.width/3, y: view.bounds.minY + view.bounds.height * 3/4, width: view.bounds.width/3, height: view.bounds.height/4)
         
-        //kill me
+        self.popupView = view
+        dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
-    func foodRequest(_ view: UIView) {
+    func foodRequest(_ view: UIView, food: Food) {
+        let dismissButton = UIButton(type: .custom)
+        dismissButton.backgroundColor = .red
         
+        dismissButton.bounds = CGRect(x: view.bounds.minX + view.bounds.width/3, y: view.bounds.minY + view.bounds.height * 3/4, width: view.bounds.width/3, height: view.bounds.height/4)
+        
+        self.popupView = view
+        dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
     @objc func doneButton(_ view: UIView) {
-        view.removeFromSuperview()
+        self.popupView?.removeFromSuperview()
+        self.popupView = nil
     }
     
 }
