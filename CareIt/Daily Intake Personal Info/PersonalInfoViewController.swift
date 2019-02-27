@@ -7,12 +7,12 @@
 //
 
 import Foundation
+import FirebaseAuth
 import FirebaseDatabase
 import UIKit
 
 class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
-    var ref: DatabaseReference?
     var sexOptions = ["Male", "Female", "Other"]
     var weightOptions = (0...1400).map{$0}
     var heightOptions = (0...100).map{$0}
@@ -32,27 +32,37 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     //When the done button is pressed on screen, this code uploads all personal info to
     // the Firebase Database and then segues to the calorie view controller
     @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
-        ref = Database.database().reference()
         
-        if let sexChoiceActual = sexChoice{
-            ref?.child("Sex").childByAutoId().setValue(sexChoiceActual)
+        //getting the uid and setting that as the reference for the child in the database
+        // so that each user's data can be pulled by their uid
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let database = Database.database().reference().child("users\(uid)")
+        
+        // the user's info gets stored in this dictionary, which then gets uploaded to the database
+        var userObject: [String: Any] = [:]
+        
+        if let sexChoice = sexChoice{
+            userObject["Sex"] = sexChoice
         }
-        if let weightChoiceActual = weightChoice{
-            ref?.child("Weight").childByAutoId().setValue(weightChoiceActual)
+        if let weightChoice = weightChoice{
+            userObject["Weight"] = weightChoice
         }
-        if let heightChoiceActual = heightChoice{
-            ref?.child("Height").childByAutoId().setValue(heightChoiceActual)
+        if let heightChoice = heightChoice{
+            userObject["Height"] = heightChoice
         }
-        if let activityChoiceActual = activityChoice{
-            ref?.child("Activity").childByAutoId().setValue(activityChoiceActual)
+        if let activityChoice = activityChoice{
+            userObject["Activity"] = activityChoice
         }
-        if let birthDateChoiceActual = birthDateChoice{
-            ref?.child("Birth Date").childByAutoId().setValue(birthDateChoiceActual)
+        if let birthDateChoice = birthDateChoice{
+            userObject["BirthDate"] = birthDateChoice
         }
+        
+        database.setValue(userObject)
         
         self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
     }
     
+    //called every time the user updates the picker view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1{ //sex
             sexChoice = sexOptions[row]
@@ -101,6 +111,8 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
+    //Sets up the default rows shown by the pickerviews
+    //also sets the user's personal info choices if they did not move the pickerview
     func update(){
         let defaults = UserDefaults.standard
         var weightRow: Int
@@ -114,6 +126,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else{
             weightRow = 150
         }
+        weightChoice = weightOptions[weightRow]
         
         if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
             heightRow = defaults.integer(forKey: "defaultHeightPickerRow")
@@ -121,6 +134,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else{
             heightRow = 70
         }
+        heightChoice = heightOptions[heightRow]
         
         if (defaults.integer(forKey: "defaultSexPickerRow") != 0) {
             sexRow = defaults.integer(forKey: "defaultSexPickerRow")
@@ -128,12 +142,14 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else{
             sexRow = 0
         }
+        sexChoice = sexOptions[sexRow]
         if (defaults.integer(forKey: "defaultActivityLevelPickerRow") != 0) {
             activityRow = defaults.integer(forKey: "defaultActivityLevelPickerRow")
         }
         else{
             activityRow = 0
         }
+        activityChoice = activityLevelOptions[activityRow]
         
         weight.selectRow(weightRow, inComponent: 0, animated: false)
         height.selectRow(heightRow, inComponent: 0, animated: false)
@@ -145,9 +161,19 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         
         update()
+        
+        //calls the handler function whenever the birthday pickerview is updated
         birthday.addTarget(self, action: #selector(handler(sender:)), for: UIControlEvents.valueChanged)
+        
+        // This stores the user's birthdate if the user did not change the pickerview
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: birthday.date)
+            //stores date as string in the format: (date) (month) (year)
+        if let day = components.day, let month = components.month, let year = components.year {
+            birthDateChoice = "\(day) \(month) \(year)"
+        }
     }
     
+    // called whenever the birthdate pickerview is updated by the user
     @objc func handler(sender: UIDatePicker) {
         
         //stores components of sender date
