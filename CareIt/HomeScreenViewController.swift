@@ -64,7 +64,6 @@ class HomeScreenViewController: UIViewController {
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        
     }
     
     @objc func logoutTouchedUp() {
