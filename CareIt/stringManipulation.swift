@@ -26,43 +26,22 @@ class StringManipulation{
         var fullNameArr = Ingredients.components(separatedBy: " ")
         var ingredients = [String]()
         
-        
-        
         for i in 0 ..< (fullNameArr.count) {
             
             if fullNameArr[i].range(of: ",") == nil && i < (fullNameArr.count-1) && fullNameArr[i+1].range(of: "[" ) == nil && fullNameArr[i+1].range(of: "(") == nil {
                 
                 fullNameArr[i+1] = fullNameArr[i] + " " + fullNameArr[i+1]
-                
-                
             }
             else {
-                
                 ingredients.append(fullNameArr[i])
             }
-            
-            
-            
         }
-        for x in 0 ..< (ingredients.count) {
-            
-            ingredients[x] = ingredients[x].replacingOccurrences(of: ",", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: "[", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: "(", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: ")", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: ".", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: "]", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: "CONTAINS ONE OR MORE OF THE FOLLOWING: ", with: "")
-            ingredients[x] = ingredients[x].replacingOccurrences(of: "-", with: "")
-            
-            
-            
-            
-            
-            print(ingredients[x])
-            
+        
+        //this is hella ugly so if anyone wants to work with regexes to redo this, go ahead
+        ingredients = ingredients.map {element in
+            return element.replacingOccurrences(of: ",", with: "").replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "]", with: "").replacingOccurrences(of: "CONTAINS ONE OR MORE OF THE FOLLOWING: ", with: "").replacingOccurrences(of: "-", with: "")
         }
+        
         return ingredients
     }
 }
-
