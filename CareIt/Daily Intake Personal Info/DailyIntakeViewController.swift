@@ -1,17 +1,17 @@
-////
-////  DailyIntakeViewController.swift
-////  CareIt
-////
-////  Created by Katherine Wang (student LM) on 2/25/19.
-////  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
-////
 //
-//import Foundation
-//import UIKit
-//import FirebaseAuth
-//import FirebaseDatabase
+//  DailyIntakeViewController.swift
+//  CareIt
 //
-//class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout/*, MonthViewDelegate*/ {
+//  Created by Katherine Wang (student LM) on 2/25/19.
+//  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
+//
+
+import Foundation
+import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+
+class DailyIntakeViewController: UIViewController/*, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate*/ {
 //
 //    var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
 //    var currentMonthIndex: Int = 0
@@ -89,4 +89,4 @@
 //    var date: Date? {
 //        return String.dateFormatter.date(from: self)
 //    }
-//}
+}

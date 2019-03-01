@@ -6,20 +6,20 @@
 //  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
 //
 
-//import Foundation
-//import UIKit
-//import Firebase
+import Foundation
+import UIKit
+import Firebase
+
+class CaloriesViewController: UIViewController{
 //
-//class CaloriesViewController: UIViewController{
-//    
 //    @IBOutlet weak var recomCalories: UILabel!
-//    
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
-//        
+//
 //        let now = Date()
 //        let calendar = Calendar.current
-//        
+//
 //        let ref: DatabaseReference!
 //        
 //        ref.observeSingleEvent(of: .value, with: { snapshot in
@@ -28,12 +28,12 @@
 //                    print(sex)
 //                }
 //            }
-//        } 
+//        }
 //        
-//        
-//        
+//
+//
 //        //To do: ask jason about getting calories
-//        
+//
 ////        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
 ////        let age = ageComponents.year!
 ////
@@ -54,4 +54,4 @@
 ////            recomCalories *= 1.4
 ////        }
 //    }
-//}
+}

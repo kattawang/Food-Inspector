@@ -24,28 +24,28 @@ class HomeScreenViewController: UIViewController {
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.setTitleColor(UIColor.black, for: .normal)
         logoutButton.backgroundColor = UIColor.blue
-        logoutButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        logoutButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
         
         view.addSubview(personalInfoButton)
-        personalInfoButton.setTitle("Edit Personal Info", for: .normal)
+        personalInfoButton.setTitle("Personal Info", for: .normal)
         personalInfoButton.setTitleColor(UIColor.black, for: .normal)
         personalInfoButton.backgroundColor = UIColor.blue
-        personalInfoButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        personalInfoButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
         
         view.addSubview(calendarButton)
-        calendarButton.setTitle("Calendar", for: .normal)
+        calendarButton.setTitle("Daily Intake", for: .normal)
         calendarButton.setTitleColor(UIColor.black, for: .normal)
         calendarButton.backgroundColor = UIColor.blue
-        calendarButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        calendarButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
         
         view.addSubview(cameraButton)
-        cameraButton.setTitle("Camera", for: .normal)
+        cameraButton.setTitle("Barcode Scanner", for: .normal)
         cameraButton.setTitleColor(UIColor.black, for: .normal)
         cameraButton.backgroundColor = UIColor.blue
-        cameraButton.titleLabel?.font = UIFont(name: "helvetica neue", size: 30)
+        cameraButton.titleLabel?.font = UIFont(name: "Rockwell", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
         
         //constraints for buttons
