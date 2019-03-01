@@ -76,7 +76,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         } else {
             errorFoodRequest(transparentView, error: request.error!)
         }
-        view.addSubview(transparentView)
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -105,7 +104,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             loadingView.alpha = 0.5
             let loadingText = UILabel()
             loadingText.text = "loading..."
-            loadingText.font = UIFont(name: "helvetica neue", size: 30)
+            loadingText.font = UIFont(name: "helvetica neue", size: 50)
             loadingText.textColor = .white
             
             if let barcodeString = metadataObj.stringValue  {
@@ -114,12 +113,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                     self.barcodeFrameView.frame = .zero
                     self.view.addSubview(loadingView)
                     loadingView.translatesAutoresizingMaskIntoConstraints = false
-                    loadingView.heightAnchor.constraint(equalToConstant: view.bounds.height/2).isActive = true
+                    loadingView.heightAnchor.constraint(equalToConstant: view.bounds.height/5).isActive = true
                     loadingView.widthAnchor.constraint(equalToConstant: view.bounds.width/2).isActive = true
                     loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
                     loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
                     loadingView.addSubview(loadingText)
-                    loadingText.bounds = loadingView.bounds
+                    loadingText.translatesAutoresizingMaskIntoConstraints = false
+                    loadingText.textAlignment = .center
+                    loadingText.heightAnchor.constraint(equalTo: loadingView.heightAnchor).isActive = true
+                    loadingText.widthAnchor.constraint(equalTo: loadingView.widthAnchor).isActive = true
+                    loadingText.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor).isActive = true
+                    loadingText.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor).isActive = true
                     
                     },
                                         afterLoading: {
@@ -156,19 +160,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
-    func foodRequest(_ view: UIView, food: Food) {
-        let dismissButton = UIButton(type: .custom)
-        dismissButton.backgroundColor = .red
+    func foodRequest(_ displayView: UIView, food: Food) {
         
-        dismissButton.bounds = CGRect(x: view.bounds.minX + view.bounds.width/3, y: view.bounds.minY + view.bounds.height * 3/4, width: view.bounds.width/3, height: view.bounds.height/4)
-        
-        self.popupView = view
-        dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
     @objc func doneButton(_ sender: Any) {
         self.popupView?.removeFromSuperview()
         self.popupView = nil
+        databaseRequest.currentlyProcessing = false
     }
     
 }

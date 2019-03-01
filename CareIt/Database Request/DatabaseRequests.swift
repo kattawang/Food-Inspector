@@ -21,36 +21,60 @@ class DatabaseRequests {
        
         let urlString = "https://api.nal.usda.gov/ndb/search/?format=json&q=\(barcodeString)&sort=n&max=25&offset=0&api_key=QeUnhmFwm0AZn3JpYHBwTd1cwx5LMk1zbDwGhgDJ"
     
-        guard let url = URL(string: urlString) else {self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+        guard let url = URL(string: urlString) else {
+            self.internetConnectionError()
+            self.currentlyProcessing = false
+            DispatchQueue.main.async(execute: afterLoading)
+            return
+        }
       
         URLSession.shared.dataTask(with: url) { (data, request, error) in
-            guard let data = data else {self.internetConnectionError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
+            
+            guard let data = data else {
+                self.internetConnectionError()
+                self.currentlyProcessing = false
+                DispatchQueue.main.async(execute: afterLoading)
+                return
+            }
             
             do{
                 
                 let res = try JSONDecoder().decode(FoodIDDatabaseRequest.self, from: data)
               
-    
                 let ndbno = res.list.item[0].ndbno
                 let ndbString = "https://api.nal.usda.gov/ndb/V2/reports?ndbno=\(ndbno)&type=f&format=json&api_key=QeUnhmFwm0AZn3JpYHBwTd1cwx5LMk1zbDwGhgDJ"
     
-                guard let url = URL(string: ndbString) else {self.currentlyProcessing = false;return}
+                guard let url = URL(string: ndbString) else {
+                    self.internetConnectionError()
+                    self.currentlyProcessing = false
+                    DispatchQueue.main.async(execute: afterLoading)
+                    return
+                }
     
                 //second request inside the first
                 URLSession.shared.dataTask(with: url) {
                     (data, request, error) in
-                    guard let data = data else {self.internetConnectionError(); self.currentlyProcessing = false; return}
+                    guard let data = data else {self.internetConnectionError(); afterLoading(); self.currentlyProcessing = false; return}
                     do {
                         let res = try JSONDecoder().decode(NDBDatabaseRequest.self, from: data)
                         self.result = res.foods.first?.food
+                        self.currentlyProcessing = false
                         DispatchQueue.main.async(execute: afterLoading)
-                    } catch {self.decodingError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
-    
+                    } catch {
+                        self.decodingError()
+                        self.currentlyProcessing = false
+                        DispatchQueue.main.async(execute: afterLoading)
+                        return
+                    }
     
                 }.resume()
     
-            } catch {self.decodingError(); self.currentlyProcessing = false; DispatchQueue.main.async(execute: afterLoading); return}
-    
+            } catch {
+                self.decodingError()
+                self.currentlyProcessing = false
+                DispatchQueue.main.async(execute: afterLoading)
+                return
+            }
             }.resume()
         
         }
