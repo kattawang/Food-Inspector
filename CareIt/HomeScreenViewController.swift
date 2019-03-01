@@ -72,19 +72,16 @@ class HomeScreenViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //NEEDS SEGUE
     @objc func personalInfoTouchedUp() {
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toPersonalInfo", sender: self)
     }
     
-    //NEEDS SEGUE
     @objc func calendarTouchedUp(){
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toCalendar", sender: self)
     }
     
-    //NEEDS SEGUE
     @objc func cameraTouchedUp(){
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toCamera", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
