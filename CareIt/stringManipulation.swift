@@ -12,7 +12,6 @@ import Foundation
 
 class StringManipulation{
     
-    
     static func manipulateString(_ foodString: String) -> [String] {
         
         var fullNameArr = foodString.components(separatedBy: " ")
