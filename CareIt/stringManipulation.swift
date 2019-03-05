@@ -5,13 +5,6 @@
 //  Created by Prince Geutler (student LM) on 2/27/19.
 //  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
 //
-//
-//  stringManipulation.swift
-//  CareIt
-//
-//  Created by Prince Geutler (student LM) on 2/7/19.
-//  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
-//
 
 
 import Foundation
@@ -20,10 +13,9 @@ import Foundation
 class StringManipulation{
     
     
-    func manipulateString(foodString: String) -> [String] {
+    static func manipulateString(_ foodString: String) -> [String] {
         
-        let Ingredients    = foodString
-        var fullNameArr = Ingredients.components(separatedBy: " ")
+        var fullNameArr = foodString.components(separatedBy: " ")
         var ingredients = [String]()
         
         for i in 0 ..< (fullNameArr.count) {
