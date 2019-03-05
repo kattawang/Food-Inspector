@@ -21,13 +21,15 @@ class UserAllergies {
     func userIsAllergicTo() -> [String]{
         var conflictingAllergies: [String] = []
         
-        var ingredientsList: [String] = StringManipulation.manipulateString(food.ing.desc)
-        //FINISH THIS TEST
-//        for allergy in allergies{
-//            for ingredient in ingredientsList{
-//                if ingredient.contains(<#T##other: StringProtocol##StringProtocol#>)
-//            }
-//        }
+        let ingredientsList: [String] = StringManipulation.manipulateString(food.ing.desc)
+        
+        for allergy in allergies{
+            for ingredient in ingredientsList{
+                if ingredient.contains(allergy){
+                    conflictingAllergies.append(ingredient)
+                }
+            }
+        }
         
         return conflictingAllergies
     }
