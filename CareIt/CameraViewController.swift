@@ -16,21 +16,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     let databaseRequest = DatabaseRequests(barcodeString: "")
     var popupView: UIView?
-    var backButton = UIButton()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        view.addSubview(backButton)
-        backButton.setTitle("Back", for: .normal)
-        backButton.setTitleColor(UIColor.black, for: .normal)
-        backButton.backgroundColor = UIColor.blue
-        backButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
-        backButton.addTarget(self, action: #selector(unwind(for:towardsViewController:)), for: .touchUpInside)
-        
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        
         
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInTelephotoCamera, .builtInTrueDepthCamera, .builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back)
