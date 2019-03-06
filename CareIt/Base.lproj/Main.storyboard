@@ -414,6 +414,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
+                                    <action selector="backButton:" destination="NUy-6V-PJG" eventType="touchUpInside" id="1eH-7M-3wp"/>
                                     <segue destination="icd-hj-FJ6" kind="unwind" unwindAction="backToHomeScreenViewController:" id="FKx-Za-Akm"/>
                                 </connections>
                             </button>
@@ -550,14 +551,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMH-Xx-CQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="428"/>
+            <point key="canvasLocation" x="1916" y="412"/>
         </scene>
     </scenes>
     <resources>
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="puz-H6-blj"/>
-        <segue reference="Q8g-7w-gw7"/>
+        <segue reference="4bu-em-13v"/>
+        <segue reference="eEc-LK-c69"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -171,5 +171,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         self.popupView = nil
         databaseRequest.currentlyProcessing = false
     }
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
