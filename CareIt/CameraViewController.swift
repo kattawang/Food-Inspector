@@ -18,6 +18,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var popupView: UIView?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Get the back-facing camera for capturing videos

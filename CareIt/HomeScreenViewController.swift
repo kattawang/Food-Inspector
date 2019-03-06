@@ -64,7 +64,6 @@ class HomeScreenViewController: UIViewController {
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        
     }
     
     @objc func logoutTouchedUp() {
@@ -72,19 +71,16 @@ class HomeScreenViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //NEEDS SEGUE
     @objc func personalInfoTouchedUp() {
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toPersonalInfo", sender: self)
     }
     
-    //NEEDS SEGUE
     @objc func calendarTouchedUp(){
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toCalendar", sender: self)
     }
     
-    //NEEDS SEGUE
     @objc func cameraTouchedUp(){
-        self.performSegue(withIdentifier: "", sender: self)
+        self.performSegue(withIdentifier: "toCamera", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,4 +99,10 @@ class HomeScreenViewController: UIViewController {
     }
     */
 
+}
+
+extension ViewController {
+    
+    @IBAction func backToHomeScreenViewController(_ segue: UIStoryboardSegue) {
+    }
 }
