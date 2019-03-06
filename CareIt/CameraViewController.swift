@@ -161,7 +161,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func foodRequest(_ displayView: UIView, food: Food) {
-        
+        let request = FoodRequestView(displayView, food: food)
+        request.setup()
     }
     
     @objc func doneButton(_ sender: Any) {

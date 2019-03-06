@@ -11,7 +11,6 @@
 		3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */; };
 		3D38C75521EFAC600027A3B1 /* FoodIDDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */; };
 		3D3DAFDE22120474005B386F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3DAFDD22120474005B386F /* CameraViewController.swift */; };
-		3D44D01D2220759000C54D3C /* FoodRequestTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D44D01C2220759000C54D3C /* FoodRequestTitle.swift */; };
 		3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */; };
 		3DE5AEEC2229BDAB005F271F /* FoodRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE5AEEB2229BDAB005F271F /* FoodRequestView.swift */; };
 		4308D27B221F18E3008FB380 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308D27A221F18E3008FB380 /* CalendarView.swift */; };
@@ -54,7 +53,6 @@
 		3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRequests.swift; sourceTree = "<group>"; };
 		3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodIDDatabaseRequest.swift; path = "../New Group/FoodIDDatabaseRequest.swift"; sourceTree = "<group>"; };
 		3D3DAFDD22120474005B386F /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		3D44D01C2220759000C54D3C /* FoodRequestTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRequestTitle.swift; sourceTree = "<group>"; };
 		3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDBDatabaseRequest.swift; sourceTree = "<group>"; };
 		3DE5AEEB2229BDAB005F271F /* FoodRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRequestView.swift; sourceTree = "<group>"; };
 		4308D27A221F18E3008FB380 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */,
 				3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */,
 				3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */,
-				3D44D01C2220759000C54D3C /* FoodRequestTitle.swift */,
 			);
 			path = "Database Request";
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 				3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */,
 				B63726AB2226F9BB00641B7F /* stringManipulation.swift in Sources */,
-				3D44D01D2220759000C54D3C /* FoodRequestTitle.swift in Sources */,
 				43970134220DF99300CE16DB /* CaloriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
