@@ -15,7 +15,7 @@ class HomeScreenViewController: UIViewController {
     var personalInfoButton = UIButton()
     var calendarButton = UIButton()
     var cameraButton = UIButton()
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         
