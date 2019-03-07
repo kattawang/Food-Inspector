@@ -60,7 +60,6 @@ class HomeScreenViewController: UIViewController {
         calendarButton.translatesAutoresizingMaskIntoConstraints = false
         calendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         calendarButton.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 50).isActive = true
-        
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
