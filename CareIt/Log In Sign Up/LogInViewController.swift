@@ -27,7 +27,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             in
             
             if error == nil && user != nil{
-                self.dismiss(animated: false, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
             else{
                 print(error!.localizedDescription)
@@ -54,6 +54,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
         return true 
     }
+    
+//    CODE FOR HUGHES
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        switch segue.identifier {
+//        case "MyWhateverScreen":
+//            let destination = segue.destination as! LogInViewController
+//        }
+//    }
 
 
 }
