@@ -20,25 +20,20 @@ extension UIView {
 }
 
 class FoodRequestView {
-    let dismissButton = UIButton()
-    let transitionButton = UIButton()
-    let foodTitle = UILabel()
-    let warningView = UIView()
     let displayView: UIView
     let food: Food
     
     init(_ displayView: UIView, food: Food) {
         self.displayView = displayView
-        self.displayView.addSubview(warningView)
-        self.displayView.addSubview(dismissButton)
         self.food = food
     }
     
     func setup() {
-        warningView.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
-        
+    
         displayView.alpha = 1
         displayView.backgroundColor = .white //we should probably figure out what color this actually will be
+        
+        let foodTitle = UILabel()
         
         displayView.addSubview(foodTitle)
         
@@ -46,11 +41,13 @@ class FoodRequestView {
         foodTitle.topAnchor.constraint(equalTo: displayView.topAnchor, constant: 10).isActive = true
         foodTitle.widthAnchor.constraint(equalTo: displayView.widthAnchor, constant: -20).isActive = true
         foodTitle.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
+        foodTitle.contentMode = .center
         
         foodTitle.font = UIFont(name: "Helvetica Neue", size: 30)
         foodTitle.text = process(food.desc.name)
         
-        warningView.topAnchor.constraint(equalTo: displayView.bottomAnchor, constant: 10).isActive = true
+        
+        foodTitle.contentMode = .center
         
         if let allergies = userAllergic() {
             
@@ -60,25 +57,24 @@ class FoodRequestView {
             warningLabel.font = UIFont(name: "Helvetica Neue", size: 30)
             warningLabel.backgroundColor = .red
             warningLabel.textColor = .white
-            warningView.addSubview(warningLabel)
-            warningLabel.topAnchor.constraint(equalTo: warningView.topAnchor, constant: 10).isActive = true
-            warningLabel.centerXAnchor.constraint(equalTo: warningView.centerXAnchor).isActive = true
+            displayView.addSubview(warningLabel)
+            warningLabel.topAnchor.constraint(equalTo: foodTitle.bottomAnchor, constant: 20).isActive = true
+            warningLabel.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
         } else {
-
             let okayLabel = UILabel()
             okayLabel.penis = false
             okayLabel.text = "Safe to Eat 🍴"
             okayLabel.font = UIFont(name: "Helvetica Neue", size: 30)
             okayLabel.backgroundColor = .green
             okayLabel.textColor = .white
-            warningView.addSubview(okayLabel)
-            okayLabel.centerXAnchor.constraint(equalTo: warningView.centerXAnchor).isActive = true
-            okayLabel.topAnchor.constraint(equalTo: warningView.topAnchor, constant: 10).isActive = true
+            displayView.addSubview(okayLabel)
+            okayLabel.topAnchor.constraint(equalTo: foodTitle.bottomAnchor, constant: 20).isActive = true
+            okayLabel.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
         }
         
         
-        dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
-        transitionButton.addTarget(self, action: #selector(transButton(_:)), for: .touchUpInside)
+//        dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
+//        transitionButton.addTarget(self, action: #selector(transButton(_:)), for: .touchUpInside)
     }
     
     @objc func doneButton(_ sender: Any) {
