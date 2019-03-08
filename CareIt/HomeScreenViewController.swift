@@ -18,48 +18,47 @@ class HomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor=UIColor(red: 253/255.0, green: 255/255.0, blue: 137/255.0, alpha: 1)
 
         //sets up the basics for all buttons
         view.addSubview(logoutButton)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.setTitleColor(UIColor.black, for: .normal)
-        logoutButton.backgroundColor = UIColor.blue
         logoutButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
         
         view.addSubview(personalInfoButton)
         personalInfoButton.setTitle("Personal Info", for: .normal)
         personalInfoButton.setTitleColor(UIColor.black, for: .normal)
-        personalInfoButton.backgroundColor = UIColor.blue
         personalInfoButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
         
         view.addSubview(calendarButton)
         calendarButton.setTitle("Daily Intake", for: .normal)
         calendarButton.setTitleColor(UIColor.black, for: .normal)
-        calendarButton.backgroundColor = UIColor.blue
         calendarButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
         calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
         
         view.addSubview(cameraButton)
         cameraButton.setTitle("Barcode Scanner", for: .normal)
         cameraButton.setTitleColor(UIColor.black, for: .normal)
-        cameraButton.backgroundColor = UIColor.blue
         cameraButton.titleLabel?.font = UIFont(name: "Rockwell", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
         
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.topAnchor.constraint(equalTo: personalInfoButton.bottomAnchor, constant: 50).isActive = true
+        logoutButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
         personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        personalInfoButton.topAnchor.constraint(equalTo: calendarButton.bottomAnchor, constant: 50).isActive = true
+        personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)*2/3).isActive = true
         
         calendarButton.translatesAutoresizingMaskIntoConstraints = false
         calendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        calendarButton.topAnchor.constraint(equalTo: cameraButton.bottomAnchor, constant: 50).isActive = true
+        calendarButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)/3).isActive = true
+        
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
