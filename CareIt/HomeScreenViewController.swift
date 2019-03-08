@@ -68,7 +68,6 @@ class HomeScreenViewController: UIViewController {
     @objc func logoutTouchedUp() {
         try! Auth.auth().signOut()
         navigationController?.popToRootViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
     }
     
     @objc func personalInfoTouchedUp() {
