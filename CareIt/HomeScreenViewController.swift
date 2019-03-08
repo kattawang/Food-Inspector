@@ -19,6 +19,10 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // because we don't want the user to be able to go back further from this screen (without hitting the logout button),
+        // the navigation bar is hidden
+        navigationController?.navigationBar.isHidden = true
+        
         view.backgroundColor=UIColor(red: 253/255.0, green: 255/255.0, blue: 137/255.0, alpha: 1)
 
         //sets up the basics for all buttons
@@ -73,16 +77,19 @@ class HomeScreenViewController: UIViewController {
     @objc func personalInfoTouchedUp() {
         //segues to the personal info view controller
         self.performSegue(withIdentifier: "toPersonalInfo", sender: self)
+        navigationController?.navigationBar.isHidden = false
     }
     
     @objc func calendarTouchedUp(){
         //segues to the daily intake view controller
         self.performSegue(withIdentifier: "toDailyIntake", sender: self)
+        navigationController?.navigationBar.isHidden = false
     }
     
     @objc func cameraTouchedUp(){
         //segues to the personal info view controller
         self.performSegue(withIdentifier: "toCamera", sender: self)
+        navigationController?.navigationBar.isHidden = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -490,7 +490,7 @@
             </objects>
             <point key="canvasLocation" x="1111" y="681"/>
         </scene>
-        <!--Home Screen View Controller-->
+        <!--Home Screen-->
         <scene sceneID="QBd-sn-HKx">
             <objects>
                 <viewController id="Nvf-lE-sB0" customClass="HomeScreenViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -500,6 +500,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YQC-wo-BU5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Home Screen" id="bSq-Xe-EE2"/>
                     <connections>
                         <segue destination="lYa-ku-x7r" kind="show" identifier="toPersonalInfo" id="eEc-LK-c69"/>
                         <segue destination="NUy-6V-PJG" kind="show" identifier="toCamera" id="vTa-U4-KDw"/>
@@ -516,6 +517,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4bu-em-13v"/>
-        <segue reference="Q8g-7w-gw7"/>
+        <segue reference="eEc-LK-c69"/>
     </inferredMetricsTieBreakers>
 </document>
