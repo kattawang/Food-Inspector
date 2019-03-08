@@ -65,19 +65,23 @@ class HomeScreenViewController: UIViewController {
     }
     
     @objc func logoutTouchedUp() {
+        //signs the user out and uses the navigation controller to segue back to the launch screen
         try! Auth.auth().signOut()
         navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func personalInfoTouchedUp() {
+        //segues to the personal info view controller
         self.performSegue(withIdentifier: "toPersonalInfo", sender: self)
     }
     
     @objc func calendarTouchedUp(){
-        self.performSegue(withIdentifier: "toCalendar", sender: self)
+        //segues to the daily intake view controller
+        self.performSegue(withIdentifier: "toDailyIntake", sender: self)
     }
     
     @objc func cameraTouchedUp(){
+        //segues to the personal info view controller
         self.performSegue(withIdentifier: "toCamera", sender: self)
     }
 

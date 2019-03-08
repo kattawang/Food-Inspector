@@ -98,19 +98,6 @@
             </objects>
             <point key="canvasLocation" x="-489" y="-90"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="N3w-AK-CIU">
-            <objects>
-                <navigationController id="zld-aM-ast" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qAM-1y-e4J">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K54-Mc-ovI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-490" y="-804"/>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="XaB-4o-5jX">
             <objects>
@@ -516,7 +503,7 @@
                     <connections>
                         <segue destination="lYa-ku-x7r" kind="show" identifier="toPersonalInfo" id="eEc-LK-c69"/>
                         <segue destination="NUy-6V-PJG" kind="show" identifier="toCamera" id="vTa-U4-KDw"/>
-                        <segue destination="jy6-W5-CHp" kind="show" identifier="toCalendar" id="4bu-em-13v"/>
+                        <segue destination="jy6-W5-CHp" kind="show" identifier="toDailyIntake" id="4bu-em-13v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMH-Xx-CQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,6 +516,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4bu-em-13v"/>
-        <segue reference="eEc-LK-c69"/>
+        <segue reference="Q8g-7w-gw7"/>
     </inferredMetricsTieBreakers>
 </document>

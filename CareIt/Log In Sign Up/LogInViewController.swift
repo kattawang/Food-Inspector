@@ -27,6 +27,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             in
             
             if error == nil && user != nil{
+                //this uses the navication controller to go back to the launch screen,
+                // which then automatically segues to the home screen
                 self.navigationController?.popViewController(animated: true)
             }
             else{

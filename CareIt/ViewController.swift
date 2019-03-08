@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //segues to the home screen view controller if the user is logged in
         if let user = Auth.auth().currentUser{
             self.performSegue(withIdentifier: "toHomeScreen", sender: self)
         }
