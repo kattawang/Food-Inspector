@@ -29,25 +29,25 @@ class HomeScreenViewController: UIViewController {
         view.addSubview(logoutButton)
         logoutButton.setTitle("Logout", for: .normal)
         logoutButton.setTitleColor(UIColor.black, for: .normal)
-        logoutButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
+        logoutButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
         
         view.addSubview(personalInfoButton)
         personalInfoButton.setTitle("Personal Info", for: .normal)
         personalInfoButton.setTitleColor(UIColor.black, for: .normal)
-        personalInfoButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
+        personalInfoButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
         
         view.addSubview(calendarButton)
         calendarButton.setTitle("Daily Intake", for: .normal)
         calendarButton.setTitleColor(UIColor.black, for: .normal)
-        calendarButton.titleLabel?.font = UIFont(name: "Rockwell", size: 29)
+        calendarButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
         
         view.addSubview(cameraButton)
         cameraButton.setTitle("Barcode Scanner", for: .normal)
         cameraButton.setTitleColor(UIColor.black, for: .normal)
-        cameraButton.titleLabel?.font = UIFont(name: "Rockwell", size: 30)
+        cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
         
         //constraints for buttons
