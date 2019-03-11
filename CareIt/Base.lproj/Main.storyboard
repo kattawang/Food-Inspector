@@ -19,24 +19,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-Ml-acZ">
-                                <rect key="frame" x="126.5" y="544" width="122" height="62"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
+                                <rect key="frame" x="87.5" y="546" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2HS-46-hVg"/>
+                                    <constraint firstAttribute="width" constant="200" id="PEf-o2-y0y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.83137254901960789" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="aRh-k8-1Nc" kind="show" id="V63-Ym-L1p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHG-fv-Lmq">
-                                <rect key="frame" x="137" y="464" width="101" height="45"/>
+                                <rect key="frame" x="87.5" y="451" width="200" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.74901960784313726" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="0bH-2m-89w"/>
+                                    <constraint firstAttribute="width" constant="200" id="Q8q-sM-huA"/>
+                                    <constraint firstAttribute="height" constant="60" id="Rc6-gR-Dwe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="35"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="35"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.83137254901960789" green="0.0" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="LO7-Wg-soH" kind="show" id="JM8-XR-cMF"/>
                                 </connections>
@@ -45,12 +62,12 @@
                                 <rect key="frame" x="20" y="114" width="335" height="233"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Inspector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-aF-Xah">
-                                <rect key="frame" x="39" y="339" width="297.5" height="45"/>
+                                <rect key="frame" x="39" y="326" width="297.5" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="J3c-QV-yCq"/>
                                     <constraint firstAttribute="width" constant="297.5" id="win-EG-O2b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="44"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="43"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -356,10 +373,10 @@
             </objects>
             <point key="canvasLocation" x="2559" y="-827"/>
         </scene>
-        <!--Calories View Controller-->
+        <!--Daily Intake View Controller-->
         <scene sceneID="Eer-Mq-5jX">
             <objects>
-                <viewController id="jy6-W5-CHp" customClass="CaloriesViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jy6-W5-CHp" customClass="DailyIntakeViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HcX-kb-gIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,7 +533,7 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4bu-em-13v"/>
-        <segue reference="eEc-LK-c69"/>
+        <segue reference="puz-H6-blj"/>
+        <segue reference="Q8g-7w-gw7"/>
     </inferredMetricsTieBreakers>
 </document>
