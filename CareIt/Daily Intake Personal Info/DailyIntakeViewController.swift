@@ -16,13 +16,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var Month: UILabel!
     
-    let date = Date()
-    let calendar = Calendar.current
-    
-    let day = calendar.component(.day, from: date)
-    let weekday = calendar.component(.weekday, from: date)
-    var month = calendar.component(.month, from: date) - 1
-    var year = calendar.component(.year, from: date)
+    @IBOutlet weak var recomCalories: UILabel!
     
     let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     let DaysOfMonth = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -58,12 +52,13 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         super.viewDidLoad()
         
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        let databaseRef = Database.database().reference().child("users\(uid)")
-        
-        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
-            self.userInfo = snapshot.value as? [String: Any] ?? [:]
-        })
+        //FIND USERINFO
+//        guard let uid = Auth.auth().currentUser?.uid else {return}
+//        let databaseRef = Database.database().reference().child("users\(uid)")
+//
+//        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+//            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+//        })
         
         print(month)
         print(day)
