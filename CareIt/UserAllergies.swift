@@ -33,7 +33,7 @@ class UserAllergies {
         
         for allergy in allergies{
             for ingredient in ingredientsList{
-                if ingredient.contains(allergy){
+                if ingredient.lowercased().contains(allergy.lowercased()){
                     conflictingAllergies.append(ingredient)
                 }
             }
