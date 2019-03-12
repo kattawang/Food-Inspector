@@ -31,6 +31,9 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     var positionIndex = 0 //store the above vars of the empty boxes
     var leapYearCounter = 1 //next leap year is next year
     
+    //for getting stuff from firebase
+    var userInfo: [String: Any]? = [:]
+    
     func getFirstWeekDay() -> Int {
         //        let day = ("\(year)-\(currentMonthIndex)-01".date?.firstDayOfTheMonth.weekday)!
         //return day == 7 ? 1 : day
@@ -53,12 +56,12 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewDidLoad()
         
         //FIND USERINFO
-//        guard let uid = Auth.auth().currentUser?.uid else {return}
-//        let databaseRef = Database.database().reference().child("users\(uid)")
-//
-//        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
-//            self.userInfo = snapshot.value as? [String: Any] ?? [:]
-//        })
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
         
         print(month)
         print(day)
