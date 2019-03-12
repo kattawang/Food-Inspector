@@ -58,7 +58,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         //FIND USERINFO
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let databaseRef = Database.database().reference().child("users\(uid)")
-
+        
         databaseRef.observeSingleEvent(of: .value, with: {snapshot in
             self.userInfo = snapshot.value as? [String: Any] ?? [:]
         })
@@ -67,19 +67,6 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         print(day)
         print(year)
         print(DaysOfMonth[weekday])
-        
-        // added this stuff need to check
-        let ref: DatabaseReference!
-        
-//        ref.observeSingleEvent(of: .value, with: { snapshot in
-//            for child in snapshot.children {
-//                if let sex = snapshot.value["Sex"] as? String {
-//                    print(sex)
-//                }
-//            }
-//        }
-        
-        
         
         //To do: ask jason about getting calories
         
