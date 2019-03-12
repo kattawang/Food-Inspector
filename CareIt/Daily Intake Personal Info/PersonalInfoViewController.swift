@@ -98,6 +98,15 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        var pickerLabel = view as? UILabel;
+        if (pickerLabel == nil)
+        {
+            pickerLabel = UILabel()
+            
+            pickerLabel?.font = UIFont(name: "Avenir Book", size: 16)
+        }
+
+        
         if (pickerView.tag == 1){
             return sexOptions[row]
         }
