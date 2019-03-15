@@ -96,17 +96,10 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             return activityLevelOptions.count
         }
     }
-     
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var pickerLabel = view as? UILabel;
-        if (pickerLabel == nil)
-        {
-            pickerLabel = UILabel()
-            
-            pickerLabel?.font = UIFont(name: "Avenir Book", size: 16)
-        }
-
-        
+        var pickerLabel = UILabel()
+        pickerLabel.font = UIFont(name: "Avenir Book", size: 18) // In this use your custom font
         if (pickerView.tag == 1){
             return sexOptions[row]
         }
@@ -120,6 +113,17 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             return activityLevelOptions[row]
         }
     }
+    
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+//
+//
+//        pickerLabel.textColor = UIColor.black
+//        pickerLabel.text = "PickerView Cell Title"
+//        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
+//
+//        pickerLabel.textAlignment = NSTextAlignment.center
+//        return pickerLabel
+//    }
     
     //Sets up the default rows shown by the pickerviews
     //also sets the user's personal info choices if they did not move the pickerview
