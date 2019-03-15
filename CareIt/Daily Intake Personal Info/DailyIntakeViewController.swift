@@ -95,7 +95,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBAction func next(_ sender: UIButton) {
         
-        direction = 1
+//        direction = 1
         switch currentMonth{
         case "December":
             month = 0
@@ -113,13 +113,13 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         
         
-        getStartDateDayPosition()
+//        getStartDateDayPosition()
         Calendar.reloadData()
     }
     
     @IBAction func back(_ sender: UIButton) {
         
-        direction = -1
+//        direction = -1
         switch currentMonth{
         case "January":
             month = 11
@@ -132,45 +132,45 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         currentMonth = Months[month]
         Month.text = "\(currentMonth) \(year)"
         
-        getStartDateDayPosition()
+//        getStartDateDayPosition()
         Calendar.reloadData()
     }
     
     
     
-    func getStartDateDayPosition(){
-        switch direction{
-        case 0:
-            switch day{
-            case 1...7:
-                numberOfEmptyBox = weekday - day
-            case 8...14:
-                numberOfEmptyBox = weekday - day - 7
-            case 15...21:
-                numberOfEmptyBox = weekday - day - 14
-            case 22...28:
-                numberOfEmptyBox = weekday - day - 21
-            case 29...31:
-                numberOfEmptyBox = weekday - day - 28
-            default:
-                break
-            }
-            positionIndex = numberOfEmptyBox
-            
-        case 1...:
-            nextNumberOfEmptyBox = (positionIndex + DaysInMonths[month]) % 7
-            positionIndex = nextNumberOfEmptyBox
-        case -1:
-            previousNumberOfEmptyBox = (7-(DaysInMonths[month]-positionIndex)%7)
-            if previousNumberOfEmptyBox==7{
-                previousNumberOfEmptyBox = 0
-            }
-            positionIndex = previousNumberOfEmptyBox
-            
-        default:
-            fatalError()
-        }
-    }
+//    func getStartDateDayPosition(){
+//        switch direction{
+//        case 0:
+//            switch day{
+//            case 1...7:
+//                numberOfEmptyBox = weekday - day
+//            case 8...14:
+//                numberOfEmptyBox = weekday - day - 7
+//            case 15...21:
+//                numberOfEmptyBox = weekday - day - 14
+//            case 22...28:
+//                numberOfEmptyBox = weekday - day - 21
+//            case 29...31:
+//                numberOfEmptyBox = weekday - day - 28
+//            default:
+//                break
+//            }
+//            positionIndex = numberOfEmptyBox
+//
+//        case 1...:
+//            nextNumberOfEmptyBox = (positionIndex + DaysInMonths[month]) % 7
+//            positionIndex = nextNumberOfEmptyBox
+//        case -1:
+//            previousNumberOfEmptyBox = (7-(DaysInMonths[month]-positionIndex)%7)
+//            if previousNumberOfEmptyBox==7{
+//                previousNumberOfEmptyBox = 0
+//            }
+//            positionIndex = previousNumberOfEmptyBox
+//
+//        default:
+//            fatalError()
+//        }
+//    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
