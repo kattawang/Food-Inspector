@@ -37,18 +37,21 @@ class HomeScreenViewController: UIViewController {
         personalInfoButton.setTitleColor(UIColor.black, for: .normal)
         personalInfoButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
+        personalInfoButton.setBackgroundImage(UIImage(named: "Personal Info"), for: .normal)
         
         view.addSubview(calendarButton)
         calendarButton.setTitle("Daily Intake", for: .normal)
         calendarButton.setTitleColor(UIColor.black, for: .normal)
         calendarButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
+        calendarButton.setBackgroundImage(UIImage(named: "Daily Intake"), for: .normal)
         
         view.addSubview(cameraButton)
         cameraButton.setTitle("Barcode Scanner", for: .normal)
         cameraButton.setTitleColor(UIColor.black, for: .normal)
         cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
+        cameraButton.setBackgroundImage(UIImage(named: "Barcode"), for: .normal)
         
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
