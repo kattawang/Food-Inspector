@@ -188,7 +188,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         //
         //        return DaysInMonth[currentMonthIndex-1] + firstWeekDayOfMonth - 1
-        
+         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
