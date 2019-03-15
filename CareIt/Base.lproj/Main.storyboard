@@ -319,6 +319,11 @@
                                                 <state key="normal" title="Allergies">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="wpk-86-Mdo" kind="popoverPresentation" popoverAnchorView="ctq-TE-7qQ" id="ZEQ-ML-CdK">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -384,6 +389,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnq-4i-lAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="-827.58620689655174"/>
+        </scene>
+        <!--Food Allergies-->
+        <scene sceneID="W5Q-0L-VUd">
+            <objects>
+                <tableViewController id="9Ht-Yd-HW7" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K7S-1m-yPg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="McU-RJ-SAP">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="McU-RJ-SAP" id="xaO-r2-K4b">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Ht-Yd-HW7" id="bhj-GX-Xkq"/>
+                            <outlet property="delegate" destination="9Ht-Yd-HW7" id="RZa-hA-kim"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Food Allergies" id="U6v-jv-7vN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQm-Mn-9q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4052" y="-1236"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1sd-Oq-sS6">
+            <objects>
+                <navigationController id="wpk-86-Mdo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D8r-7Q-wof">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9Ht-Yd-HW7" kind="relationship" relationship="rootViewController" id="dL6-hD-TSC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffP-Ne-2Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3274" y="-1235"/>
         </scene>
         <!--Daily Intake View Controller-->
         <scene sceneID="Eer-Mq-5jX">
@@ -547,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJq-5S-LYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3593" y="-863"/>
+            <point key="canvasLocation" x="4546" y="-580"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="bL1-5D-tjN">
