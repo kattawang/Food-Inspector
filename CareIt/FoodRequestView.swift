@@ -86,11 +86,12 @@ class FoodRequestView {
     }
     
     func userAllergic() -> [String]? {
-        if Double.random(in: 0...1) > 0.5{
-            return nil
-        } else {
-            return ["sadness", "unhappiness", "tears"]
-        }
+        return nil
+//        if Double.random(in: 0...1) > 0.5{
+//            return nil
+//        } else {
+//            return ["sadness", "unhappiness", "tears"]
+//        }
     }
     
 }
