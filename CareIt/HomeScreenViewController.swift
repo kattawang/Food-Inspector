@@ -53,7 +53,6 @@ class HomeScreenViewController: UIViewController {
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
         cameraButton.setBackgroundImage(UIImage(named: "Barcode"), for: .normal)
         
-        
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
