@@ -628,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSv-y3-ZJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111" y="681"/>
+            <point key="canvasLocation" x="1038" y="686"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="QBd-sn-HKx">
@@ -656,7 +656,7 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4bu-em-13v"/>
+        <segue reference="puz-H6-blj"/>
         <segue reference="eEc-LK-c69"/>
     </inferredMetricsTieBreakers>
 </document>
