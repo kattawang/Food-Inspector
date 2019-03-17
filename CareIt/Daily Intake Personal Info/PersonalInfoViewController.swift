@@ -205,5 +205,13 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         return 1
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        
+        if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
+            myViewController.tableViewData = ["one", "twenty-one","three","two"]
+            
+        }
+        
+    }
     
 }

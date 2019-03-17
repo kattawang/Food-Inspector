@@ -26,6 +26,7 @@
 		48DB7F07222EE7E8004DFB57 /* UserAllergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DB7F06222EE7E8004DFB57 /* UserAllergies.swift */; };
 		B63726AB2226F9BB00641B7F /* stringManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63726AA2226F9BB00641B7F /* stringManipulation.swift */; };
 		B6EC595E223C0B74006BFE17 /* AllergyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */; };
+		B6EC5960223C12A3006BFE17 /* allergyDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC595F223C12A3006BFE17 /* allergyDisplayViewController.swift */; };
 		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
 		EBD794CC2236C0CF0065F081 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD794CB2236C0CF0065F081 /* DateCollectionViewCell.swift */; };
 		EBD794CE2236C68E0065F081 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD794CD2236C68E0065F081 /* CalendarVars.swift */; };
@@ -73,6 +74,7 @@
 		4F6E2D2E8EDC83E3D6BEEC08 /* Pods-CareIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.debug.xcconfig"; sourceTree = "<group>"; };
 		B63726AA2226F9BB00641B7F /* stringManipulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stringManipulation.swift; sourceTree = "<group>"; };
 		B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyTableViewController.swift; sourceTree = "<group>"; };
+		B6EC595F223C12A3006BFE17 /* allergyDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allergyDisplayViewController.swift; sourceTree = "<group>"; };
 		C4BFEEAEE734D12105A8AFEE /* Pods-CareIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareIt/Pods-CareIt.release.xcconfig"; sourceTree = "<group>"; };
 		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F660621E9220F004C3444 /* AddExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExtensions.swift; path = ../AddExtensions.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				B63726AA2226F9BB00641B7F /* stringManipulation.swift */,
 				480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
+				B6EC595F223C12A3006BFE17 /* allergyDisplayViewController.swift */,
 				B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */,
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */,
@@ -394,6 +397,7 @@
 				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 				3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */,
 				EBD794CE2236C68E0065F081 /* CalendarVars.swift in Sources */,
+				B6EC5960223C12A3006BFE17 /* allergyDisplayViewController.swift in Sources */,
 				B63726AB2226F9BB00641B7F /* stringManipulation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
