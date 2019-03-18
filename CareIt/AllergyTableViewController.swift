@@ -10,7 +10,6 @@ import UIKit
 
 class AllergyTableViewController: UITableViewController, UISearchResultsUpdating {
     
-    
     var tableViewData = [String]()
     var sun = [String]()
     var filteredTableData = [String]()
@@ -21,36 +20,24 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     var areAllCellsSelected = false;
     var selectedAllergies : [String] = []
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         for i in 0 ..< tableView.visibleCells.count{
             
-            if   tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
+            if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
                 
                 selectedAllergies.append( (tableView.cellForRow(at: [0,i])?.textLabel?.text)!)
             }
         }
-       
-        
         
         if let x = segue.destination as? allergyDisplayViewController
         {
             x.allergyselected = selectedAllergies
-            
         }
-        
     }
     
-    
-    
-    
-    
-  
     @IBAction func selectAllAllergies(_ sender: Any) {
 
-        
-        
         if (areAllCellsSelected == false){
             for i in 0 ..< tableView.visibleCells.count{
                 tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
@@ -61,8 +48,6 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         }
             
         else {
-            
-            
             for i in 0 ..< tableView.visibleCells.count{
                 tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.none
                 areAllCellsSelected = false
@@ -70,40 +55,29 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
                 self.selectionButton.title = "Select All"
             }
         }
-        
     }
-    
     
     func areCellsSelected() -> Bool {
         for i in 0 ..< tableView.visibleCells.count{
-            if   tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
-                
+            if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
                 return true
             }
-            
-            
-            
         }
-        
         return false
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
         
-        
-        if   tableView.cellForRow(at: indexPath)?.accessoryType != UITableViewCellAccessoryType.checkmark{
+        if tableView.cellForRow(at: indexPath)?.accessoryType != UITableViewCellAccessoryType.checkmark{
             
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            
             areAllCellsSelected = areCellsSelected()
-            
-            
             
             if ( areAllCellsSelected == true){
                 
                 self.selectionButton.title = "Deselect All"
             }
-            
         }
             
         else {
@@ -114,16 +88,9 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         }
     }
     
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         
         self.title = "Allergies"
         resultSearchController = ({
@@ -181,7 +148,6 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             return cell
         }
     }
-    
     
     func updateSearchResults(for searchController: UISearchController) {
         filteredTableData.removeAll(keepingCapacity: false)
