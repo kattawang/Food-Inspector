@@ -17,9 +17,8 @@ class allergyDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let x = allergyselected.joined(separator: ", ")
-        print (x)
-        allergyDisplay.text = x
+        let selectedAllergy = allergyselected.joined(separator: ", ")
+        allergyDisplay.text = selectedAllergy
         
         // Do any additional setup after loading the view.
     }
