@@ -805,8 +805,9 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dL6-hD-TSC"/>
         <segue reference="puz-H6-blj"/>
         <segue reference="At2-JN-b2R"/>
-        <segue reference="Q8g-7w-gw7"/>
+        <segue reference="uPN-tg-Xxh"/>
     </inferredMetricsTieBreakers>
 </document>
