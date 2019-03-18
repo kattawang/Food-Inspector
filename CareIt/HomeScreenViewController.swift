@@ -51,7 +51,7 @@ class HomeScreenViewController: UIViewController {
         cameraButton.setTitleColor(UIColor.black, for: .normal)
         cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
-        cameraButton.setImage(UIImage(named: "Barcode"), for: .normal)
+        cameraButton.setBackgroundImage(UIImage(named: "Barcode"), for: .normal)
         
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -78,6 +78,7 @@ class HomeScreenViewController: UIViewController {
         cameraButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cameraButton.titleLabel?.textAlignment = NSTextAlignment.center
         cameraButton.setTitleColor(.black, for: .normal)
+        
     }
     
     @objc func logoutTouchedUp() {
