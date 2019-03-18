@@ -29,7 +29,7 @@ class UserAllergies {
         
         var conflictingAllergies: [String] = []
         
-        let ingredientsList: [String] = StringManipulation.getIngredientsArray(food.ing.desc)
+        let ingredientsList: [String] = AllergyManipulation.getIngredientsArray(food.ing.desc)
         
         for allergy in allergies{
             for ingredient in ingredientsList{

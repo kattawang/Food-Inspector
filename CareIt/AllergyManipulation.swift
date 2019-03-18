@@ -1,16 +1,30 @@
 //
-//  stringManipulation.swift
+//  AllergyManipulation.swift
 //  CareIt
 //
-//  Created by Prince Geutler (student LM) on 2/27/19.
+//  Created by Jason Kozarsky (student LM) on 3/18/19.
 //  Copyright © 2019 Jason Kozarsky (student LM). All rights reserved.
 //
 
-
 import Foundation
 
-
-class StringManipulation{
+class AllergyManipulation {
+    
+    static func getAllergyList(_ generalAllergies: [String]) -> [String] {
+        var specificAllergies: [String] = []
+        
+        for allergy in generalAllergies {
+            switch allergy{
+            case "Fruit":
+                specificAllergies.append(contentsOf: ["apple", "apricot", "avocado", "banana", "berry", "berrie", "fruit", "cherries", "date", "fig", "grape", "kiwi", "lemon", "lime", "orange", "mango", "nectarine", "melon", "papaya", "peach","pear","persimmon","plantain", "plum", "pomegranite", "prune", "rhubarb", "tangelo", "tangerine"])
+                break
+            default:
+                break
+            }
+        }
+        
+        return specificAllergies
+    }
     
     static func getIngredientsArray(_ foodString: String) -> [String] {
         
