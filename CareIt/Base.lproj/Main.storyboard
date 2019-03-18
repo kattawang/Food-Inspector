@@ -314,24 +314,43 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctq-TE-7qQ">
-                                                <rect key="frame" x="144.5" y="60" width="86" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <state key="normal" title="Allergies">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="wpk-86-Mdo" kind="popoverPresentation" identifier="allergy" popoverAnchorView="ctq-TE-7qQ" id="K2U-2v-xp7">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AnI-ue-nfV">
+                                                <rect key="frame" x="10" y="62" width="355" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi6-YH-hek">
+                                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
+                                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Categories">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="wpk-86-Mdo" kind="popoverPresentation" identifier="allergyCategories" popoverAnchorView="bi6-YH-hek" id="At2-JN-b2R">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0p-VG-Ud6">
+                                                        <rect key="frame" x="177.5" y="0.0" width="177.5" height="30"/>
+                                                        <state key="normal" title="All">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="wpk-86-Mdo" kind="popoverPresentation" identifier="allAllergies" popoverAnchorView="F0p-VG-Ud6" id="y96-Jb-WL8">
+                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                            </segue>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="DRf-bJ-MG7" firstAttribute="top" secondItem="L3n-Vs-uUB" secondAttribute="bottom" constant="8" id="1i6-bS-O1q"/>
                                             <constraint firstItem="o47-L6-bgP" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="2Cr-cP-beH"/>
                                             <constraint firstItem="3fu-5s-RF6" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="20" id="2i7-y9-qQB"/>
+                                            <constraint firstAttribute="trailing" secondItem="AnI-ue-nfV" secondAttribute="trailing" constant="10" id="3uu-UW-QyF"/>
+                                            <constraint firstItem="AnI-ue-nfV" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="4fJ-nA-z6c"/>
                                             <constraint firstItem="qsL-vA-3dF" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="6Ld-lM-8dx"/>
                                             <constraint firstAttribute="height" constant="1000" id="6qR-a6-bij"/>
                                             <constraint firstItem="mdd-j5-mE3" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="590" id="8el-e0-gS2"/>
@@ -339,7 +358,6 @@
                                             <constraint firstItem="DRf-bJ-MG7" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="DxO-Bl-7dl"/>
                                             <constraint firstItem="gLz-QA-D0a" firstAttribute="top" secondItem="lu8-wr-J6h" secondAttribute="bottom" constant="8" id="Ed4-Mf-LFM"/>
                                             <constraint firstItem="cKH-2O-IMG" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="Ekt-ja-E1d"/>
-                                            <constraint firstItem="ctq-TE-7qQ" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="FjQ-W5-mpr"/>
                                             <constraint firstItem="cKH-2O-IMG" firstAttribute="top" secondItem="Zdp-3M-pZL" secondAttribute="bottom" constant="8" id="Fzm-Gp-gc5"/>
                                             <constraint firstItem="GG5-ai-d8g" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="M7t-hV-Aek"/>
                                             <constraint firstItem="o47-L6-bgP" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="107" id="MDM-BK-7pq"/>
@@ -348,6 +366,7 @@
                                             <constraint firstItem="gLz-QA-D0a" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="OXV-Hl-Jvr"/>
                                             <constraint firstItem="L3n-Vs-uUB" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="PlO-FF-6yO"/>
                                             <constraint firstItem="mdd-j5-mE3" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="QLD-eB-Ig6"/>
+                                            <constraint firstItem="AnI-ue-nfV" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="10" id="csN-lz-uBA"/>
                                             <constraint firstItem="lu8-wr-J6h" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="751" id="dFd-EL-vYu"/>
                                             <constraint firstItem="Mcv-HL-CRf" firstAttribute="top" secondItem="o47-L6-bgP" secondAttribute="bottom" constant="8" id="gla-P4-NF2"/>
                                             <constraint firstItem="Zdp-3M-pZL" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="inh-PH-opb"/>
@@ -355,7 +374,7 @@
                                             <constraint firstItem="Mcv-HL-CRf" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="lLZ-qm-kJs"/>
                                             <constraint firstAttribute="bottom" secondItem="GG5-ai-d8g" secondAttribute="bottom" constant="50" id="ltw-bc-ESI"/>
                                             <constraint firstItem="L3n-Vs-uUB" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="429" id="oFV-I2-eWX"/>
-                                            <constraint firstItem="ctq-TE-7qQ" firstAttribute="top" secondItem="3fu-5s-RF6" secondAttribute="bottom" constant="5.5" id="s2o-Va-9bT"/>
+                                            <constraint firstItem="AnI-ue-nfV" firstAttribute="top" secondItem="3fu-5s-RF6" secondAttribute="bottom" constant="7.5" id="s5e-XK-sCh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -786,8 +805,8 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dL6-hD-TSC"/>
         <segue reference="puz-H6-blj"/>
-        <segue reference="uPN-tg-Xxh"/>
+        <segue reference="At2-JN-b2R"/>
+        <segue reference="Q8g-7w-gw7"/>
     </inferredMetricsTieBreakers>
 </document>
