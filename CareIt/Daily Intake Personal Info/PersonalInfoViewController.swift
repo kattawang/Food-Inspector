@@ -214,7 +214,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
         else if segue.identifier == "allAllergies" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-                myViewController.tableViewData = ["hughes", "katherine","annie","jason", "prince"]
+                myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", ]
             }
         }
         
