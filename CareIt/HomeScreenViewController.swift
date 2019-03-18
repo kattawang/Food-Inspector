@@ -51,7 +51,7 @@ class HomeScreenViewController: UIViewController {
         cameraButton.setTitleColor(UIColor.black, for: .normal)
         cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
-        cameraButton.setBackgroundImage(UIImage(named: "Barcode"), for: .normal)
+        cameraButton.setImage(UIImage(named: "Barcode"), for: .normal)
         
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -65,14 +65,19 @@ class HomeScreenViewController: UIViewController {
         personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)*2/3).isActive = true
         
         calendarButton.translatesAutoresizingMaskIntoConstraints = false
-        calendarButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        calendarButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        calendarButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        calendarButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
         calendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         calendarButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)/3).isActive = true
         
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
+        cameraButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        cameraButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        cameraButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cameraButton.titleLabel?.textAlignment = NSTextAlignment.center
+        cameraButton.setTitleColor(.black, for: .normal)
     }
     
     @objc func logoutTouchedUp() {
