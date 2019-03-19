@@ -609,33 +609,29 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6y-cR-ke7">
-                                <rect key="frame" x="287" y="626" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JEB-VS-f0O">
-                                <rect key="frame" x="16" y="176" width="350" height="250"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
+                                <rect key="frame" x="12.5" y="190.5" width="350" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="7OU-eC-lLl">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="MoT-9R-YYk"/>
+                                    <constraint firstAttribute="width" constant="350" id="y4H-yc-xP2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="4WN-gs-ZYU">
                                     <size key="itemSize" width="40" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="XNY-r4-ZYH" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="Wa5-EN-JID" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4Z-2o-UFC">
-                                                    <rect key="frame" x="17" y="12" width="6" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2E-Nt-FOd">
+                                                    <rect key="frame" x="15.5" y="8.5" width="9.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -643,18 +639,18 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="t4Z-2o-UFC" firstAttribute="centerY" secondItem="XNY-r4-ZYH" secondAttribute="centerY" id="gvl-0O-YNP"/>
-                                            <constraint firstItem="t4Z-2o-UFC" firstAttribute="centerX" secondItem="XNY-r4-ZYH" secondAttribute="centerX" id="vhv-VC-Ufn"/>
+                                            <constraint firstItem="Z2E-Nt-FOd" firstAttribute="centerX" secondItem="Wa5-EN-JID" secondAttribute="centerX" id="GSK-qb-Jf5"/>
+                                            <constraint firstItem="Z2E-Nt-FOd" firstAttribute="centerY" secondItem="Wa5-EN-JID" secondAttribute="centerY" id="cff-ts-4W5"/>
                                         </constraints>
                                         <size key="customSize" width="40" height="40"/>
                                         <connections>
-                                            <outlet property="DateLabel" destination="t4Z-2o-UFC" id="rZP-Ys-dCl"/>
+                                            <outlet property="DateLabel" destination="Z2E-Nt-FOd" id="Kbm-Oi-Xr6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="jy6-W5-CHp" id="OXU-Sy-fKW"/>
-                                    <outlet property="delegate" destination="jy6-W5-CHp" id="eQP-VU-2rV"/>
+                                    <outlet property="dataSource" destination="jy6-W5-CHp" id="hdy-ac-fds"/>
+                                    <outlet property="delegate" destination="jy6-W5-CHp" id="Kve-Lw-4Bw"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -665,6 +661,7 @@
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="leading" secondItem="HcX-kb-gIB" secondAttribute="leading" id="67C-fK-tzI"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="8Fn-hl-qb3"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="top" secondItem="y0t-1b-nI6" secondAttribute="bottom" constant="15" id="Ay1-kb-u1f"/>
+                            <constraint firstItem="okU-dJ-ZvR" firstAttribute="centerX" secondItem="3dS-CW-mlP" secondAttribute="centerX" id="M4A-h1-fAy"/>
                             <constraint firstAttribute="trailing" secondItem="y0t-1b-nI6" secondAttribute="trailing" id="Pnz-YC-DQl"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="top" secondItem="0Cv-WQ-GGj" secondAttribute="bottom" constant="20" id="T8k-Nn-j9H"/>
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="a4s-c6-Mk5"/>
@@ -673,12 +670,12 @@
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="51" id="fCg-N4-tWn"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="0Cv-WQ-GGj" secondAttribute="trailing" constant="51" id="hms-8L-bJw"/>
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="17" id="ijD-zS-kTj"/>
+                            <constraint firstItem="okU-dJ-ZvR" firstAttribute="top" secondItem="l0W-rs-IcE" secondAttribute="bottom" constant="30" id="ngT-Dr-it5"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="20" id="vWC-su-lfg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
                     </view>
                     <connections>
-                        <outlet property="Calendar" destination="JEB-VS-f0O" id="boE-hc-qNv"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
                         <outlet property="recomCalories" destination="WkA-nH-Umo" id="nix-8n-2jO"/>
                     </connections>
