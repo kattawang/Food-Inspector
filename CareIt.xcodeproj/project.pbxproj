@@ -11,6 +11,7 @@
 		3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */; };
 		3D38C75521EFAC600027A3B1 /* FoodIDDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */; };
 		3D3DAFDE22120474005B386F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3DAFDD22120474005B386F /* CameraViewController.swift */; };
+		3D5618DE224169B900FD315B /* FoodScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5618DD224169B900FD315B /* FoodScanViewController.swift */; };
 		3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */; };
 		3DE5AEEC2229BDAB005F271F /* FoodRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE5AEEB2229BDAB005F271F /* FoodRequestView.swift */; };
 		432F00AF2239884700041152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432F00AE2239884700041152 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRequests.swift; sourceTree = "<group>"; };
 		3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FoodIDDatabaseRequest.swift; path = "../New Group/FoodIDDatabaseRequest.swift"; sourceTree = "<group>"; };
 		3D3DAFDD22120474005B386F /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		3D5618DD224169B900FD315B /* FoodScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodScanViewController.swift; sourceTree = "<group>"; };
 		3D8A76A921F16B960002724F /* NDBDatabaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDBDatabaseRequest.swift; sourceTree = "<group>"; };
 		3DE5AEEB2229BDAB005F271F /* FoodRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRequestView.swift; sourceTree = "<group>"; };
 		432F00AE2239884700041152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				EBA677372226DF2C00FEBCBA /* Daily Intake Personal Info */,
 				3D3DAFDD22120474005B386F /* CameraViewController.swift */,
 				3DE5AEEB2229BDAB005F271F /* FoodRequestView.swift */,
+				3D5618DD224169B900FD315B /* FoodScanViewController.swift */,
 				EB4F660621E9220F004C3444 /* AddExtensions.swift */,
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				432F00AE2239884700041152 /* Assets.xcassets */,
@@ -397,6 +400,7 @@
 				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 				3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */,
 				EBD794CE2236C68E0065F081 /* CalendarVars.swift in Sources */,
+				3D5618DE224169B900FD315B /* FoodScanViewController.swift in Sources */,
 				4855D5732240086800A4DD7F /* AllergyManipulation.swift in Sources */,
 				B6EC5960223C12A3006BFE17 /* allergyDisplayViewController.swift in Sources */,
 			);
