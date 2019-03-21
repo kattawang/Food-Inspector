@@ -22,6 +22,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var heightChoice: Int?
     var activityChoice: String?
     var birthDateChoice: String?
+    var allergies: [String]?
     
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
@@ -55,6 +56,9 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
         if let birthDateChoice = birthDateChoice{
             userObject["BirthDate"] = birthDateChoice
+        }
+        if let allergies = allergies{
+            userObject["Allergies"] = allergies
         }
         
         //uploads the users info, as a dictionary, to the database
