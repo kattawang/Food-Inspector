@@ -30,9 +30,13 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             }
         }
         
-        if let x = segue.destination as? allergyDisplayViewController
+        if let destination = segue.destination as? allergyDisplayViewController
         {
-            x.allergyselected = selectedAllergies
+            destination.allergyselected = selectedAllergies
+        }
+        
+        if let destination = segue.destination as? PersonalInfoViewController{
+            destination.allergies = selectedAllergies
         }
     }
     
