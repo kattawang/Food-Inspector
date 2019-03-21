@@ -162,8 +162,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func foodRequest(_ displayView: UIView, food: Food) {
-        let request = FoodRequestView(displayView, food: food)
-        request.setup()
+        self.performSegue(withIdentifier: "Food Scanned", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segue = segue.destination as! FoodScanViewController
+        segue.setupView(self.databaseRequest.result)
     }
     
     @objc func doneButton(_ sender: Any) {
