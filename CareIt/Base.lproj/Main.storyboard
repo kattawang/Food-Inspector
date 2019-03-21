@@ -709,13 +709,69 @@
                     <view key="view" contentMode="scaleToFill" id="lkL-jb-Nep">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkv-bT-Oe4">
+                                <rect key="frame" x="151" y="119" width="73.5" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-Sn-3GX">
+                                <rect key="frame" x="136" y="516" width="104" height="50"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9FP-te-cCm">
+                                <rect key="frame" x="31" y="180" width="313" height="202"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DG7-lH-VEJ">
+                                <rect key="frame" x="198" y="418" width="94" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="1ri-dC-SIo"/>
+                                    <constraint firstAttribute="height" constant="20" id="rmB-zv-fcK"/>
+                                </constraints>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gO-IwO">
+                                <rect key="frame" x="66" y="419" width="100" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="elb-Ct-aWU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9FP-te-cCm" firstAttribute="leading" secondItem="w7J-yn-hGy" secondAttribute="leading" constant="31" id="8AE-3v-AUc"/>
+                            <constraint firstItem="hkv-bT-Oe4" firstAttribute="top" secondItem="w7J-yn-hGy" secondAttribute="top" constant="55" id="GI7-Bm-egH"/>
+                            <constraint firstItem="fj4-gO-IwO" firstAttribute="top" secondItem="9FP-te-cCm" secondAttribute="bottom" constant="35" id="GUY-WG-UYd"/>
+                            <constraint firstItem="hkv-bT-Oe4" firstAttribute="centerX" secondItem="w7J-yn-hGy" secondAttribute="centerX" id="Kei-Wb-Iq8"/>
+                            <constraint firstItem="DG7-lH-VEJ" firstAttribute="leading" secondItem="fj4-gO-IwO" secondAttribute="trailing" constant="32" id="RDF-DE-nih"/>
+                            <constraint firstItem="r9O-Sn-3GX" firstAttribute="top" secondItem="fj4-gO-IwO" secondAttribute="bottom" constant="51" id="Ym2-p1-ikd"/>
+                            <constraint firstItem="DG7-lH-VEJ" firstAttribute="top" secondItem="9FP-te-cCm" secondAttribute="bottom" constant="36" id="cCf-PR-Nrq"/>
+                            <constraint firstItem="fj4-gO-IwO" firstAttribute="leading" secondItem="w7J-yn-hGy" secondAttribute="leading" constant="66" id="ifg-80-AZc"/>
+                            <constraint firstItem="w7J-yn-hGy" firstAttribute="trailing" secondItem="9FP-te-cCm" secondAttribute="trailing" constant="31" id="nKw-8a-sOu"/>
+                            <constraint firstItem="w7J-yn-hGy" firstAttribute="bottom" secondItem="r9O-Sn-3GX" secondAttribute="bottom" constant="132" id="rPL-Dz-MAR"/>
+                            <constraint firstItem="9FP-te-cCm" firstAttribute="centerX" secondItem="w7J-yn-hGy" secondAttribute="centerX" id="uX1-JA-Z04"/>
+                            <constraint firstItem="9FP-te-cCm" firstAttribute="top" secondItem="hkv-bT-Oe4" secondAttribute="bottom" constant="20" id="xqW-Gs-URB"/>
+                            <constraint firstItem="r9O-Sn-3GX" firstAttribute="centerX" secondItem="w7J-yn-hGy" secondAttribute="centerX" id="ycD-Lg-0wk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="w7J-yn-hGy"/>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="r9O-Sn-3GX" id="v3S-4X-ehh"/>
+                        <outlet property="goodBadView" destination="9FP-te-cCm" id="iEF-1l-fz5"/>
+                        <outlet property="servingsView" destination="fj4-gO-IwO" id="13b-XA-aUQ"/>
+                        <outlet property="stepper" destination="DG7-lH-VEJ" id="MvW-LU-hfK"/>
+                        <outlet property="titleLabel" destination="hkv-bT-Oe4" id="Xp9-tS-X0x"/>
+                        <segue destination="jy6-W5-CHp" kind="show" identifier="Food Eaten" id="Wv6-T5-sVV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpI-1I-wnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4538" y="305"/>
+            <point key="canvasLocation" x="4536.8000000000002" y="304.4977511244378"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="sFF-bh-CnD">
@@ -822,7 +878,7 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="puz-H6-blj"/>
+        <segue reference="Wv6-T5-sVV"/>
         <segue reference="At2-JN-b2R"/>
         <segue reference="Q8g-7w-gw7"/>
     </inferredMetricsTieBreakers>
