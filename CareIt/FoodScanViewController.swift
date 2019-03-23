@@ -47,7 +47,7 @@ class FoodScanViewController: UIViewController {
     }
     
     func okayView() {
-        let 
+//        let 
     }
     
 }

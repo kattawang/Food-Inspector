@@ -143,10 +143,8 @@
 			children = (
 				4802AD3421DFDC8F0067E2DD /* GoogleService-Info.plist */,
 				480F5AF421DE762D00B0CFB5 /* AppDelegate.swift */,
+				EBEAE6932246D7A200EAD2C9 /* Allergies */,
 				480F5AF821DE762D00B0CFB5 /* Main.storyboard */,
-				B6EC595F223C12A3006BFE17 /* allergyDisplayViewController.swift */,
-				B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */,
-				4855D5722240086800A4DD7F /* AllergyManipulation.swift */,
 				480F5AF621DE762D00B0CFB5 /* ViewController.swift */,
 				4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */,
 				EBA677352226DE9600FEBCBA /* Log In Sign Up */,
@@ -158,7 +156,6 @@
 				480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */,
 				432F00AE2239884700041152 /* Assets.xcassets */,
 				480F5B0021DE763000B0CFB5 /* Info.plist */,
-				48DB7F06222EE7E8004DFB57 /* UserAllergies.swift */,
 			);
 			path = CareIt;
 			sourceTree = "<group>";
@@ -191,6 +188,17 @@
 				EBD794CB2236C0CF0065F081 /* DateCollectionViewCell.swift */,
 			);
 			path = "Daily Intake Personal Info";
+			sourceTree = "<group>";
+		};
+		EBEAE6932246D7A200EAD2C9 /* Allergies */ = {
+			isa = PBXGroup;
+			children = (
+				B6EC595F223C12A3006BFE17 /* allergyDisplayViewController.swift */,
+				B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */,
+				48DB7F06222EE7E8004DFB57 /* UserAllergies.swift */,
+				4855D5722240086800A4DD7F /* AllergyManipulation.swift */,
+			);
+			path = Allergies;
 			sourceTree = "<group>";
 		};
 		F200B6DEFC465B800FED912B /* Frameworks */ = {
