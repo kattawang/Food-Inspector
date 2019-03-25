@@ -31,6 +31,8 @@ class HomeScreenViewController: UIViewController {
         logoutButton.setTitleColor(UIColor.black, for: .normal)
         logoutButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
+        logoutButton.backgroundColor=UIColor(red: 0/255, green: 193/255, blue: 83/255, alpha: 1.0)
+        logoutButton.setTitleColor(UIColor.white, for: .normal)
         
         view.addSubview(personalInfoButton)
         personalInfoButton.setTitle("Personal Info", for: .normal)
@@ -57,22 +59,24 @@ class HomeScreenViewController: UIViewController {
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoutButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        logoutButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
-        personalInfoButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        personalInfoButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        personalInfoButton.heightAnchor.constraint(equalToConstant: 0.23*view.frame.height).isActive = true
         personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)*2/3).isActive = true
         
         calendarButton.translatesAutoresizingMaskIntoConstraints = false
-        calendarButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        calendarButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        calendarButton.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        calendarButton.heightAnchor.constraint(equalToConstant: view.frame.height/4).isActive = true
         calendarButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         calendarButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100+(view.frame.height-200)/3).isActive = true
         
         cameraButton.translatesAutoresizingMaskIntoConstraints = false
-        cameraButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        cameraButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        cameraButton.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        cameraButton.heightAnchor.constraint(equalToConstant: 0.23*view.frame.height).isActive = true
         cameraButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         cameraButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         cameraButton.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
