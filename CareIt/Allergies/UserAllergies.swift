@@ -16,6 +16,7 @@ class UserAllergies {
         var userInfo: [String: Any]? = [:]
         var allergies: [String] = []
         
+        //this gets the user's allergies from Firebase
         guard let uid = Auth.auth().currentUser?.uid else {return nil}
         let databaseRef = Database.database().reference().child("users\(uid)")
         
@@ -23,14 +24,16 @@ class UserAllergies {
             userInfo = snapshot.value as? [String: Any] ?? [:]
         })
         
+        //uses the user allergies from firebase to get more detailed list of allergies
         if let userInfo = userInfo{
             allergies = AllergyManipulation.getAllergyList(userInfo["Allergies"] as! [String])
         }
         
         var conflictingAllergies: [String] = []
-        
         let ingredientsList: [String] = AllergyManipulation.getIngredientsArray(food.ing.desc)
         
+        //compares the allergies with the ingredients for a match, uses nested
+        //for loops in case the allergy is not the complete name of the ingredient
         for allergy in allergies{
             for ingredient in ingredientsList{
                 if ingredient.lowercased().contains(allergy.lowercased()){
