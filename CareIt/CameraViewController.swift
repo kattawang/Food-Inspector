@@ -64,18 +64,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func showAllergyAlertView(_ request: DatabaseRequests) {
-        let transparentView = UIView()
-        view.addSubview(transparentView)
-        transparentView.translatesAutoresizingMaskIntoConstraints = false
-        transparentView.heightAnchor.constraint(equalToConstant: view.bounds.height/2).isActive = true
-        transparentView.widthAnchor.constraint(equalToConstant: view.bounds.width/2).isActive = true
-        transparentView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        transparentView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
         if let food = request.result {
-            foodRequest(transparentView, food: food)
+            foodRequest(food: food)
         } else {
-            errorFoodRequest(transparentView, error: request.error!)
+            errorFoodRequest(error: request.error!)
         }
     }
     
@@ -136,7 +128,15 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
-    func errorFoodRequest(_ view: UIView, error: String?) {
+    func errorFoodRequest(error: String?) {
+        let view = UIView()
+        self.view.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height/2).isActive = true
+        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2).isActive = true
+        view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
         view.backgroundColor = .red
         
         let errorBanner = UILabel()
@@ -161,7 +161,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
-    func foodRequest(_ displayView: UIView, food: Food) {
+    func foodRequest(food: Food) {
         self.performSegue(withIdentifier: "Food Scanned", sender: self)
     }
     
