@@ -94,46 +94,10 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     @IBAction func next(_ sender: UIButton) {
-        
-//        direction = 1
-        switch currentMonth{
-        case "December":
-            month = 0
-            year += 1
-            
-        default:
-            month += 1
-        }
-        
-        currentMonth = Months[month]
-        
-        Month.text = "\(currentMonth) \(year)"
-        
-        
-        
-        
-        
-//        getStartDateDayPosition()
-        Calendar.reloadData()
     }
     
     @IBAction func back(_ sender: UIButton) {
-        
-//        direction = -1
-        switch currentMonth{
-        case "January":
-            month = 11
-            year -= 1
-            
-        default:
-            month -= 1
-        }
-        
-        currentMonth = Months[month]
-        Month.text = "\(currentMonth) \(year)"
-        
-//        getStartDateDayPosition()
-        Calendar.reloadData()
+       
     }
     
     

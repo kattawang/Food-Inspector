@@ -30,6 +30,9 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
     
+    @IBAction func backToPersonalInfoViewController(_ segue: UIStoryboardSegue) {
+    }
+    
     //When the done button is pressed on screen, this code uploads all personal info to
     // the Firebase Database and then segues to the calorie view controller
     @IBAction func doneButtonTouchedUp(_ sender: UIButton) {
@@ -225,3 +228,4 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
 }
+
