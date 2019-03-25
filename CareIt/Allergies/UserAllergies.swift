@@ -24,7 +24,7 @@ class UserAllergies {
         })
         
         if let userInfo = userInfo{
-            allergies = userInfo["Allergies"] as! [String]
+            allergies = AllergyManipulation.getAllergyList(userInfo["Allergies"] as! [String])
         }
         
         var conflictingAllergies: [String] = []
