@@ -54,7 +54,7 @@ class HomeScreenViewController: UIViewController {
         cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
         cameraButton.setBackgroundImage(UIImage(named: "Barcode"), for: .normal)
-        
+         
         //constraints for buttons
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
