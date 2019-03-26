@@ -91,6 +91,11 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         //        }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     
     
     @IBAction func next(_ sender: UIButton) {

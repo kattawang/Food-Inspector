@@ -194,6 +194,11 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     // called whenever the birthdate pickerview is updated by the user
     @objc func handler(sender: UIDatePicker) {
         

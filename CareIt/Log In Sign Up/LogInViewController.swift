@@ -40,7 +40,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     //Sets delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         emailTextField.becomeFirstResponder()
