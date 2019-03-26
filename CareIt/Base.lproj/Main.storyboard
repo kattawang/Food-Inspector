@@ -633,6 +633,7 @@
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
                     </view>
                     <connections>
+                        <outlet property="Calendar" destination="okU-dJ-ZvR" id="TGV-rg-g1T"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
                         <outlet property="recomCalories" destination="WkA-nH-Umo" id="nix-8n-2jO"/>
                     </connections>
@@ -835,8 +836,9 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="dL6-hD-TSC"/>
         <segue reference="puz-H6-blj"/>
         <segue reference="At2-JN-b2R"/>
-        <segue reference="Q8g-7w-gw7"/>
+        <segue reference="uPN-tg-Xxh"/>
     </inferredMetricsTieBreakers>
 </document>
