@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //Sets delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        snavigationController?.navigationBar.barTintColor = view.backgroundColor
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
         emailTextField.delegate = self  
         passwordTextField.delegate = self
         emailTextField.becomeFirstResponder()
