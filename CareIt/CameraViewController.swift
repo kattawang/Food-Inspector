@@ -129,35 +129,54 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func errorFoodRequest(error: String?) {
-        let view = UIView()
-        self.view.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.heightAnchor.constraint(equalToConstant: self.view.bounds.height/2).isActive = true
-        view.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2).isActive = true
-        view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+    
+        let popupView = UIView()
+        self.popupView = popupView
+        self.view.addSubview(popupView)
+        popupView.translatesAutoresizingMaskIntoConstraints = false
+        popupView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/2).isActive = true
+        popupView.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2).isActive = true
+        popupView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        popupView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        view.backgroundColor = .red
+        popupView.backgroundColor = .red
+        
+        let dismissButton = UIButton(type: .custom)
+        dismissButton.backgroundColor = .black
+        
+        dismissButton.setTitle("Done", for: .normal)
+        dismissButton.setTitleColor(.white, for: .normal)
+        dismissButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        dismissButton.layer.cornerRadius = 8
+        dismissButton.layer.masksToBounds = true
+        
+        popupView.addSubview(dismissButton)
+        dismissButton.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.3).isActive = true
+        dismissButton.centerXAnchor.constraint(equalTo: popupView.centerXAnchor).isActive = true
+        dismissButton.heightAnchor.constraint(equalTo: popupView.heightAnchor, multiplier: 0.1).isActive = true
+        dismissButton.bottomAnchor.constraint(equalTo: popupView.bottomAnchor, constant: -10).isActive = true
         
         let errorBanner = UILabel()
-        errorBanner.bounds = CGRect(x: view.bounds.minX, y: view.bounds.minY, width: view.bounds.width, height: view.bounds.height * 3/4)
-        errorBanner.font = UIFont(name: "Helvetica Neue", size: 30)
-        errorBanner.textAlignment = .center
-        errorBanner.numberOfLines = 0
-        errorBanner.lineBreakMode = .byWordWrapping
+        popupView.addSubview(errorBanner)
+        errorBanner.translatesAutoresizingMaskIntoConstraints = false
+        errorBanner.topAnchor.constraint(equalTo: popupView.topAnchor, constant: 10).isActive = true
+        errorBanner.widthAnchor.constraint(equalTo: popupView.widthAnchor, multiplier: 0.8).isActive = true
+        errorBanner.centerXAnchor.constraint(equalTo: popupView.centerXAnchor).isActive = true
+        errorBanner.bottomAnchor.constraint(equalTo: dismissButton.bottomAnchor, constant: -10).isActive = true
         
         if let error = error {
             errorBanner.text = error
         } else {
-            errorBanner.text = "An error occurred."
+            errorBanner.text = "An error occurred. Please try again."
         }
         
-        let dismissButton = UIButton(type: .custom)
-        dismissButton.backgroundColor = .red
+        errorBanner.font = UIFont(name: "Avenir Medium", size: 30)
+        errorBanner.textColor = .white
+        errorBanner.numberOfLines = 0
+        errorBanner.lineBreakMode = .byWordWrapping
+        errorBanner.textAlignment = .center
         
-        dismissButton.bounds = CGRect(x: view.bounds.minX + view.bounds.width/3, y: view.bounds.minY + view.bounds.height * 3/4, width: view.bounds.width/3, height: view.bounds.height/4)
-        
-        self.popupView = view
         dismissButton.addTarget(self, action: #selector(doneButton(_:)), for: .touchUpInside)
     }
     
@@ -171,8 +190,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     @objc func doneButton(_ sender: Any) {
-        self.popupView?.removeFromSuperview()
-        self.popupView = nil
+        print("done")
+        self.popupView!.removeFromSuperview()
         databaseRequest.currentlyProcessing = false
     }
     
