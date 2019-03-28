@@ -53,36 +53,39 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         recomCalories.text = "No Date Selected"
         
-        let calcCalories = 0
+        var calcCalories = 0.0
         
         //To do: ask jason about getting calories
 //        let ageComponents = calendar.dateComponents([.year], from: self.userInfo["birthday"], to: calendar.cur)
 //        calendar.dateComponents
 //        let age = ageComponents.year!
+//
+//        let age = year -
+//
+        let weight = self.userInfo?["Weight"]
+        let height = self.userInfo?["Height"]
+        let age = self.userInfo?["BirthDate"] // day month year separated by spaces
         
-        let sex = self.userInfo?["sex"]
-        let weight = self.userInfo?["weight"]
-        let height = self.userInfo?["height"]
-        let age = self.userInfo?["birthday"] //fix
-        let activity = self.userInfo?["activity"]
-        
-//        if (sex?=="Female") {
-//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-//        }
-//        else {
-//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-//        }
-//        
-//        if (activity == "Low") {
-//            calcCalories *= 1.2
-//        }
-//        else if (activity == "Medium") {
-//            calcCalories *= 1.3
-//        }
-//        else {
-//            calcCalories *= 1.4
-//        }
-        
+        if let sex = self.userInfo?["Sex"]{
+            if (sex as! String == "Female") {
+                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
+            }
+            else {
+                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+            }
+        }
+
+        if let activity = self.userInfo?["Activity"]{
+            if (activity as! String == "Low") {
+                calcCalories *= 1.2
+            }
+            else if (activity as! String == "Medium") {
+                calcCalories *= 1.3
+            }
+            else {
+                calcCalories *= 1.4
+            }
+        }
     }
     
     //hides navigation bar
