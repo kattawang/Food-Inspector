@@ -71,6 +71,7 @@ class HomeScreenViewController: UIViewController {
         personalInfoButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
         personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         
+        
 //        personalInfoButton.titleEdgeInsets = UIEdgeInsetsMake(0, -(personalInfoButton.imageView!.frame.size.width+view.frame.width/4), -(personalInfoButton.imageView!.frame.size.height), 0)
         
         calendarButton.translatesAutoresizingMaskIntoConstraints = false
