@@ -23,8 +23,6 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
     
-    var currentMonth = String()
-    
     //for getting stuff from firebase
     var userInfo: [String: Any]? = [:]
     
@@ -33,9 +31,10 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentMonth = Months[month]
-        Month.text = "\(currentMonth) \(year)"
+        //sets the month text label to current month
+        Month.text = "\(Months[month]) \(year)"
         
+        //finds number of empty cells before first day of month
         firstWeekDayOfMonth=getFirstWeekDay()
         
         //for leap years, make february month of 29 days
@@ -52,44 +51,56 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
             self.userInfo = snapshot.value as? [String: Any] ?? [:]
         })
         
+        recomCalories.text = "No Date Selected"
+        
+        let calcCalories = 0
         
         //To do: ask jason about getting calories
+//        let ageComponents = calendar.dateComponents([.year], from: self.userInfo["birthday"], to: calendar.cur)
+//        calendar.dateComponents
+//        let age = ageComponents.year!
         
-        //        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
-        //        let age = ageComponents.year!
-        //
-        //        if (sex=="Female") {
-        //            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-        //        }
-        //        else {
-        //            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-        //        }
-        //
-        //        if (activity == "Low") {
-        //            recomCalories *= 1.2
-        //        }
-        //        else if (activity == "Medium") {
-        //            recomCalories *= 1.3
-        //        }
-        //        else {
-        //            recomCalories *= 1.4
-        //        }
+        let sex = self.userInfo?["sex"]
+        let weight = self.userInfo?["weight"]
+        let height = self.userInfo?["height"]
+        let age = self.userInfo?["birthday"] //fix
+        let activity = self.userInfo?["activity"]
+        
+        if (sex?=="Female") {
+            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
+        }
+        else {
+            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+        }
+        
+        if (activity == "Low") {
+            calcCalories *= 1.2
+        }
+        else if (activity == "Medium") {
+            calcCalories *= 1.3
+        }
+        else {
+            calcCalories *= 1.4
+        }
+        
     }
     
+    //hides navigation bar
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
         navigationController?.navigationBar.isHidden = false
     }
     
     
+    //empty spaces before the first day of the month
     func getFirstWeekDay() -> Int {
         let day = ("\(year)-\(month+1)-01".date?.firstDayOfTheMonth.weekday)!
         return day
     }
     
-
     
-   
+    
+    //possibly get rid of this later, but calls when month is changed
     func didChangeMonth(monthIndex: Int, currYear: Int) {
         
         //for leap year, make february month of 29 days
@@ -110,7 +121,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     
-    
+    //goes to next month
     @IBAction func next(_ sender: UIButton) {
         month += 1
         if month > 11 {
@@ -123,7 +134,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         Calendar.reloadData()
     }
-    
+    //goes to previous month
     @IBAction func back(_ sender: UIButton) {
         month -= 1
         if month < 0 {
@@ -135,7 +146,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         didChangeMonth(monthIndex: month, currYear: year)
         
         Calendar.reloadData()
-       
+        
     }
     
     
@@ -215,9 +226,20 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
     }
     
-   
-
+    
+    //did deselect cell: change to clear
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor=UIColor.clear
+    }
+    
+    
+    
 }
+
+
+
+
 
 
 //get first day of the month
