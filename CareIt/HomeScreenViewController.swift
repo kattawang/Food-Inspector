@@ -30,7 +30,7 @@ class HomeScreenViewController: UIViewController {
 
         //sets up the basics for all buttons
         view.addSubview(logoutButton)
-        logoutButton.setTitle("Logout", for: .normal)
+        logoutButton.setTitle("Log Out", for: .normal)
         logoutButton.setTitleColor(UIColor.black, for: .normal)
         logoutButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
@@ -45,18 +45,17 @@ class HomeScreenViewController: UIViewController {
         personalInfoButton.setBackgroundImage(UIImage(named: "Personal Info"), for: .normal)
         
         view.addSubview(calendarButton)
-        calendarButton.setTitle("Daily Intake", for: .normal)
-        calendarButton.setTitleColor(UIColor.black, for: .normal)
-        calendarButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
+//        calendarButton.setTitle("Daily Intake", for: .normal)
+//        calendarButton.setTitleColor(UIColor.black, for: .normal)
+//        calendarButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         calendarButton.addTarget(self, action: #selector(calendarTouchedUp), for: .touchUpInside)
         calendarButton.setImage(UIImage(named: "Daily Intake"), for: .normal)
         
         view.addSubview(cameraButton)
-        cameraButton.setTitle("Barcode Scanner", for: .normal)
-        cameraButton.setTitleColor(UIColor.black, for: .normal)
-        cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
+//        cameraButton.setTitle("Barcode Scanner", for: .normal)
+//        cameraButton.setTitleColor(UIColor.black, for: .normal)
+//        cameraButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 30)
         cameraButton.addTarget(self, action: #selector(cameraTouchedUp), for: .touchUpInside)
-        
         cameraButton.setImage(UIImage(named: "Barcode"), for: .normal)
          
         //constraints for buttons
@@ -67,11 +66,10 @@ class HomeScreenViewController: UIViewController {
         logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
-        personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
-        personalInfoButton.heightAnchor.constraint(equalToConstant: view.frame.height/8).isActive = true
-        //personalInfoButton.rightAnchor.constraint(equalTo: view.fr, constant: <#T##CGFloat#>)
-        //personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        personalInfoButton.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
+        personalInfoButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         
 //        personalInfoButton.titleEdgeInsets = UIEdgeInsetsMake(0, -(personalInfoButton.imageView!.frame.size.width+view.frame.width/4), -(personalInfoButton.imageView!.frame.size.height), 0)
         
