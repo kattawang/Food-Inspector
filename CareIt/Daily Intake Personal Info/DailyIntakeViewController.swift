@@ -19,41 +19,29 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var recomCalories: UILabel!
     
     let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    let DaysOfMonth = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    var DaysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
+    var daysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
     
-    var currentMonth = String()
-    
-    var numberOfEmptyBox = Int() //num of empty boxes at the start of the current month
-    var nextNumberOfEmptyBox = Int() //same but for next month
-    var previousNumberOfEmptyBox = 0 //same but for last month
-    var direction = 0 //0 if current month, 1 if future, -1 if past
-    var positionIndex = 0 //store the above vars of the empty boxes
-    var leapYearCounter = 1 //next leap year is next year
+    var firstWeekDayOfMonth = 0   //(Sunday-Saturday 1-7)
     
     //for getting stuff from firebase
     var userInfo: [String: Any]? = [:]
     
-    func getFirstWeekDay() -> Int {
-        //        let day = ("\(year)-\(currentMonthIndex)-01".date?.firstDayOfTheMonth.weekday)!
-        //return day == 7 ? 1 : day
-        return day
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        currentMonth = Months[month]
-        Month.text = "\(currentMonth) \(year)"
         
-        //        firstWeekDayOfMonth=getFirstWeekDay()
-        //
-        //        //for leap years, make february month of 29 days
-        //        if currentMonthIndex == 2 && currentYear % 4 == 0 {
-        //            numOfDaysInMonth[currentMonthIndex-1] = 29
-        //        }
+        //sets the month text label to current month
+        Month.text = "\(Months[month]) \(year)"
         
-        super.viewDidLoad()
+        //finds number of empty cells before first day of month
+        firstWeekDayOfMonth=getFirstWeekDay()
+        
+        //for leap years, make february month of 29 days
+        //CHECK
+        if month == 1 && year % 4 == 0 {
+            daysInMonths[month] = 29
+        }
         
         //FIND USERINFO
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -63,164 +51,216 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
             self.userInfo = snapshot.value as? [String: Any] ?? [:]
         })
         
-        print(month)
-        print(day)
-        print(year)
-        print(DaysOfMonth[weekday])
+        recomCalories.text = "No Date Selected"
+        
+        let calcCalories = 0
         
         //To do: ask jason about getting calories
+//        let ageComponents = calendar.dateComponents([.year], from: self.userInfo["birthday"], to: calendar.cur)
+//        calendar.dateComponents
+//        let age = ageComponents.year!
         
-        //        let ageComponents = calendar.dateComponents([.year], from: birthday, to: now)
-        //        let age = ageComponents.year!
-        //
-        //        if (sex=="Female") {
-        //            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-        //        }
-        //        else {
-        //            recomCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-        //        }
-        //
-        //        if (activity == "Low") {
-        //            recomCalories *= 1.2
-        //        }
-        //        else if (activity == "Medium") {
-        //            recomCalories *= 1.3
-        //        }
-        //        else {
-        //            recomCalories *= 1.4
-        //        }
-    }
-    
-    
-    
-    @IBAction func next(_ sender: UIButton) {
-    }
-    
-    @IBAction func back(_ sender: UIButton) {
-       
-    }
-    
-    
-    
-//    func getStartDateDayPosition(){
-//        switch direction{
-//        case 0:
-//            switch day{
-//            case 1...7:
-//                numberOfEmptyBox = weekday - day
-//            case 8...14:
-//                numberOfEmptyBox = weekday - day - 7
-//            case 15...21:
-//                numberOfEmptyBox = weekday - day - 14
-//            case 22...28:
-//                numberOfEmptyBox = weekday - day - 21
-//            case 29...31:
-//                numberOfEmptyBox = weekday - day - 28
-//            default:
-//                break
-//            }
-//            positionIndex = numberOfEmptyBox
-//
-//        case 1...:
-//            nextNumberOfEmptyBox = (positionIndex + DaysInMonths[month]) % 7
-//            positionIndex = nextNumberOfEmptyBox
-//        case -1:
-//            previousNumberOfEmptyBox = (7-(DaysInMonths[month]-positionIndex)%7)
-//            if previousNumberOfEmptyBox==7{
-//                previousNumberOfEmptyBox = 0
-//            }
-//            positionIndex = previousNumberOfEmptyBox
-//
-//        default:
-//            fatalError()
+        let sex = self.userInfo?["sex"]
+        let weight = self.userInfo?["weight"]
+        let height = self.userInfo?["height"]
+        let age = self.userInfo?["birthday"] //fix
+        let activity = self.userInfo?["activity"]
+        
+//        if (sex?=="Female") {
+//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
 //        }
-//    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        else {
+//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+//        }
+//        
+//        if (activity == "Low") {
+//            calcCalories *= 1.2
+//        }
+//        else if (activity == "Medium") {
+//            calcCalories *= 1.3
+//        }
+//        else {
+//            calcCalories *= 1.4
+//        }
         
-        //returns the number of days in the month + the number of "empty boxes" based on the direction we're going
-        switch direction{
-        case 0:
-            return DaysInMonths[month] + numberOfEmptyBox
-        case 1...:
-            return DaysInMonths[month] + nextNumberOfEmptyBox
-        case -1:
-            return DaysInMonths[month] + previousNumberOfEmptyBox
-        default:
-            fatalError()
-        }
-        //
-        //        return DaysInMonth[currentMonthIndex-1] + firstWeekDayOfMonth - 1
-         
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
-        cell.backgroundColor = UIColor.clear
+    //hides navigation bar
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    
+    //empty spaces before the first day of the month
+    func getFirstWeekDay() -> Int {
+        let day = ("\(year)-\(month+1)-01".date?.firstDayOfTheMonth.weekday)!
+        return day
+    }
+    
+    
+    
+    //possibly get rid of this later, but calls when month is changed
+    func didChangeMonth(monthIndex: Int, currYear: Int) {
         
+        //for leap year, make february month of 29 days
+        if month == 1 {
+            if year % 4 == 0 {
+                daysInMonths[month] = 29
+            } else {
+                daysInMonths[month] = 28
+            }
+        }
+        
+        firstWeekDayOfMonth=getFirstWeekDay()
+        
+        Calendar.reloadData()
+    }
+    
+    
+    
+    
+    
+    //goes to next month
+    @IBAction func next(_ sender: UIButton) {
+        month += 1
+        if month > 11 {
+            month = 0
+            year += 1
+        }
+        
+        Month.text = "\(Months[month]) \(year)"
+        didChangeMonth(monthIndex: month, currYear: year)
+        
+        Calendar.reloadData()
+    }
+    //goes to previous month
+    @IBAction func back(_ sender: UIButton) {
+        month -= 1
+        if month < 0 {
+            month = 11
+            year -= 1
+        }
+        
+        Month.text = "\(Months[month]) \(year)"
+        didChangeMonth(monthIndex: month, currYear: year)
+        
+        Calendar.reloadData()
+        
+    }
+    
+    
+    
+    //number of items in the collection view, should be current month - 1 to get month index, plus the first days
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //        print(DaysInMonths[month] + firstWeekDayOfMonth - 1)
+        return daysInMonths[month] + firstWeekDayOfMonth - 1
+    }
+    
+    
+    
+    
+    
+    
+    //cell at each day in the collection view
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
+        
+        
+        cell.backgroundColor = UIColor.clear
         cell.DateLabel.textColor = UIColor.black
         
-        if cell.isHidden{
-            cell.isHidden = false
+        
+        if indexPath.item <= firstWeekDayOfMonth - 2 {
+            cell.isHidden=true
+        } else {
+            let calcDate = indexPath.row-firstWeekDayOfMonth+2
+            cell.isHidden=false
+            cell.DateLabel.text="\(calcDate)"
         }
         
-        switch direction{
-        case 0:
-            cell.DateLabel.text = "\(indexPath.row + 1 - numberOfEmptyBox)"
-        case 1...:
-            cell.DateLabel.text = "\(indexPath.row + 1 - nextNumberOfEmptyBox)"
-        case -1:
-            cell.DateLabel.text = "\(indexPath.row + 1 - previousNumberOfEmptyBox)"
-        default:
-            fatalError()
-        }
         
         //hides every cell smaller than one
         if Int(cell.DateLabel.text!)! < 1{
             cell.isHidden = true
         }
         
-        //show weekdays in different color
-        switch indexPath.row{
-        case 5, 6, 12, 13, 19, 20, 26, 27, 33, 34:
-            if Int(cell.DateLabel.text!)! > 0 {
-                cell.DateLabel.textColor = UIColor.lightGray
-            }
-        default:
-            break
-        }
+        
+        
+        //show weekdays in different color in a disgusting way
+        //        switch indexPath.row{
+        //        case 5, 6, 12, 13, 19, 20, 26, 27, 33, 34:
+        //            if Int(cell.DateLabel.text!)! > 0 {
+        //                cell.DateLabel.textColor = UIColor.lightGray
+        //            }
+        //        default:
+        //            break
+        //        }
+        
+        
         //current date marked in red
-        if currentMonth == Months[calendar.component(.month, from: date)-1] && year == calendar.component(.year, from: date) && indexPath.row + 1 + numberOfEmptyBox == day{
-            cell.backgroundColor = UIColor.red
-        }
+        //        if month == Months[calendar.component(.month, from: date)-1] && year == calendar.component(.year, from: date) && indexPath.row + 1 + numberOfEmptyBox == day{
+        //            cell.backgroundColor = UIColor.red
+        //        }
         
         return cell
     }
     
     
     
+    
     //did select cell: change cell background to red
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
+        
+        //deselect the current day ?
+        //        if month == Months[calendar.component(.month, from: date)-1] && year == calendar.component(.year, from: date) && indexPath.row + 1 + numberOfEmptyBox == day{
+        //            cell?.backgroundColor = UIColor.clear
+        //        }
         cell?.backgroundColor=UIColor.red
-        //        let lbl = cell?.subviews[1] as! UILabel
-        //        lbl.textColor=UIColor.white
         
         
         //do display nutrient info stuff here
-//        recomCalories.text = userInfo[""]
-        
         
     }
+    
     
     //did deselect cell: change to clear
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor=UIColor.clear
-        //        let lbl = cell?.subviews[1] as! UILabel
-        //        lbl.textColor = Style.activeCellLblColor
     }
+    
+    
+    
+}
 
 
+
+
+
+
+//get first day of the month
+extension Date {
+    var weekday: Int {
+        return Calendar.current.component(.weekday, from: self)
+    }
+    var firstDayOfTheMonth: Date {
+        return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
+    }
+}
+
+//get date from string
+extension String {
+    static var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
+    
+    var date: Date? {
+        return String.dateFormatter.date(from: self)
+    }
 }

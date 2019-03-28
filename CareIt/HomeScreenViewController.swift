@@ -16,12 +16,15 @@ class HomeScreenViewController: UIViewController {
     var calendarButton = UIButton()
     var cameraButton = UIButton()
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // because we don't want the user to be able to go back further from this screen (without hitting the logout button),
+        // the navigation bar is hidden, uses viewDidAppear so that every time this view is segued to the bar is hidden
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // because we don't want the user to be able to go back further from this screen (without hitting the logout button),
-        // the navigation bar is hidden
-        navigationController?.navigationBar.isHidden = true
         
         view.backgroundColor=UIColor(red: 253/255.0, green: 255/255.0, blue: 137/255.0, alpha: 1)
 
