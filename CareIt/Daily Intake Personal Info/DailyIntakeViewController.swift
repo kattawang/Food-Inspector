@@ -47,36 +47,35 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         var calcCalories = 0.0
         
         //To do: ask jason about getting calories
-//        let ageComponents = calendar.dateComponents([.year], from: self.userInfo["birthday"], to: calendar.cur)
-//        calendar.dateComponents
-//        let age = ageComponents.year!
-//
-//        let age = year -
-//
-//        let weight = self.userInfo?["Weight"]
-//        let height = self.userInfo?["Height"]
+
+        let birthdate = self.userInfo?["BirthDate"] as! String
+        
+        let age = year - Int(birthdate.split(separator: " ")[2])!
+
+        let weight = self.userInfo?["Weight"]
+        let height = self.userInfo?["Height"]
 //        let age = self.userInfo?["BirthDate"] // day month year separated by spaces
-//        
-//        if let sex = self.userInfo?["Sex"]{
-//            if (sex as! String == "Female") {
-//                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-//            }
-//            else {
-//                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-//            }
-//        }
-//
-//        if let activity = self.userInfo?["Activity"]{
-//            if (activity as! String == "Low") {
-//                calcCalories *= 1.2
-//            }
-//            else if (activity as! String == "Medium") {
-//                calcCalories *= 1.3
-//            }
-//            else {
-//                calcCalories *= 1.4
-//            }
-//        }
+        
+        if let sex = self.userInfo?["Sex"]{
+            if (sex as! String == "Female") {
+                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
+            }
+            else {
+                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+            }
+        }
+
+        if let activity = self.userInfo?["Activity"]{
+            if (activity as! String == "Low") {
+                calcCalories *= 1.2
+            }
+            else if (activity as! String == "Medium") {
+                calcCalories *= 1.3
+            }
+            else {
+                calcCalories *= 1.4
+            }
+        }
     }
     
     //hides navigation bar
