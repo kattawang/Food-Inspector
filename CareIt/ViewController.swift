@@ -16,6 +16,13 @@ class ViewController: UIViewController {
     
     }
     
+    // shows the navigation bar if it is not segueing to the home screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination != HomeScreenViewController(){
+            navigationController?.navigationBar.isHidden = false
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         

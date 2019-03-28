@@ -23,6 +23,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var activityChoice: String?
     var birthDateChoice: String?
     var allergies: [String]?
+    var userInfo: [String : Any] = [:]
     
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
@@ -194,6 +195,11 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     // called whenever the birthdate pickerview is updated by the user
     @objc func handler(sender: UIDatePicker) {
         
@@ -216,12 +222,12 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         if segue.identifier == "allergyCategories" {
         if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-            myViewController.tableViewData = ["one", "twenty-one","three","two"]
+            myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
             }
         }
         else if segue.identifier == "allAllergies" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-                myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", ]
+                myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood" ]
             }
         }
         
