@@ -66,7 +66,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         let height = self.userInfo?["Height"]
         let age = self.userInfo?["BirthDate"] // day month year separated by spaces
         
-        if let sex = self.userInfo?["Sex"]{
+        if let sex = self.userInfo?["Sex"]{ 
             if (sex as! String == "Female") {
                 calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
             }
