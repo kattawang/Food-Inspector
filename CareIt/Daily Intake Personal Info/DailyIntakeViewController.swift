@@ -66,22 +66,22 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         let age = self.userInfo?["birthday"] //fix
         let activity = self.userInfo?["activity"]
         
-        if (sex?=="Female") {
-            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-        }
-        else {
-            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-        }
-        
-        if (activity == "Low") {
-            calcCalories *= 1.2
-        }
-        else if (activity == "Medium") {
-            calcCalories *= 1.3
-        }
-        else {
-            calcCalories *= 1.4
-        }
+//        if (sex?=="Female") {
+//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
+//        }
+//        else {
+//            calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
+//        }
+//        
+//        if (activity == "Low") {
+//            calcCalories *= 1.2
+//        }
+//        else if (activity == "Medium") {
+//            calcCalories *= 1.3
+//        }
+//        else {
+//            calcCalories *= 1.4
+//        }
         
     }
     
