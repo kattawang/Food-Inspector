@@ -15,6 +15,7 @@ class HomeScreenViewController: UIViewController {
     var personalInfoButton = UIButton()
     var calendarButton = UIButton()
     var cameraButton = UIButton()
+    var userInfo: [String : Any] = [:]
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -23,8 +24,24 @@ class HomeScreenViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DailyIntakeViewController{
+            destination.userInfo = self.userInfo
+        }
+        if let destination = segue.destination as? PersonalInfoViewController{
+            destination.userInfo = self.userInfo
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //FIND USERINFO
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+        
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
         
         view.backgroundColor=UIColor(red: 253/255.0, green: 255/255.0, blue: 137/255.0, alpha: 1)
 
