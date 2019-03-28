@@ -567,7 +567,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
-                                <rect key="frame" x="12.5" y="190.5" width="350" height="250"/>
+                                <rect key="frame" x="12.5" y="180.5" width="350" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="MoT-9R-YYk"/>
@@ -627,7 +627,7 @@
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="51" id="fCg-N4-tWn"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="0Cv-WQ-GGj" secondAttribute="trailing" constant="51" id="hms-8L-bJw"/>
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="17" id="ijD-zS-kTj"/>
-                            <constraint firstItem="okU-dJ-ZvR" firstAttribute="top" secondItem="l0W-rs-IcE" secondAttribute="bottom" constant="30" id="ngT-Dr-it5"/>
+                            <constraint firstItem="okU-dJ-ZvR" firstAttribute="top" secondItem="l0W-rs-IcE" secondAttribute="bottom" constant="20" id="ngT-Dr-it5"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="20" id="vWC-su-lfg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
