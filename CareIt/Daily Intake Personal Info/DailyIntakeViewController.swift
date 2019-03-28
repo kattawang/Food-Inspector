@@ -63,7 +63,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
             else {
                 calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
             }
-        }
+        } 
 
         if let activity = self.userInfo?["Activity"]{
             if (activity as! String == "Low") {
