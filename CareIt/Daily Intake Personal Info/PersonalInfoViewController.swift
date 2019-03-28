@@ -23,6 +23,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var activityChoice: String?
     var birthDateChoice: String?
     var allergies: [String]?
+    var userInfo: [String : Any] = [:]
     
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!

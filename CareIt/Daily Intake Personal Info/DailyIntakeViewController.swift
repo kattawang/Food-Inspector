@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
 class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var Calendar: UICollectionView!
@@ -42,14 +41,6 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         if month == 1 && year % 4 == 0 {
             daysInMonths[month] = 29
         }
-        
-        //FIND USERINFO
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        let databaseRef = Database.database().reference().child("users\(uid)")
-        
-        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
-            self.userInfo = snapshot.value as? [String: Any] ?? [:]
-        })
         
         recomCalories.text = "No Date Selected"
         
