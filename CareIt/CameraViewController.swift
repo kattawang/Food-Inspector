@@ -16,6 +16,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     let databaseRequest = DatabaseRequests(barcodeString: "")
     var popupView: UIView?
+    var alreadyProcessed: Bool = false
     
     override func viewDidLoad() {
         
@@ -76,6 +77,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if databaseRequest.currentlyProcessing {
             return
         }
+        if alreadyProcessed{
+            return
+        }
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
@@ -122,6 +126,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                                         afterLoading: {
                                             loadingView.removeFromSuperview()
                                             self.showAllergyAlertView(self.databaseRequest)
+                                            self.alreadyProcessed = true
                                             
                     })
             }
@@ -190,9 +195,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     @objc func doneButton(_ sender: Any) {
-        print("done")
-        self.popupView!.removeFromSuperview()
         databaseRequest.currentlyProcessing = false
+        popupView!.removeFromSuperview()
+        alreadyProcessed = false
     }
     
     @IBAction func backButton(_ sender: Any) {
