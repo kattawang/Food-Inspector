@@ -64,6 +64,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         view.bringSubview(toFront: barcodeFrameView)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //in here should start a new request
+    }
+    
     func showAllergyAlertView(_ request: DatabaseRequests) {
         if let food = request.result {
             foodRequest(food: food)

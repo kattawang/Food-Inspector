@@ -26,7 +26,9 @@ class UserAllergies {
         
         //uses the user allergies from firebase to get more detailed list of allergies
         if let userInfo = userInfo{
-            allergies = AllergyManipulation.getAllergyList(userInfo["Allergies"] as! [String])
+            if let userAllergies = userInfo["Allergies"]{
+                allergies = AllergyManipulation.getAllergyList(userAllergies as! [String])
+            }
         }
         
         var conflictingAllergies: [String] = []
