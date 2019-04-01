@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -604,7 +604,7 @@
                                             <outlet property="DateLabel" destination="Z2E-Nt-FOd" id="Kbm-Oi-Xr6"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="mjO-he-ZCe" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar2" id="mjO-he-ZCe" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
                                         <rect key="frame" x="51.5" y="0.0" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -751,7 +751,7 @@
                         <outlet property="goodBadView" destination="9FP-te-cCm" id="iEF-1l-fz5"/>
                         <outlet property="servingsView" destination="fj4-gO-IwO" id="13b-XA-aUQ"/>
                         <outlet property="stepper" destination="DG7-lH-VEJ" id="MvW-LU-hfK"/>
-                        <outlet property="titleLabel" destination="hkv-bT-Oe4" id="Xp9-tS-X0x"/>
+                        <outlet property="titleLabel" destination="hkv-bT-Oe4" id="kE2-OJ-okf"/>
                         <segue destination="jy6-W5-CHp" kind="show" identifier="Food Eaten" id="Wv6-T5-sVV"/>
                     </connections>
                 </viewController>
@@ -864,7 +864,7 @@
         <image name="Artboard 1STORE" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="puz-H6-blj"/>
+        <segue reference="Wv6-T5-sVV"/>
         <segue reference="At2-JN-b2R"/>
         <segue reference="Q8g-7w-gw7"/>
     </inferredMetricsTieBreakers>

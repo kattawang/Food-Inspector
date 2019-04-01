@@ -10,6 +10,7 @@ import UIKit
 
 class FoodScanViewController: UIViewController {
     
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var goodBadView: UIView!
@@ -25,6 +26,10 @@ class FoodScanViewController: UIViewController {
     func setupView(_ food: Food?) {
         self.food = food
         if let food = food {
+            
+            // the below line forces the view to load so that the outlets do not return nil
+            _ = self.view
+            
             // hello kitty
             self.titleLabel.text = sanitizeTitle(food.desc.name)
             
