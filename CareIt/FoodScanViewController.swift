@@ -63,6 +63,11 @@ class FoodScanViewController: UIViewController {
         okayLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    
 }
 
 func sanitizeTitle(_ title: String) -> String {

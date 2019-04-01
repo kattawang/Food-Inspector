@@ -16,7 +16,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     let databaseRequest = DatabaseRequests(barcodeString: "")
     var popupView: UIView?
-    var alreadyProcessed: Bool = false
+    public var alreadyProcessed: Bool = false
     
     override func viewDidLoad() {
         
@@ -71,6 +71,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     func showAllergyAlertView(_ request: DatabaseRequests) {
         if let food = request.result {
+//            self.databaseRequest.currentlyProcessing = false
             foodRequest(food: food)
         } else {
             errorFoodRequest(error: request.error!)
@@ -78,7 +79,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        
+        print(alreadyProcessed)
         if databaseRequest.currentlyProcessing {
             return
         }
@@ -193,10 +194,15 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func foodRequest(food: Food) {
         self.performSegue(withIdentifier: "Food Scanned", sender: self)
     }
+    public func setAlreadyProcessed(_ alreadyProcessed: Bool){
+        self.alreadyProcessed = alreadyProcessed
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        alreadyProcessed = false
         let segue = segue.destination as! FoodScanViewController
         segue.setupView(self.databaseRequest.result)
+        print("in prepare: \(alreadyProcessed)")
     }
     
     @objc func doneButton(_ sender: Any) {
