@@ -395,7 +395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMA-6V-GYe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Personal Info" id="1tl-wi-qYu"/>
+                    <tabBarItem key="tabBarItem" title="Personal Info" selectedImage="Personal Info" id="1tl-wi-qYu"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
@@ -900,12 +900,13 @@
     </scenes>
     <resources>
         <image name="Artboard 1STORE" width="1024" height="1024"/>
-        <image name="Barcode" width="297" height="284"/>
-        <image name="Daily Intake" width="268" height="269"/>
+        <image name="Barcode" width="20" height="20"/>
+        <image name="Daily Intake" width="20" height="20"/>
+        <image name="Personal Info" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5x1-Uv-b4j"/>
-        <segue reference="At2-JN-b2R"/>
+        <segue reference="y96-Jb-WL8"/>
         <segue reference="iHn-ya-MeE"/>
     </inferredMetricsTieBreakers>
 </document>
