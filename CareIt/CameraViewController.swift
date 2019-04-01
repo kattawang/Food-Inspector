@@ -66,6 +66,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func viewDidAppear(_ animated: Bool) {
         //in here should start a new request
+        navigationController?.navigationBar.isHidden = true
     }
     
     func showAllergyAlertView(_ request: DatabaseRequests) {

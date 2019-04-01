@@ -30,6 +30,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = true
+        
         //sets the month text label to current month
         Month.text = "\(Months[month]) \(year)"
         
@@ -81,7 +83,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     //hides navigation bar
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
     
     

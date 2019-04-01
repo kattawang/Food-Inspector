@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,7 +92,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aRw-DI-hS4"/>
                     <connections>
-                        <segue destination="Nvf-lE-sB0" kind="show" identifier="toHomeScreen" id="zmc-LR-FAP"/>
+                        <segue destination="o7k-Qp-Srs" kind="show" identifier="toHomeScreen" id="0jW-pW-CpN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -196,7 +196,7 @@
             </objects>
             <point key="canvasLocation" x="1110" y="-558"/>
         </scene>
-        <!--Personal Info View Controller-->
+        <!--Personal Info-->
         <scene sceneID="BFM-jc-plW">
             <objects>
                 <viewController id="lYa-ku-x7r" customClass="PersonalInfoViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVZ-oa-0uu">
-                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-S6-Dja">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -395,6 +395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMA-6V-GYe"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Personal Info" id="1tl-wi-qYu"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
@@ -407,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnq-4i-lAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.5999999999999" y="-827.58620689655174"/>
+            <point key="canvasLocation" x="3852" y="-340"/>
         </scene>
         <!-- Allergies-->
         <scene sceneID="W5Q-0L-VUd">
@@ -459,7 +460,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQm-Mn-9q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eHG-QB-1tx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4114" y="-1236"/>
+            <point key="canvasLocation" x="5615" y="-491"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1sd-Oq-sS6">
@@ -475,9 +476,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffP-Ne-2Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3274" y="-1235"/>
+            <point key="canvasLocation" x="4761" y="-490"/>
         </scene>
-        <!--Daily Intake View Controller-->
+        <!--Daily Intake-->
         <scene sceneID="Eer-Mq-5jX">
             <objects>
                 <viewController id="jy6-W5-CHp" customClass="DailyIntakeViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -486,13 +487,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories Remaining:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-1b-nI6">
-                                <rect key="frame" x="0.0" y="534" width="375" height="34.5"/>
+                                <rect key="frame" x="0.0" y="485" width="375" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-nH-Umo">
-                                <rect key="frame" x="180.5" y="583.5" width="14" height="34.5"/>
+                                <rect key="frame" x="180.5" y="534.5" width="14" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -660,6 +661,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Daily Intake" selectedImage="Daily Intake" springLoaded="YES" id="ryU-hh-8Zi"/>
                     <connections>
                         <outlet property="Calendar" destination="okU-dJ-ZvR" id="vCg-nV-Ddy"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
@@ -668,9 +670,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJq-5S-LYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4682" y="-442"/>
+            <point key="canvasLocation" x="3852" y="663"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Settings-->
+        <scene sceneID="73S-8s-Tsa">
+            <objects>
+                <viewController id="xxh-GO-73q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pFk-Hr-6lT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Yr6-jm-Wlo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="2nX-GI-XXZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mh4-Wm-bTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3852" y="-1261"/>
+        </scene>
+        <!--Barcode Scanner-->
         <scene sceneID="bL1-5D-tjN">
             <objects>
                 <viewController id="NUy-6V-PJG" customClass="CameraViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -680,13 +698,34 @@
                         <color key="backgroundColor" red="1" green="0.54750050298347952" blue="0.47592818201481868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Barcode Scanner" selectedImage="Barcode" springLoaded="YES" id="Q13-KY-JKH"/>
                     <connections>
                         <segue destination="TQp-ol-DgK" kind="show" identifier="Food Scanned" id="HTB-ml-H5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHD-td-VKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3593" y="150"/>
+            <point key="canvasLocation" x="3852" y="1431"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="e48-3u-V2u">
+            <objects>
+                <tabBarController id="o7k-Qp-Srs" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CcI-gO-sdc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="NUy-6V-PJG" kind="relationship" relationship="viewControllers" id="i6C-Mf-Cp3"/>
+                        <segue destination="jy6-W5-CHp" kind="relationship" relationship="viewControllers" id="5x1-Uv-b4j"/>
+                        <segue destination="lYa-ku-x7r" kind="relationship" relationship="viewControllers" id="iHn-ya-MeE"/>
+                        <segue destination="xxh-GO-73q" kind="relationship" relationship="viewControllers" id="CDP-2S-Dt3"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bnd-sg-7Mc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2438" y="634"/>
         </scene>
         <!--Food Scan View Controller-->
         <scene sceneID="lg5-5t-7Kj">
@@ -757,7 +796,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpI-1I-wnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4536.8000000000002" y="304.4977511244378"/>
+            <point key="canvasLocation" x="5121" y="1108"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="sFF-bh-CnD">
@@ -836,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VSv-y3-ZJz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="686"/>
+            <point key="canvasLocation" x="273" y="715"/>
         </scene>
         <!--Home Screen-->
         <scene sceneID="QBd-sn-HKx">
@@ -851,21 +890,22 @@
                     <navigationItem key="navigationItem" title="Home Screen" id="bSq-Xe-EE2"/>
                     <connections>
                         <segue destination="lYa-ku-x7r" kind="show" identifier="toPersonalInfo" id="eEc-LK-c69"/>
-                        <segue destination="NUy-6V-PJG" kind="show" identifier="toCamera" id="vTa-U4-KDw"/>
                         <segue destination="jy6-W5-CHp" kind="show" identifier="toDailyIntake" id="4bu-em-13v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMH-Xx-CQC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1967" y="395"/>
+            <point key="canvasLocation" x="1807" y="-115"/>
         </scene>
     </scenes>
     <resources>
         <image name="Artboard 1STORE" width="1024" height="1024"/>
+        <image name="Barcode" width="297" height="284"/>
+        <image name="Daily Intake" width="268" height="269"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wv6-T5-sVV"/>
+        <segue reference="5x1-Uv-b4j"/>
         <segue reference="At2-JN-b2R"/>
-        <segue reference="Q8g-7w-gw7"/>
+        <segue reference="iHn-ya-MeE"/>
     </inferredMetricsTieBreakers>
 </document>
