@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */; };
 		3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75221EFA97D0027A3B1 /* DatabaseRequests.swift */; };
 		3D38C75521EFAC600027A3B1 /* FoodIDDatabaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D38C75421EFAC600027A3B1 /* FoodIDDatabaseRequest.swift */; };
 		3D3DAFDE22120474005B386F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3DAFDD22120474005B386F /* CameraViewController.swift */; };
@@ -22,6 +21,7 @@
 		480F5AF721DE762D00B0CFB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480F5AF621DE762D00B0CFB5 /* ViewController.swift */; };
 		480F5AFA21DE762D00B0CFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AF821DE762D00B0CFB5 /* Main.storyboard */; };
 		480F5AFF21DE763000B0CFB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480F5AFD21DE763000B0CFB5 /* LaunchScreen.storyboard */; };
+		484E8A102252719F00DB04B0 /* Pods_CareIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */; };
 		4855D5732240086800A4DD7F /* AllergyManipulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855D5722240086800A4DD7F /* AllergyManipulation.swift */; };
 		4861E7D6221C8FF600D28F19 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4861E7D5221C8FF500D28F19 /* HomeScreenViewController.swift */; };
 		48DB7F07222EE7E8004DFB57 /* UserAllergies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DB7F06222EE7E8004DFB57 /* UserAllergies.swift */; };
@@ -86,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19FFFDB1AE366886C48EF6CF /* Pods_CareIt.framework in Frameworks */,
+				484E8A102252719F00DB04B0 /* Pods_CareIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
