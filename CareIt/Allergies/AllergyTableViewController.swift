@@ -15,10 +15,29 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
     
+    
     @IBOutlet weak var selectionButton: UIBarButtonItem!
     
+  
+
     var areAllCellsSelected = false;
     var selectedAllergies : [String] = []
+    let defaults = UserDefaults.standard
+    var selectedAllergiesIndex : [Int] = []
+    
+   
+    func previouslyselected(){
+        let savedArrayIndexes = defaults.object(forKey: "SavedAllergiesIndex") as? [Int] ?? [Int]()
+        
+        for i in savedArrayIndexes{
+           
+            tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+        
+        
+    }
+
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -27,7 +46,11 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
                 
                 selectedAllergies.append( (tableView.cellForRow(at: [0,i])?.textLabel?.text)!)
+                selectedAllergiesIndex.append(i)
             }
+            
+            defaults.set(selectedAllergiesIndex, forKey: "SavedAllergiesIndex")
+
         }
         
         if let destination = segue.destination as? PersonalInfoViewController{
@@ -89,9 +112,11 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     
     override func viewDidLoad() {
         
+       
+      
         super.viewDidLoad()
-        
-        self.title = "Allergies"
+       
+                self.title = "Allergies"
         resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -105,6 +130,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         
         // Reload the table
         tableView.reloadData()
+         previouslyselected()
     }
     
     override func didReceiveMemoryWarning() {
@@ -134,6 +160,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 3
+       
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if (resultSearchController.isActive) {
@@ -155,7 +182,12 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         let array = (tableViewData as NSArray).filtered(using: searchPredicate)
         filteredTableData = array as! [String]
         
+        
+
+        
         self.tableView.reloadData()
+        
+        
     }
     
     
