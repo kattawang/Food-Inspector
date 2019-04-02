@@ -181,7 +181,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.isHidden = true
         update()
         
         //calls the handler function whenever the birthday pickerview is updated
@@ -197,7 +197,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
     
     // called whenever the birthdate pickerview is updated by the user

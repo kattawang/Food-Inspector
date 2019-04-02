@@ -67,6 +67,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidAppear(_ animated: Bool) {
         //in here should start a new request
         navigationController?.navigationBar.isHidden = true
+        alreadyProcessed = false
+        
     }
     
     func showAllergyAlertView(_ request: DatabaseRequests) {
@@ -194,15 +196,10 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     func foodRequest(food: Food) {
         self.performSegue(withIdentifier: "Food Scanned", sender: self)
     }
-    public func setAlreadyProcessed(_ alreadyProcessed: Bool){
-        self.alreadyProcessed = alreadyProcessed
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        alreadyProcessed = false
         let segue = segue.destination as! FoodScanViewController
         segue.setupView(self.databaseRequest.result)
-        print("in prepare: \(alreadyProcessed)")
     }
     
     @objc func doneButton(_ sender: Any) {
