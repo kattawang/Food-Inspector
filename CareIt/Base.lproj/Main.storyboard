@@ -395,7 +395,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AMA-6V-GYe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Personal Info" selectedImage="Personal Info" id="1tl-wi-qYu"/>
+                    <tabBarItem key="tabBarItem" title="Personal Info" image="Profile" selectedImage="Profile" id="1tl-wi-qYu"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
@@ -487,13 +487,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories Remaining:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-1b-nI6">
-                                <rect key="frame" x="0.0" y="485" width="375" height="34.5"/>
+                                <rect key="frame" x="0.0" y="534" width="375" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-nH-Umo">
-                                <rect key="frame" x="180.5" y="534.5" width="14" height="34.5"/>
+                                <rect key="frame" x="180.5" y="583.5" width="14" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -661,7 +661,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3dS-CW-mlP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily Intake" selectedImage="Daily Intake" springLoaded="YES" id="ryU-hh-8Zi"/>
+                    <tabBarItem key="tabBarItem" title="Daily Intake" image="Calendar" selectedImage="Calendar" springLoaded="YES" id="ryU-hh-8Zi"/>
                     <connections>
                         <outlet property="Calendar" destination="okU-dJ-ZvR" id="vCg-nV-Ddy"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
@@ -682,7 +682,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Yr6-jm-Wlo"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="2nX-GI-XXZ"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="Settings" id="2nX-GI-XXZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh4-Wm-bTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -698,7 +698,7 @@
                         <color key="backgroundColor" red="1" green="0.54750050298347952" blue="0.47592818201481868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Barcode Scanner" selectedImage="Barcode" springLoaded="YES" id="Q13-KY-JKH"/>
+                    <tabBarItem key="tabBarItem" title="Barcode Scanner" image="Barcode" selectedImage="Barcode" springLoaded="YES" id="Q13-KY-JKH"/>
                     <connections>
                         <segue destination="TQp-ol-DgK" kind="show" identifier="Food Scanned" id="HTB-ml-H5J"/>
                     </connections>
@@ -901,11 +901,12 @@
     <resources>
         <image name="Artboard 1STORE" width="1024" height="1024"/>
         <image name="Barcode" width="20" height="20"/>
-        <image name="Daily Intake" width="20" height="20"/>
-        <image name="Personal Info" width="20" height="20"/>
+        <image name="Calendar" width="20" height="20"/>
+        <image name="Profile" width="20" height="20"/>
+        <image name="Settings" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5x1-Uv-b4j"/>
+        <segue reference="puz-H6-blj"/>
         <segue reference="y96-Jb-WL8"/>
         <segue reference="iHn-ya-MeE"/>
     </inferredMetricsTieBreakers>
