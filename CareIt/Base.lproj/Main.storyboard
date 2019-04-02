@@ -675,7 +675,7 @@
         <!--Settings-->
         <scene sceneID="73S-8s-Tsa">
             <objects>
-                <viewController id="xxh-GO-73q" sceneMemberID="viewController">
+                <viewController id="xxh-GO-73q" customClass="SettingsViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pFk-Hr-6lT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
