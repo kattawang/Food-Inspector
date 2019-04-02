@@ -30,9 +30,9 @@ class FoodScanViewController: UIViewController {
             // the below line forces the view to load so that the outlets do not return nil
             _ = self.view
             
-            // hello kitty
-            self.titleLabel.text = sanitizeTitle(food.desc.name)
-            
+            self.titleLabel.lineBreakMode = .byWordWrapping
+            self.titleLabel.numberOfLines = 0
+            self.titleLabel.text = sanitizeTitle(food.desc.name)            
             if let allergies = UserAllergies.userIsAllergicTo(food) {
                 allergyView(allergies)
             }
@@ -62,6 +62,11 @@ class FoodScanViewController: UIViewController {
         okayLabel.text = "Safe to Eat 🍴"
         okayLabel.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     
 }
 
