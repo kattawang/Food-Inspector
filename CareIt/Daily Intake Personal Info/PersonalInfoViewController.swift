@@ -68,10 +68,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         //uploads the users info, as a dictionary, to the database
         database.setValue(userObject)
         
-//        self.unwind(for: <#T##UIStoryboardSegue#>, towardsViewController: DailyIntakeViewController())
-        
-//        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
-    }
+        }
     
     //called every time the user updates the picker view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -183,7 +180,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
         update()
         
         //calls the handler function whenever the birthday pickerview is updated
@@ -199,7 +196,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
     
     // called whenever the birthdate pickerview is updated by the user
@@ -221,6 +218,8 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        
+        navigationController?.navigationBar.isHidden = true
         
         if segue.identifier == "allergyCategories" {
         if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
