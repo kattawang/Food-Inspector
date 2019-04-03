@@ -20,7 +20,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-Ml-acZ">
                                 <rect key="frame" x="87.5" y="546" width="200" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2HS-46-hVg"/>
                                     <constraint firstAttribute="width" constant="200" id="PEf-o2-y0y"/>
@@ -40,7 +40,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHG-fv-Lmq">
                                 <rect key="frame" x="87.5" y="451" width="200" height="60"/>
-                                <color key="backgroundColor" red="0.0" green="0.74901960784313726" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.83137254900000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Q8q-sM-huA"/>
                                     <constraint firstAttribute="height" constant="60" id="Rc6-gR-Dwe"/>
@@ -58,7 +58,7 @@
                                     <segue destination="LO7-Wg-soH" kind="show" id="JM8-XR-cMF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard 1STORE" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-Is-ONd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-Is-ONd">
                                 <rect key="frame" x="20" y="114" width="335" height="233"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Inspector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-aF-Xah">
@@ -68,11 +68,11 @@
                                     <constraint firstAttribute="width" constant="297.5" id="win-EG-O2b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="43"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.9779836400233668" green="0.96042003727686287" blue="0.56720108986042472" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ddE-Is-ONd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Ed-Ss-Jgj"/>
                             <constraint firstAttribute="trailing" secondItem="ddE-Is-ONd" secondAttribute="trailing" constant="20" id="3hl-da-LHa"/>
@@ -907,9 +907,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Artboard 1STORE" width="1024" height="1024"/>
         <image name="Barcode" width="20" height="20"/>
         <image name="Calendar" width="20" height="20"/>
+        <image name="Logo" width="960" height="970"/>
         <image name="Profile" width="20" height="20"/>
         <image name="Settings" width="20" height="20"/>
     </resources>
