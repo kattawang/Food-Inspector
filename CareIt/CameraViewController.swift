@@ -81,7 +81,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        print(alreadyProcessed)
         if databaseRequest.currentlyProcessing {
             return
         }
