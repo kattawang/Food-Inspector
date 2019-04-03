@@ -68,7 +68,9 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         //uploads the users info, as a dictionary, to the database
         database.setValue(userObject)
         
-        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
+//        self.unwind(for: <#T##UIStoryboardSegue#>, towardsViewController: DailyIntakeViewController())
+        
+//        self.performSegue(withIdentifier: "toCalorieScreen", sender: self)
     }
     
     //called every time the user updates the picker view
