@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Artboard 1STORE" translatesAutoresizingMaskIntoConstraints="NO" id="pOK-eZ-E2n">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo2" translatesAutoresizingMaskIntoConstraints="NO" id="pOK-eZ-E2n">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.95737593056032044" blue="0.54340002050547176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83137254900000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pOK-eZ-E2n" secondAttribute="bottom" id="JlO-uV-QNJ"/>
                             <constraint firstItem="pOK-eZ-E2n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XtG-Zb-LEE"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Artboard 1STORE" width="1024" height="1024"/>
+        <image name="Logo2" width="1024" height="1024"/>
     </resources>
 </document>
