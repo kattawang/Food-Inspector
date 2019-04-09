@@ -24,18 +24,29 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     var selectedAllergies : [String] = []
     let defaults = UserDefaults.standard
     var selectedAllergiesIndex : [Int] = []
+    var allAllergySection = Bool()
     
    
     func previouslyselected(){
+        if allAllergySection == false{
         let savedArrayIndexes = defaults.object(forKey: "SavedAllergiesIndex") as? [Int] ?? [Int]()
         
         for i in savedArrayIndexes{
            
             tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
         }
+        }
+            else{
+                let savedArrayIndexes = defaults.object(forKey: "SavedAllAllergiesIndex") as? [Int] ?? [Int]()
+                
+                for i in savedArrayIndexes{
+                    
+                    tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
+                }
+            }
+        }
         
-        
-    }
+    
 
     
     
@@ -48,14 +59,20 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
                 selectedAllergies.append( (tableView.cellForRow(at: [0,i])?.textLabel?.text)!)
                 selectedAllergiesIndex.append(i)
             }
-            
+            if allAllergySection == false{
             defaults.set(selectedAllergiesIndex, forKey: "SavedAllergiesIndex")
-
-        }
+            }
+            else{
+                defaults.set(selectedAllergiesIndex, forKey: "SavedAllAllergiesIndex")
+            
+                
+            }
+        
         
         if let destination = segue.destination as? PersonalInfoViewController{
             destination.allergies = selectedAllergies
         }
+    }
     }
     
     @IBAction func selectAllAllergies(_ sender: Any) {
