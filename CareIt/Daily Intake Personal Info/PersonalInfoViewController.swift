@@ -68,7 +68,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         //uploads the users info, as a dictionary, to the database
         database.setValue(userObject)
         
-        }
+    }
     
     //called every time the user updates the picker view
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -121,16 +121,16 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
     }
     
-//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-//
-//
-//        pickerLabel.textColor = UIColor.black
-//        pickerLabel.text = "PickerView Cell Title"
-//        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
-//
-//        pickerLabel.textAlignment = NSTextAlignment.center
-//        return pickerLabel
-//    }
+    //    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+    //
+    //
+    //        pickerLabel.textColor = UIColor.black
+    //        pickerLabel.text = "PickerView Cell Title"
+    //        // pickerLabel.font = UIFont(name: pickerLabel.font.fontName, size: 15)
+    //
+    //        pickerLabel.textAlignment = NSTextAlignment.center
+    //        return pickerLabel
+    //    }
     
     //Sets up the default rows shown by the pickerviews
     //also sets the user's personal info choices if they did not move the pickerview
@@ -188,7 +188,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         // This stores the user's birthdate if the user did not change the pickerview
         let components = Calendar.current.dateComponents([.year, .month, .day], from: birthday.date)
-            //stores date as string in the format: (date) (month) (year)
+        //stores date as string in the format: (date) (month) (year)
         if let day = components.day, let month = components.month, let year = components.year {
             birthDateChoice = "\(day) \(month) \(year)"
         }
@@ -212,7 +212,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         
     }
     
-     
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -222,13 +222,13 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         navigationController?.navigationBar.isHidden = true
         
         if segue.identifier == "allergyCategories" {
-        if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-            myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
+            if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
+                myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
             }
         }
         else if segue.identifier == "allAllergies" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-                myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood" ]
+                myViewController.tableViewData = ["apple", "apricot", "avocado", "banana", "berry", "berrie", "fruit", "cherries", "date", "fig", "grape", "kiwi", "lemon", "lime", "orange", "mango", "nectarine", "melon", "papaya", "peach","pear","persimmon","plantain", "plum", "pomegranite", "prune", "rhubarb", "tangelo", "tangerine","amaranth", "arugula leaves", "artichoke", "asparagus", "bamboo shoots", "beans", "beets", "cowpeas or black-eyed peas","broccoli","broccoflower","Brussels sprouts","Cabbage","Capers","Carrots","Cassava or manioc", "Cauliflower", "Celery", "Chard", "Collard greens", "Corn", "Cucumber", "Cucumber, kim chee", "Dandelion greens", "Eggplant", "Endive or escarole", "Jimaca or yambean", "Kale", "Kohlrabi", "Leeks", "Lentils", "Lettuce", "Mushrooms", "Mustard greens", "Okra", "Onions", "Palm hearts", "Parsley", "Parsnips", "Peas", "Peppers", "Poi", "Potatoes", "Pumpkin", "Radicchio", "Radishes", "Rubataga", "Sauerkraut", "Seaweed", "Shallots", "Soybeans", "Tofu", "Soy products", "Spinach", "Squash", "Sweet potatoes", "Taro shoots", "Tomatillo", "Tomato", "Turnips", "Water chestnuts", "Watercress","Almonds", "Beechnuts", "Brazil nuts", "Breadfruits seeds", "Butternuts", "Cashews", "Coconut", "Chestnuts", "Flaxseeds or linseeds", "Gingko nuts", "Hazelnuts or filberts", "Hickorynuts", "Macadamis", "Mixed nuts", "Peanuts", "Pecans", "Pine nuts or pignolia", "Pistachios", "Pumpkin or squash seeds", "Sesame", "Soy nuts", "Sunflower seeds", "Trail mix", "Walnuts","Butter", "Imitation cheese", "Cottage Cheese", "Cream cheese", "Processed cheese", "Soy cheese", "Cream", "Sour Cream", "Imitation cream", "Fluid milk", "Canned", "Dried Milk", "Goat milk", "Eggnog", "Soy", "Yogurt", "Soy Yogurt","Fish", "Cod", "Eel", "Fish fillets", "Flounder", "Grouper", "Haddock", "Halibut", "Herring", "Jack mackerel", "Octopus", "Perch", "Pacific rockfish", "Salmon", "Sardines", "Scallops", "Snapper", "Squid", "Striped bass", "Surgeon", "Surimi", "Swordfish", "Tuna", "Yellowfin or ahi", "Yellowtail", "Shellfish", "Crab","Clams", "Crayfish", "Oysters", "Lobster", "Mussels", "Shrimp","Beef", "Ground", "Rib", "Roast", "Steak", "Variety", "Lamb", "Pork", "Cured", "Chop", "Shoulder", "Leg", "Leg or ham", "Ribs", "Rabbit", "Veal", "Deer or venison", "Chicken", "Duck", "Goose", "Turkey","Grain", "Rice"]
             }
         }
         
