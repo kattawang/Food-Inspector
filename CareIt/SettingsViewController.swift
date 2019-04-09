@@ -44,10 +44,10 @@ class SettingsViewController: UIViewController {
         
         //CHANGE THESE CONSTRAINTS
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
-        personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
-        personalInfoButton.heightAnchor.constraint(equalToConstant: view.frame.height/10).isActive = true
-        personalInfoButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
-        personalInfoButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+        personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        personalInfoButton.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -100).isActive = true
+        personalInfoButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        personalInfoButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     
     @objc func personalInfoTouchedUp(){

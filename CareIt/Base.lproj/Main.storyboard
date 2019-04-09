@@ -686,7 +686,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="Settings" id="2nX-GI-XXZ"/>
                     <connections>
-                        <segue destination="lYa-ku-x7r" kind="show" id="bfx-gl-GCF"/>
+                        <segue destination="lYa-ku-x7r" kind="show" identifier="toPersonalInfo" id="bfx-gl-GCF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh4-Wm-bTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -764,7 +764,7 @@
                                     <action selector="stepperTapped:" destination="TQp-ol-DgK" eventType="valueChanged" id="FB7-xN-c8n"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0 Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gO-IwO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gO-IwO">
                                 <rect key="frame" x="66" y="419" width="100" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="elb-Ct-aWU"/>
