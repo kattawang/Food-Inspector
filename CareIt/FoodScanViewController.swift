@@ -23,6 +23,8 @@ class FoodScanViewController: UIViewController {
     
     var food: Food?
     
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+    }
     func setupView(_ food: Food?) {
         self.food = food
         if let food = food {
