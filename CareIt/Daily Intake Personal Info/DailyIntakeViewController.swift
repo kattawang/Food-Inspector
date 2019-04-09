@@ -31,13 +31,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //gets the personal data from firebase
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        let databaseRef = Database.database().reference().child("users\(uid)")
-        
-        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
-            self.userInfo = snapshot.value as? [String: Any] ?? [:]
-        })
+
         
         //hides navigation bar
         navigationController?.navigationBar.isHidden = true
@@ -55,6 +49,11 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         recomCalories.text = "No Date Selected"
+        
+        
+
+        
+        
         
         var calcCalories = 0.0
         
@@ -112,6 +111,34 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
         navigationController?.navigationBar.isHidden = true
+        
+        
+        
+        //gets the personal data from firebase
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+        
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
+        
+        print("hello")
+        
+        if self.userInfo?["BirthDate"] != nil{
+            print(self.userInfo?["BirthDate"] as! String)
+        }
+        else{
+            print("nil")
+        }
+        if self.userInfo?["Weight"] != nil{
+            print(self.userInfo?["Weight"]!)
+        }
+        if self.userInfo?["Height"] != nil{
+            print(self.userInfo?["Height"]!)
+        }
+        
+        
+        
     }
     
     
