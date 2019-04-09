@@ -61,6 +61,7 @@ class FoodScanViewController: UIViewController {
         stepper.maximumValue = 100
         stepper.minimumValue = 1
     }
+
     
     func allergyView(_ allergies: [String]) {
         print("we in not ok")
