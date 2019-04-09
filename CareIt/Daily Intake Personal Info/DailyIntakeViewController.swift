@@ -93,7 +93,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         return day
     }
     
-    
+    @IBAction func backToDailyIntakeViewController(_ segue: UIStoryboardSegue) {
+    }
     
     //possibly get rid of this later, but calls when month is changed
     func didChangeMonth(monthIndex: Int, currYear: Int) {

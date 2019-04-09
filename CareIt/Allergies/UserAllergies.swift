@@ -12,12 +12,12 @@ import FirebaseDatabase
 
 class UserAllergies {
     
-    static func userIsAllergicTo(_ food: Food) -> [String]?{
+    static func userIsAllergicTo(_ food: Food) -> [String]{
         var userInfo: [String: Any]? = [:]
         var allergies: [String] = []
         
         //this gets the user's allergies from Firebase
-        guard let uid = Auth.auth().currentUser?.uid else {return nil}
+        guard let uid = Auth.auth().currentUser?.uid else {fatalError()}
         let databaseRef = Database.database().reference().child("users\(uid)")
         
         databaseRef.observeSingleEvent(of: .value, with: {snapshot in

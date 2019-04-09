@@ -16,7 +16,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     let databaseRequest = DatabaseRequests(barcodeString: "")
     var popupView: UIView?
-    var alreadyProcessed: Bool = false
+    public var alreadyProcessed: Bool = false
     
     override func viewDidLoad() {
         
@@ -67,10 +67,13 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     override func viewDidAppear(_ animated: Bool) {
         //in here should start a new request
         navigationController?.navigationBar.isHidden = true
+        alreadyProcessed = false
+        
     }
     
     func showAllergyAlertView(_ request: DatabaseRequests) {
         if let food = request.result {
+//            self.databaseRequest.currentlyProcessing = false
             foodRequest(food: food)
         } else {
             errorFoodRequest(error: request.error!)
@@ -78,7 +81,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        
         if databaseRequest.currentlyProcessing {
             return
         }
