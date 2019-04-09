@@ -82,7 +82,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         //            let weight = self.userInfo?["Weight"] as! Double
         //            let height = self.userInfo?["Height"] as! Double
         //
-        //            if let sex = self.userInfo?["Sex"]{
+        //            if let sex = self.userInfo?["Sex"]{ 
         //                if (sex as! String == "Female") {
         //                    calcCalories = 10*(weight/2.20462)
         //                    calcCalories += 6.25*(height/0.393701) - 5*age - 161
