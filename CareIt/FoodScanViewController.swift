@@ -23,6 +23,8 @@ class FoodScanViewController: UIViewController {
     
     var food: Food?
     
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+    }
     func setupView(_ food: Food?) {
         self.food = food
         if let food = food {
@@ -33,7 +35,9 @@ class FoodScanViewController: UIViewController {
             self.titleLabel.lineBreakMode = .byWordWrapping
             self.titleLabel.numberOfLines = 0
             self.titleLabel.text = sanitizeTitle(food.desc.name)            
-            if let allergies = UserAllergies.userIsAllergicTo(food) {
+            let allergies = UserAllergies.userIsAllergicTo(food)
+            
+            if allergies.count != 0 {
                 allergyView(allergies)
             }
             else {
@@ -50,17 +54,27 @@ class FoodScanViewController: UIViewController {
     }
     
     func allergyView(_ allergies: [String]) {
+        print("we in not ok")
         let alertLabel = UILabel()
         alertLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         alertLabel.text = "Unsafe to Eat ☠"
         alertLabel.translatesAutoresizingMaskIntoConstraints = false
+        alertLabel.centerXAnchor.constraint(equalTo: goodBadView.centerXAnchor).isActive = true
+        alertLabel.centerYAnchor.constraint(equalTo: goodBadView.topAnchor, constant: 10).isActive = true
+        view.backgroundColor = .red
     }
     
     func okayView() {
+        print("we in ok")
         let okayLabel = UILabel()
         okayLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         okayLabel.text = "Safe to Eat 🍴"
         okayLabel.translatesAutoresizingMaskIntoConstraints = false
+        goodBadView.backgroundColor = .clear
+        view.backgroundColor = UIColor(displayP3Red: 163/255, green: 252/255, blue: 90/255, alpha: 1)
+        goodBadView.addSubview(okayLabel)
+        okayLabel.centerXAnchor.constraint(equalTo: goodBadView.centerXAnchor).isActive = true
+        okayLabel.centerYAnchor.constraint(equalTo: goodBadView.centerYAnchor).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
