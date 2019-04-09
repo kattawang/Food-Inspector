@@ -24,7 +24,14 @@ class FoodScanViewController: UIViewController {
     var food: Food?
     
     @IBAction func stepperTapped(_ sender: UIStepper) {
+        if stepper.value == 1.0 {
+            servingsView.text = "1 Serving"
+        }
+        else {
+            servingsView.text = "\(Int(stepper.value)) Servings"
+        }
     }
+    
     func setupView(_ food: Food?) {
         self.food = food
         if let food = food {
@@ -51,7 +58,10 @@ class FoodScanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepper.maximumValue = 100
+        stepper.minimumValue = 1
     }
+
     
     func allergyView(_ allergies: [String]) {
         print("we in not ok")
