@@ -700,11 +700,25 @@
                     <view key="view" contentMode="scaleToFill" id="Z4H-5e-UiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeframe" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-ku-gCr">
+                                <rect key="frame" x="66" y="219.5" width="243" height="243"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="243" id="Smv-ey-p8f"/>
+                                    <constraint firstAttribute="width" constant="243" id="sdX-I7-dL9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.54750050298347952" blue="0.47592818201481868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NJf-ku-gCr" firstAttribute="centerX" secondItem="fwV-9b-vHJ" secondAttribute="centerX" id="1y0-Bl-B79"/>
+                            <constraint firstItem="NJf-ku-gCr" firstAttribute="centerY" secondItem="fwV-9b-vHJ" secondAttribute="centerY" id="5bL-s2-64h"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fwV-9b-vHJ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Barcode Scanner" image="Barcode" selectedImage="Barcode" springLoaded="YES" id="Q13-KY-JKH"/>
                     <connections>
+                        <outlet property="barcodeBrackets" destination="NJf-ku-gCr" id="zdo-mY-Gpz"/>
                         <segue destination="TQp-ol-DgK" kind="show" identifier="Food Scanned" id="HTB-ml-H5J"/>
                     </connections>
                 </viewController>
@@ -914,7 +928,8 @@
         <image name="Calendar" width="20" height="20"/>
         <image name="Profile" width="20" height="20"/>
         <image name="Settings" width="20" height="20"/>
-        <image name="imageView:ddE-Is-ONd:image" width="1024" height="1024">
+        <image name="barcodeframe" width="1000" height="1000"/>
+        <image name="imageView:ddE-Is-ONd:image" width="0.0" height="0.0">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGUFFYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEAcI
 ERYbHCIjKSw2PkJGSk1VJG51bGzUCQoLDA0ODxBWJGNsYXNzXE5TSW1hZ2VGbGFnc1ZOU1JlcHNXTlND

@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
     @IBOutlet weak var barcodeBrackets: UIImageView!
+    
     let barcodeFrameView = UIView()
     let captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
