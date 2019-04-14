@@ -22,7 +22,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var heightChoice: Int?
     var activityChoice: String?
     var birthDateChoice: String?
-    var allergies: [String]?
+    var allergies: [String] = []
     var userInfo: [String : Any] = [:]
     
     @IBOutlet weak var sex: UIPickerView!
@@ -61,9 +61,8 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         if let birthDateChoice = birthDateChoice{
             userObject["BirthDate"] = birthDateChoice
         }
-        if let allergies = allergies{
-            userObject["Allergies"] = allergies
-        }
+        //allergies array is not optional, always is at least an empty array
+        userObject["Allergies"] = allergies
         
         //uploads the users info, as a dictionary, to the database
         database.setValue(userObject)
@@ -141,7 +140,10 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         var sexRow: Int
         var activityRow: Int
         
-        if (defaults.integer(forKey: "defaultWeightPickerRow") != 0) {
+        if !userInfo.isEmpty && userInfo["Weight"] != nil{
+            weightRow = userInfo["Weight"] as! Int
+        }
+        else if (defaults.integer(forKey: "defaultWeightPickerRow") != 0) {
             weightRow = defaults.integer(forKey: "defaultWeightPickerRow")
         }
         else{
@@ -149,22 +151,37 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         }
         weightChoice = weightOptions[weightRow]
         
-        if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
+        print(userInfo["Height"] != nil)
+        
+        if !userInfo.isEmpty && userInfo["Height"] != nil{
+            heightRow = userInfo["Height"] as! Int
+            print("it worked")
+        }
+        else if (defaults.integer(forKey: "defaultHeightPickerRow") != 0) {
             heightRow = defaults.integer(forKey: "defaultHeightPickerRow")
+            print("second")
         }
         else{
             heightRow = 70
+            print("third")
         }
         heightChoice = heightOptions[heightRow]
         
-        if (defaults.integer(forKey: "defaultSexPickerRow") != 0) {
+        if !userInfo.isEmpty && userInfo["Sex"] != nil{
+            sexRow = userInfo["Sex"] as! String == "Male" ? 0 : 1
+        }
+        else if (defaults.integer(forKey: "defaultSexPickerRow") != 0) {
             sexRow = defaults.integer(forKey: "defaultSexPickerRow")
         }
         else{
             sexRow = 0
         }
         sexChoice = sexOptions[sexRow]
-        if (defaults.integer(forKey: "defaultActivityLevelPickerRow") != 0) {
+        
+        if !userInfo.isEmpty && userInfo["Activity"] != nil{
+            activityRow = userInfo["Activity"] as! String == "Low" ? 0 : userInfo["Activity"] as! String == "Medium" ? 1 : 2
+        }
+        else if (defaults.integer(forKey: "defaultActivityLevelPickerRow") != 0) {
             activityRow = defaults.integer(forKey: "defaultActivityLevelPickerRow")
         }
         else{
@@ -176,12 +193,27 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         height.selectRow(heightRow, inComponent: 0, animated: false)
         sex.selectRow(sexRow, inComponent: 0, animated: false)
         activityLevel.selectRow(activityRow, inComponent: 0, animated: false)
+        
+        if !userInfo.isEmpty{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MM yyyy"
+            birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
-        update()
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+            //update method must be called on completion
+            self.update()
+        })
         
         //calls the handler function whenever the birthday pickerview is updated
         birthday.addTarget(self, action: #selector(handler(sender:)), for: UIControlEvents.valueChanged)
@@ -193,12 +225,6 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             birthDateChoice = "\(day) \(month) \(year)"
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = view.backgroundColor
-        navigationController?.navigationBar.isHidden = false
-    }
-    
     // called whenever the birthdate pickerview is updated by the user
     @objc func handler(sender: UIDatePicker) {
         

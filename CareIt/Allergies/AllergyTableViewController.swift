@@ -55,7 +55,6 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         for i in 0 ..< tableView.visibleCells.count{
             
             if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
-                
                 selectedAllergies.append( (tableView.cellForRow(at: [0,i])?.textLabel?.text)!)
                 selectedAllergiesIndex.append(i)
             }
@@ -69,8 +68,15 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             }
         
         
+        //this adds the user's selected allergies to the the "allergies" variable in personal info view controller
+        //while testing for duplicates
         if let destination = segue.destination as? PersonalInfoViewController{
-            destination.allergies = selectedAllergies
+            for allergy in selectedAllergies{
+                if !destination.allergies.contains(allergy){
+                    destination.allergies.append(allergy)
+                }
+            }
+            
         }
     }
     }
