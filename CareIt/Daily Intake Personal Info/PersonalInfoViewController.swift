@@ -43,6 +43,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         defaults.set(x, forKey: "addAllergies")
         
+        addAllergyTextField.text = ""
         
         
         
