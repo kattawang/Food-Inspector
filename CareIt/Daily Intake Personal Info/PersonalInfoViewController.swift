@@ -24,12 +24,33 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var birthDateChoice: String?
     var allergies: [String] = []
     var userInfo: [String : Any] = [:]
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
     @IBOutlet weak var weight: UIPickerView!
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
+    @IBOutlet weak var addAllergyTextField: UITextField!
+    
+    
+    @IBAction func doneAllergyTextField(_ sender: Any)  {
+        
+        
+        var x: [String] = defaults.stringArray(forKey: "addAllergies") ?? [String]()
+        
+        x.append( addAllergyTextField.text!)
+        
+        defaults.set(x, forKey: "addAllergies")
+        
+        
+        
+        
+        
+        
+        
+    }
+    
     
     @IBAction func backToPersonalInfoViewController(_ segue: UIStoryboardSegue) {
     }
@@ -202,13 +223,16 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = view.backgroundColor
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let databaseRef = Database.database().reference().child("users\(uid)")
-
+        
         databaseRef.observeSingleEvent(of: .value, with: {snapshot in
             self.userInfo = snapshot.value as? [String: Any] ?? [:]
             //update method must be called on completion
@@ -245,18 +269,19 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         
+        
         navigationController?.navigationBar.isHidden = true
         
         if segue.identifier == "allergyCategories" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-                  myViewController.allAllergySection = false
+                myViewController.allAllergySection = false
                 myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
             }
         }
         else if segue.identifier == "allAllergies" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
-            myViewController.allAllergySection = true
-                myViewController.tableViewData = ["apple", "apricot", "avocado", "banana", "berry", "berrie", "fruit", "cherries", "date", "fig", "grape", "kiwi", "lemon", "lime", "orange", "mango", "nectarine", "melon", "papaya", "peach","pear","persimmon","plantain", "plum", "pomegranite", "prune", "rhubarb", "tangelo", "tangerine","amaranth", "arugula leaves", "artichoke", "asparagus", "bamboo shoots", "beans", "beets", "cowpeas or black-eyed peas","broccoli","broccoflower","Brussels sprouts","Cabbage","Capers","Carrots","Cassava or manioc", "Cauliflower", "Celery", "Chard", "Collard greens", "Corn", "Cucumber", "Cucumber, kim chee", "Dandelion greens", "Eggplant", "Endive or escarole", "Jimaca or yambean", "Kale", "Kohlrabi", "Leeks", "Lentils", "Lettuce", "Mushrooms", "Mustard greens", "Okra", "Onions", "Palm hearts", "Parsley", "Parsnips", "Peas", "Peppers", "Poi", "Potatoes", "Pumpkin", "Radicchio", "Radishes", "Rubataga", "Sauerkraut", "Seaweed", "Shallots", "Soybeans", "Tofu", "Soy products", "Spinach", "Squash", "Sweet potatoes", "Taro shoots", "Tomatillo", "Tomato", "Turnips", "Water chestnuts", "Watercress","Almonds", "Beechnuts", "Brazil nuts", "Breadfruits seeds", "Butternuts", "Cashews", "Coconut", "Chestnuts", "Flaxseeds or linseeds", "Gingko nuts", "Hazelnuts or filberts", "Hickorynuts", "Macadamis", "Mixed nuts", "Peanuts", "Pecans", "Pine nuts or pignolia", "Pistachios", "Pumpkin or squash seeds", "Sesame", "Soy nuts", "Sunflower seeds", "Trail mix", "Walnuts","Butter", "Imitation cheese", "Cottage Cheese", "Cream cheese", "Processed cheese", "Soy cheese", "Cream", "Sour Cream", "Imitation cream", "Fluid milk", "Canned", "Dried Milk", "Goat milk", "Eggnog", "Soy", "Yogurt", "Soy Yogurt","Fish", "Cod", "Eel", "Fish fillets", "Flounder", "Grouper", "Haddock", "Halibut", "Herring", "Jack mackerel", "Octopus", "Perch", "Pacific rockfish", "Salmon", "Sardines", "Scallops", "Snapper", "Squid", "Striped bass", "Surgeon", "Surimi", "Swordfish", "Tuna", "Yellowfin or ahi", "Yellowtail", "Shellfish", "Crab","Clams", "Crayfish", "Oysters", "Lobster", "Mussels", "Shrimp","Beef", "Ground", "Rib", "Roast", "Steak", "Variety", "Lamb", "Pork", "Cured", "Chop", "Shoulder", "Leg", "Leg or ham", "Ribs", "Rabbit", "Veal", "Deer or venison", "Chicken", "Duck", "Goose", "Turkey","Grain", "Rice"]
+                myViewController.allAllergySection = true
+                myViewController.tableViewData = defaults.stringArray(forKey: "addAllergies") ?? [String]()
             }
         }
         

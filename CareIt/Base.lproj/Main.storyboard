@@ -351,26 +351,42 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIF-j7-s0H">
-                                                <rect key="frame" x="27.5" y="947.5" width="320" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIF-j7-s0H">
+                                                <rect key="frame" x="27.5" y="947.5" width="275" height="30"/>
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="320" id="hw0-m1-65Z"/>
+                                                    <constraint firstAttribute="width" constant="275" id="N3O-LB-eJW"/>
                                                     <constraint firstAttribute="height" constant="30" id="uq7-5N-mAT"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLI-c5-VJl">
+                                                <rect key="frame" x="302.5" y="947" width="45" height="30"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="68n-tv-QlV"/>
+                                                    <constraint firstAttribute="height" constant="30" id="HcT-gp-PBO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="doneAllergyTextField:" destination="lYa-ku-x7r" eventType="touchUpInside" id="Nz9-kv-zRj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="DRf-bJ-MG7" firstAttribute="top" secondItem="L3n-Vs-uUB" secondAttribute="bottom" constant="8" id="1i6-bS-O1q"/>
                                             <constraint firstItem="o47-L6-bgP" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="2Cr-cP-beH"/>
+                                            <constraint firstAttribute="bottom" secondItem="MLI-c5-VJl" secondAttribute="bottom" constant="123" id="2KY-de-IUP"/>
                                             <constraint firstItem="3fu-5s-RF6" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="20" id="2i7-y9-qQB"/>
                                             <constraint firstAttribute="trailing" secondItem="AnI-ue-nfV" secondAttribute="trailing" constant="10" id="3uu-UW-QyF"/>
                                             <constraint firstItem="AnI-ue-nfV" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="4fJ-nA-z6c"/>
                                             <constraint firstItem="qsL-vA-3dF" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="6Ld-lM-8dx"/>
                                             <constraint firstAttribute="height" constant="1100" id="6qR-a6-bij"/>
+                                            <constraint firstItem="YIF-j7-s0H" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="27.5" id="6td-kc-5FH"/>
                                             <constraint firstItem="mdd-j5-mE3" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="590" id="8el-e0-gS2"/>
                                             <constraint firstItem="qsL-vA-3dF" firstAttribute="top" secondItem="mdd-j5-mE3" secondAttribute="bottom" constant="8" id="BC0-zv-XhW"/>
                                             <constraint firstItem="DRf-bJ-MG7" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="DxO-Bl-7dl"/>
@@ -384,6 +400,7 @@
                                             <constraint firstItem="gLz-QA-D0a" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="OXV-Hl-Jvr"/>
                                             <constraint firstItem="L3n-Vs-uUB" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="PlO-FF-6yO"/>
                                             <constraint firstItem="mdd-j5-mE3" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="QLD-eB-Ig6"/>
+                                            <constraint firstAttribute="trailing" secondItem="MLI-c5-VJl" secondAttribute="trailing" constant="27.5" id="XLu-65-QUD"/>
                                             <constraint firstItem="123-kZ-Dz6" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="XnO-NM-aHD"/>
                                             <constraint firstItem="GG5-ai-d8g" firstAttribute="top" secondItem="YIF-j7-s0H" secondAttribute="bottom" constant="25.5" id="aqa-JY-khB"/>
                                             <constraint firstItem="AnI-ue-nfV" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="10" id="csN-lz-uBA"/>
@@ -392,11 +409,11 @@
                                             <constraint firstItem="Mcv-HL-CRf" firstAttribute="top" secondItem="o47-L6-bgP" secondAttribute="bottom" constant="8" id="gla-P4-NF2"/>
                                             <constraint firstItem="Zdp-3M-pZL" firstAttribute="leading" secondItem="oYO-S6-Dja" secondAttribute="leading" constant="40" id="inh-PH-opb"/>
                                             <constraint firstItem="3fu-5s-RF6" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="jJd-4a-z5e"/>
-                                            <constraint firstItem="YIF-j7-s0H" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="jSS-w5-wrN"/>
                                             <constraint firstItem="Mcv-HL-CRf" firstAttribute="centerX" secondItem="oYO-S6-Dja" secondAttribute="centerX" id="lLZ-qm-kJs"/>
                                             <constraint firstAttribute="bottom" secondItem="GG5-ai-d8g" secondAttribute="bottom" constant="50" id="ltw-bc-ESI"/>
                                             <constraint firstItem="L3n-Vs-uUB" firstAttribute="top" secondItem="oYO-S6-Dja" secondAttribute="top" constant="429" id="oFV-I2-eWX"/>
                                             <constraint firstItem="AnI-ue-nfV" firstAttribute="top" secondItem="3fu-5s-RF6" secondAttribute="bottom" constant="7.5" id="s5e-XK-sCh"/>
+                                            <constraint firstItem="MLI-c5-VJl" firstAttribute="leading" secondItem="YIF-j7-s0H" secondAttribute="trailing" id="xgW-V3-Adp"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -422,6 +439,7 @@
                     <size key="freeformSize" width="375" height="1100"/>
                     <connections>
                         <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
+                        <outlet property="addAllergyTextField" destination="YIF-j7-s0H" id="D8f-9Y-HWL"/>
                         <outlet property="birthday" destination="cKH-2O-IMG" id="Z1F-gP-PXH"/>
                         <outlet property="height" destination="qsL-vA-3dF" id="fTg-N7-z2Z"/>
                         <outlet property="sex" destination="Mcv-HL-CRf" id="eX1-M1-EDV"/>
