@@ -441,6 +441,7 @@
                         <outlet property="activityLevel" destination="gLz-QA-D0a" id="DO7-1F-D2h"/>
                         <outlet property="addAllergyTextField" destination="YIF-j7-s0H" id="D8f-9Y-HWL"/>
                         <outlet property="birthday" destination="cKH-2O-IMG" id="Z1F-gP-PXH"/>
+                        <outlet property="doneAllergyTextFieldOutlet" destination="MLI-c5-VJl" id="GlB-Tc-R4y"/>
                         <outlet property="height" destination="qsL-vA-3dF" id="fTg-N7-z2Z"/>
                         <outlet property="sex" destination="Mcv-HL-CRf" id="eX1-M1-EDV"/>
                         <outlet property="weight" destination="DRf-bJ-MG7" id="GU4-pl-Zk0"/>

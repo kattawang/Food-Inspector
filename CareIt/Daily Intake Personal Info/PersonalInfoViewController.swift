@@ -32,10 +32,17 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var height: UIPickerView!
     @IBOutlet weak var activityLevel: UIPickerView!
     @IBOutlet weak var addAllergyTextField: UITextField!
+    @IBOutlet weak var doneAllergyTextFieldOutlet: UIButton!
+    
+   
+        
+    
     
     
     @IBAction func doneAllergyTextField(_ sender: Any)  {
         
+        if addAllergyTextField.hasText{
+            
         
         var x: [String] = defaults.stringArray(forKey: "addAllergies") ?? [String]()
         
@@ -46,11 +53,13 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         addAllergyTextField.text = ""
         
         
+        }
         
-        
-        
+     
         
     }
+  
+    
     
     
     @IBAction func backToPersonalInfoViewController(_ segue: UIStoryboardSegue) {
@@ -219,7 +228,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         if !userInfo.isEmpty{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MM yyyy"
-            birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
+            //birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
         }
     }
     
@@ -249,6 +258,8 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         if let day = components.day, let month = components.month, let year = components.year {
             birthDateChoice = "\(day) \(month) \(year)"
         }
+        
+   
     }
     // called whenever the birthdate pickerview is updated by the user
     @objc func handler(sender: UIDatePicker) {
