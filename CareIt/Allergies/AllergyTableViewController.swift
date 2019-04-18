@@ -16,15 +16,17 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     var resultSearchController = UISearchController()
     
     
-    @IBOutlet weak var selectionButton: UIBarButtonItem!
-    
-    
+ 
     
     
     var selectedAllergies : [String] = []
     let defaults = UserDefaults.standard
     var selectedAllergiesIndex : [Int] = []
     var allAllergySection = Bool()
+    var selectedAllergyArray : NSMutableArray = []
+  
+    
+   
     
     
     func previouslyselected(){
@@ -94,46 +96,9 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         
     }
     
-    @IBAction func selectAllAllergies(_ sender: Any) {
-        
-        
-        if (areCellsSelected() == false){
-            
-            for i in 0 ..< tableView.numberOfRows(inSection: 0){
-                
-                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
-                
-                
-            }
-            
-        }
-            
-        else {
-            for i in 0 ..< tableView.numberOfRows(inSection: 0){
-                
-                
-                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.none
-                
-            }
     
-        }
-        
-        areCellsSelected()
-    }
     
-    func areCellsSelected() -> Bool {
-        for i in 0 ..< tableView.numberOfRows(inSection: 0){
-            
-            if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
-                
-                self.selectionButton.title = "Deselect All"
-                return true
-                
-            }
-        }
-        self.selectionButton.title = "Select All"
-        return false
-    }
+  
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -155,7 +120,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             
         }
         
-        areCellsSelected()
+      
     }
     
     override func viewDidLoad() {
@@ -183,7 +148,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         
         previouslyselected()
         
-        areCellsSelected()
+     
     }
     
     override func didReceiveMemoryWarning() {
@@ -214,7 +179,10 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 3
         
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+      
         
         if (resultSearchController.isActive) {
             cell.textLabel?.text = filteredTableData[indexPath.row]
@@ -246,7 +214,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if allAllergySection == true{
             self.tableViewData.remove(at: indexPath.row)
-            print(indexPath.row)
+       
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

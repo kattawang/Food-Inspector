@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -477,28 +476,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title=" Allergies" id="U6v-jv-7vN">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Back" id="sV7-XB-z5R">
-                                <connections>
-                                    <action selector="BackButtonTouchedUp:" destination="9Ht-Yd-HW7" id="jDK-tF-umC"/>
-                                    <segue destination="eHG-QB-1tx" kind="unwind" unwindAction="backToPersonalInfoViewController:" id="J3R-md-dm6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Select All" id="Yfd-oD-zGD">
-                                <connections>
-                                    <action selector="selectAllAllergies:" destination="9Ht-Yd-HW7" id="9cg-bV-8Gm"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="sV7-XB-z5R">
+                            <connections>
+                                <action selector="BackButtonTouchedUp:" destination="9Ht-Yd-HW7" id="jDK-tF-umC"/>
+                                <segue destination="eHG-QB-1tx" kind="unwind" unwindAction="backToPersonalInfoViewController:" id="J3R-md-dm6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Afp-ha-V3V">
                             <connections>
                                 <segue destination="eHG-QB-1tx" kind="unwind" unwindAction="backToPersonalInfoViewController:" id="TxR-uQ-o8v"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="selectionButton" destination="Yfd-oD-zGD" id="KY7-F5-9Tb"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQm-Mn-9q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eHG-QB-1tx" userLabel="Exit" sceneMemberID="exit"/>
