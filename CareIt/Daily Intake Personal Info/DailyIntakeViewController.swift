@@ -59,52 +59,56 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         
         //BirthDate is day month year separated by spaces
-        print("hello")
         
         if self.userInfo?["BirthDate"] != nil{
+            //prints birthdate
             print(self.userInfo?["BirthDate"] as! String)
+            
+            //sets birthdate as
+            var birthdate = self.userInfo?["BirthDate"] as! String
+            let age = Double(year) - Double(birthdate.split(separator: " ")[2])!
+            
+            
+            let weight = self.userInfo?["Weight"] as! Double
+            let height = self.userInfo?["Height"] as! Double
+            
+            if let sex = self.userInfo?["Sex"]{
+                if (sex as! String == "Female") {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age - 161
+                }
+                else {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age + 5
+                }
+            }
+            
+            if let activity = self.userInfo?["Activity"]{
+                if (activity as! String == "Low") {
+                    calcCalories *= 1.2
+                }
+                else if (activity as! String == "Medium") {
+                    calcCalories *= 1.3
+                }
+                else {
+                    calcCalories *= 1.4
+                }
+            }
+        
+            
+            recomCalories.text = "Calories Remaining: \(NSString(format:"%.0f", calcCalories))"
+            
         }
+            
         else{
             print("nil")
         }
-        if self.userInfo?["Weight"] != nil{
-            print(self.userInfo?["Weight"] as! String)
-        }
-        if self.userInfo?["Height"] != nil{
-            print(self.userInfo?["Height"] as! String)
-        }
+
         
-        //
-        //        if var birthdate = self.userInfo?["BirthDate"]{
-        //            birthdate = self.userInfo?["BirthDate"] as! String
-        //            let age = Double(year) - Double(birthdate.split(separator: " ")[2])!
-        //
-        //            let weight = self.userInfo?["Weight"] as! Double
-        //            let height = self.userInfo?["Height"] as! Double
-        //
-        //            if let sex = self.userInfo?["Sex"]{ 
-        //                if (sex as! String == "Female") {
-        //                    calcCalories = 10*(weight/2.20462)
-        //                    calcCalories += 6.25*(height/0.393701) - 5*age - 161
-        //                }
-        //                else {
-        //                    calcCalories = 10*(weight/2.20462)
-        //                    calcCalories += 6.25*(height/0.393701) - 5*age + 5
-        //                }
-        //            }
-        //
-        //            if let activity = self.userInfo?["Activity"]{
-        //                if (activity as! String == "Low") {
-        //                    calcCalories *= 1.2
-        //                }
-        //                else if (activity as! String == "Medium") {
-        //                    calcCalories *= 1.3
-        //                }
-        //                else {
-        //                    calcCalories *= 1.4
-        //                }
-        //            }
-        //        }
+            
+            
+            
+        
     }
     
     //hides navigation bar
@@ -121,21 +125,54 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         databaseRef.observeSingleEvent(of: .value, with: {snapshot in
             self.userInfo = snapshot.value as? [String: Any] ?? [:]
         })
-        
-        print("hello")
+
+        var calcCalories = 0.0
         
         if self.userInfo?["BirthDate"] != nil{
+            //prints birthdate
             print(self.userInfo?["BirthDate"] as! String)
+            
+            //sets birthdate as
+            var birthdate = self.userInfo?["BirthDate"] as! String
+            let age = Double(year) - Double(birthdate.split(separator: " ")[2])!
+            
+            
+            let weight = self.userInfo?["Weight"] as! Double
+            let height = self.userInfo?["Height"] as! Double
+            
+            if let sex = self.userInfo?["Sex"]{
+                if (sex as! String == "Female") {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age - 161
+                }
+                else {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age + 5
+                }
+            }
+            
+            if let activity = self.userInfo?["Activity"]{
+                if (activity as! String == "Low") {
+                    calcCalories *= 1.2
+                }
+                else if (activity as! String == "Medium") {
+                    calcCalories *= 1.3
+                }
+                else {
+                    calcCalories *= 1.4
+                }
+            }
+            
+            print(calcCalories)
+            
+            recomCalories.text = "Calories Remaining: \(NSString(format:"%.0f", calcCalories))"
+            
         }
+            
         else{
             print("nil")
         }
-        if self.userInfo?["Weight"] != nil{
-            print(self.userInfo?["Weight"]!)
-        }
-        if self.userInfo?["Height"] != nil{
-            print(self.userInfo?["Height"]!)
-        }
+        
         
         
         
