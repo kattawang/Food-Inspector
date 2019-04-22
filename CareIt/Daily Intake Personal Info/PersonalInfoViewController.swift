@@ -294,6 +294,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
                 myViewController.allAllergySection = true
                 myViewController.tableViewData = defaults.stringArray(forKey: "addAllergies") ?? [String]()
+            
             }
         }
         
