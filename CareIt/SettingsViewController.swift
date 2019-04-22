@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
         logoutButton.setTitleColor(UIColor.black, for: .normal)
         logoutButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
-        logoutButton.backgroundColor=UIColor(red: 0/255, green: 193/255, blue: 83/255, alpha: 1.0)
+        logoutButton.backgroundColor=UIColor(red: 211.65/255, green: 0/255, blue: 0/255, alpha: 1.0)
         logoutButton.setTitleColor(UIColor.white, for: .normal)
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController {
         personalInfoButton.setTitleColor(UIColor.black, for: .normal)
         personalInfoButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
-        personalInfoButton.backgroundColor=UIColor(red: 0/255, green: 193/255, blue: 83/255, alpha: 1.0)
+        personalInfoButton.backgroundColor=UIColor(red: 211.65/255, green: 0/255, blue: 0/255, alpha: 1.0)
         personalInfoButton.setTitleColor(UIColor.white, for: .normal)
         
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
