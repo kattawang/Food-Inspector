@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
+import FirebaseDatabase 
 
 class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var Calendar: UICollectionView!
