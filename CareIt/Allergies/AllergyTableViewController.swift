@@ -15,19 +15,72 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
     
-    @IBOutlet weak var selectionButton: UIBarButtonItem!
     
-    var areAllCellsSelected = false;
+ 
+    
+    
     var selectedAllergies : [String] = []
+    let defaults = UserDefaults.standard
+    var selectedAllergiesIndex : [Int] = []
+    var allAllergySection = Bool()
+    var selectedAllergyArray : NSMutableArray = []
+  
+    
+   
+    
+    
+    func previouslyselected(){
+        print("boi")
+        if allAllergySection == false{
+            let savedArrayIndexes = defaults.object(forKey: "SavedAllergiesIndex") as? [Int] ?? [Int]()
+            
+            for i in savedArrayIndexes{
+                
+                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        }
+        else{
+            let savedArrayIndexes = defaults.object(forKey: "SavedAllAllergiesIndex") as? [Int] ?? [Int]()
+            
+            for i in savedArrayIndexes{
+                
+                
+                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        }
+    }
+    
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        for i in 0 ..< tableView.visibleCells.count{
+        for i in 0 ..< tableView.numberOfRows(inSection: 0){
             
             if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
                 selectedAllergies.append( (tableView.cellForRow(at: [0,i])?.textLabel?.text)!)
+                selectedAllergiesIndex.append(i)
+            }
+            if allAllergySection == false{
+                defaults.set(selectedAllergiesIndex, forKey: "SavedAllergiesIndex")
+            }
+            else{
+                defaults.set(selectedAllergiesIndex, forKey: "SavedAllAllergiesIndex")
+                
+                
             }
         }
+        if allAllergySection == true{
+            
+            var x = PersonalInfoViewController()
+            
+            x.defaults.removeObject(forKey: "addAllergies")
+            
+            x.defaults.set(tableViewData, forKey: "addAllergies")
+           
+        }
+        
         
         //this adds the user's selected allergies to the the "allergies" variable in personal info view controller
         //while testing for duplicates
@@ -35,65 +88,45 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             for allergy in selectedAllergies{
                 if !destination.allergies.contains(allergy){
                     destination.allergies.append(allergy)
+                    
                 }
             }
             
+            destination.navigationController?.navigationBar.isHidden = false
         }
+        
     }
     
-    @IBAction func selectAllAllergies(_ sender: Any) {
-
-        if (areAllCellsSelected == false){
-            for i in 0 ..< tableView.visibleCells.count{
-                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
-                areAllCellsSelected = true
-                
-                self.selectionButton.title = "Deselect All"
-            }
-        }
-            
-        else {
-            for i in 0 ..< tableView.visibleCells.count{
-                tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.none
-                areAllCellsSelected = false
-                
-                self.selectionButton.title = "Select All"
-            }
-        }
-    }
     
-    func areCellsSelected() -> Bool {
-        for i in 0 ..< tableView.visibleCells.count{
-            if tableView.cellForRow(at: [0,i])?.accessoryType == UITableViewCellAccessoryType.checkmark{
-                return true
-            }
-        }
-        return false
-    }
+    
+  
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         
         if tableView.cellForRow(at: indexPath)?.accessoryType != UITableViewCellAccessoryType.checkmark{
             
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            areAllCellsSelected = areCellsSelected()
             
-            if ( areAllCellsSelected == true){
-                
-                self.selectionButton.title = "Deselect All"
-            }
+            
+            
+            
+            
+            
         }
             
         else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
             
-            self.selectionButton.title = "Select All"
-            areAllCellsSelected = false
+            
+            
         }
+        
+      
     }
     
     override func viewDidLoad() {
+        
+        
         
         super.viewDidLoad()
         
@@ -106,11 +139,17 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             
             tableView.tableHeaderView = controller.searchBar
             
+            
+            
             return controller
         })()
         
         // Reload the table
         tableView.reloadData()
+        
+        previouslyselected()
+        
+     
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,7 +179,11 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 3
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+      
         
         if (resultSearchController.isActive) {
             cell.textLabel?.text = filteredTableData[indexPath.row]
@@ -149,7 +192,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         }
         else {
             cell.textLabel?.text = tableViewData[indexPath.row]
-            print(tableViewData[indexPath.row])
+            
             return cell
         }
     }
@@ -161,11 +204,21 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         let array = (tableViewData as NSArray).filtered(using: searchPredicate)
         filteredTableData = array as! [String]
         
+        
+        
+        
         self.tableView.reloadData()
+        
+        
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if allAllergySection == true{
+            self.tableViewData.remove(at: indexPath.row)
+       
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
-    
-   
 }
 

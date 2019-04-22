@@ -15,7 +15,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     let barcodeFrameView = UIView()
     let captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    let databaseRequest = DatabaseRequests(barcodeString: "")
+    var databaseRequest = DatabaseRequests(barcodeString: "")
     var popupView: UIView?
     public var alreadyProcessed: Bool = false
     
@@ -116,7 +116,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             loadingText.textColor = .white
             
             if let barcodeString = metadataObj.stringValue  {
-                databaseRequest.barcodeString = String(barcodeString[barcodeString.index(after: barcodeString.startIndex)..<barcodeString.endIndex])
+                databaseRequest = DatabaseRequests(barcodeString: String(barcodeString[barcodeString.index(after: barcodeString.startIndex)..<barcodeString.endIndex]))
                 databaseRequest.request(beforeLoading: {
                     self.barcodeFrameView.frame = .zero
                     self.view.addSubview(loadingView)
@@ -203,6 +203,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segue = segue.destination as! FoodScanViewController
+        segue.navigationController?.navigationBar.isHidden = false
         segue.setupView(self.databaseRequest.result)
     }
     
