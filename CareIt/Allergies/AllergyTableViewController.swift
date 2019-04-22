@@ -38,6 +38,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
                 }
             }
             
+            destination.navigationController?.navigationBar.isHidden = false
         }
     }
     
