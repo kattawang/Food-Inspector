@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @IBOutlet weak var barcodeBrackets: UIImageView!
     
     let barcodeFrameView = UIView()
     let captureSession = AVCaptureSession()
@@ -62,6 +63,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         barcodeFrameView.layer.borderWidth = 2
         view.addSubview(barcodeFrameView)
         view.bringSubview(toFront: barcodeFrameView)
+        view.bringSubview(toFront: barcodeBrackets)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +105,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             barcodeFrameView.frame = barcodeObject!.bounds
             
+            barcodeBrackets.alpha = 0
+            
             let loadingView = UIView()
             loadingView.backgroundColor = .black
             loadingView.alpha = 0.5
@@ -131,6 +135,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                     
                     },
                                         afterLoading: {
+                                            self.barcodeBrackets.alpha = 1
                                             loadingView.removeFromSuperview()
                                             self.showAllergyAlertView(self.databaseRequest)
                                             self.alreadyProcessed = true
