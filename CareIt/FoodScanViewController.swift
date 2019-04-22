@@ -88,7 +88,11 @@ class FoodScanViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = false
+        if navigationController?.navigationBar.isHidden == true{
+            navigationController?.navigationBar.isHidden = false
+        }
+        
+        self.doneButton.titleLabel?.text = "Eat"
     }
     
     

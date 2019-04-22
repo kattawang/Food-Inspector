@@ -203,6 +203,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let segue = segue.destination as! FoodScanViewController
+        segue.navigationController?.navigationBar.isHidden = false
         segue.setupView(self.databaseRequest.result)
     }
     
