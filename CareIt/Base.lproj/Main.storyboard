@@ -607,15 +607,15 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
                                 <rect key="frame" x="19" y="180.5" width="337" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="09D-Td-wGC"/>
                                     <constraint firstAttribute="height" constant="250" id="KlV-sf-Iyy"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="8" id="4WN-gs-ZYU">
-                                    <size key="itemSize" width="42" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="8" id="4WN-gs-ZYU">
+                                    <size key="itemSize" width="40" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -686,9 +686,9 @@
                             <constraint firstItem="okU-dJ-ZvR" firstAttribute="centerX" secondItem="3dS-CW-mlP" secondAttribute="centerX" id="M4A-h1-fAy"/>
                             <constraint firstAttribute="trailing" secondItem="y0t-1b-nI6" secondAttribute="trailing" id="Pnz-YC-DQl"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="top" secondItem="0Cv-WQ-GGj" secondAttribute="bottom" constant="20" id="T8k-Nn-j9H"/>
-                            <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="okU-dJ-ZvR" secondAttribute="trailing" constant="19" id="ZYj-Hf-sG8"/>
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="a4s-c6-Mk5"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="auy-YD-jJy"/>
+                            <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="okU-dJ-ZvR" secondAttribute="trailing" constant="19" id="cVd-mo-mi4"/>
                             <constraint firstItem="0Cv-WQ-GGj" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="17" id="daY-DL-Q0S"/>
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="51" id="fCg-N4-tWn"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="l0W-rs-IcE" secondAttribute="trailing" constant="19" id="gay-0G-Q6k"/>
@@ -1021,7 +1021,7 @@
         <image name="roundedBarcodeFrame" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="puz-H6-blj"/>
+        <segue reference="Wv6-T5-sVV"/>
         <segue reference="At2-JN-b2R"/>
         <segue reference="bfx-gl-GCF"/>
     </inferredMetricsTieBreakers>
