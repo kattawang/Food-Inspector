@@ -459,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="3852" y="-340"/>
         </scene>
-        <!-- Allergies-->
+        <!--Allergies-->
         <scene sceneID="W5Q-0L-VUd">
             <objects>
-                <tableViewController modalPresentationStyle="overFullScreen" id="9Ht-Yd-HW7" customClass="AllergyTableViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="overCurrentContext" id="9Ht-Yd-HW7" userLabel="Allergies" customClass="AllergyTableViewController" customModule="CareIt" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="K7S-1m-yPg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -495,6 +495,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <value key="contentSizeForViewInPopover" type="size" width="1000" height="1000"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQm-Mn-9q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eHG-QB-1tx" userLabel="Exit" sceneMemberID="exit"/>
@@ -1019,7 +1020,7 @@
         <image name="roundedBarcodeFrame" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wv6-T5-sVV"/>
+        <segue reference="puz-H6-blj"/>
         <segue reference="At2-JN-b2R"/>
         <segue reference="bfx-gl-GCF"/>
     </inferredMetricsTieBreakers>
