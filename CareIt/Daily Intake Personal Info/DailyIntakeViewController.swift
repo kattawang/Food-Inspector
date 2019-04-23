@@ -11,6 +11,13 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
+let date = Date()
+let calendar = Calendar.current
+
+var month = calendar.component(.month, from: date)
+var year = calendar.component(.year, from: date)
+var day = calendar.component(.day, from: date)
+
 class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var Calendar: UICollectionView!
     
@@ -19,6 +26,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var recomCalories: UILabel!
     
     @IBOutlet weak var calDescLabel: UILabel!
+    
+
     
     let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var daysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
@@ -52,6 +61,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         recomCalories.text = "No Date Selected"
         
+        print("\(month) \(day) \(year)")
         
     }
     
@@ -254,7 +264,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         calculateCalories()
         
-        
+//        if 
         //do display nutrient info stuff here
         
     }

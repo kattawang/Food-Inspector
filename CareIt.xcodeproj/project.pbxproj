@@ -29,7 +29,6 @@
 		B6EC595E223C0B74006BFE17 /* AllergyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC595D223C0B74006BFE17 /* AllergyTableViewController.swift */; };
 		EB4F660721E9220F004C3444 /* AddExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F660621E9220F004C3444 /* AddExtensions.swift */; };
 		EBD794CC2236C0CF0065F081 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD794CB2236C0CF0065F081 /* DateCollectionViewCell.swift */; };
-		EBD794CE2236C68E0065F081 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD794CD2236C68E0065F081 /* CalendarVars.swift */; };
 		EBE436DA2224786000910145 /* DailyIntakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE436D92224786000910145 /* DailyIntakeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +78,6 @@
 		DF6E4489360BE2AB34FE14A1 /* Pods_CareIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F660621E9220F004C3444 /* AddExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddExtensions.swift; path = ../AddExtensions.swift; sourceTree = "<group>"; };
 		EBD794CB2236C0CF0065F081 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
-		EBD794CD2236C68E0065F081 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
 		EBE436D92224786000910145 /* DailyIntakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyIntakeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,9 +181,8 @@
 		EBA677372226DF2C00FEBCBA /* Daily Intake Personal Info */ = {
 			isa = PBXGroup;
 			children = (
-				EBD794CD2236C68E0065F081 /* CalendarVars.swift */,
-				43385F792200CF8F008F5F13 /* PersonalInfoViewController.swift */,
 				EBE436D92224786000910145 /* DailyIntakeViewController.swift */,
+				43385F792200CF8F008F5F13 /* PersonalInfoViewController.swift */,
 				EBD794CB2236C0CF0065F081 /* DateCollectionViewCell.swift */,
 			);
 			path = "Daily Intake Personal Info";
@@ -404,7 +401,6 @@
 				3D38C75321EFA97D0027A3B1 /* DatabaseRequests.swift in Sources */,
 				4802AD3121DFDA100067E2DD /* SignUpViewController.swift in Sources */,
 				3D8A76AA21F16B960002724F /* NDBDatabaseRequest.swift in Sources */,
-				EBD794CE2236C68E0065F081 /* CalendarVars.swift in Sources */,
 				3D5618DE224169B900FD315B /* FoodScanViewController.swift in Sources */,
 				4855D5732240086800A4DD7F /* AllergyManipulation.swift in Sources */,
 			);
