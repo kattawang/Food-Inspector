@@ -68,6 +68,7 @@ class SettingsViewController: UIViewController {
         let logoImageView = UIImageView(frame: CGRect(x: view.frame.width/8, y: view.frame.height/8, width: 3*view.frame.width/4, height: 3*view.frame.width/4))
         logoImageView.image = UIImage(named: "red-apple.png")
         self.view.addSubview(logoImageView)
+        
     }
     
     @objc func personalInfoTouchedUp(){
