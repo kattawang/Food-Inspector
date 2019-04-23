@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var Calendar: UICollectionView!
@@ -30,6 +31,9 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
+        //hides navigation bar
         navigationController?.navigationBar.isHidden = true
         
         //sets the month text label to current month
@@ -46,46 +50,86 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         recomCalories.text = "No Date Selected"
         
-        var calcCalories = 0.0
         
-        //To do: ask jason about getting calories
-//        let ageComponents = calendar.dateComponents([.year], from: self.userInfo["birthday"], to: calendar.cur)
-//        calendar.dateComponents
-//        let age = ageComponents.year!
-//
-//        let age = year -
-//
-//        let weight = self.userInfo?["Weight"]
-//        let height = self.userInfo?["Height"]
-//        let age = self.userInfo?["BirthDate"] // day month year separated by spaces
-//        
-//        if let sex = self.userInfo?["Sex"]{
-//            if (sex as! String == "Female") {
-//                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age - 161
-//            }
-//            else {
-//                calcCalories = 10*(weight/2.20462) + 6.25*(height/0.393701) - 5*age + 5
-//            }
-//        }
-//
-//        if let activity = self.userInfo?["Activity"]{
-//            if (activity as! String == "Low") {
-//                calcCalories *= 1.2
-//            }
-//            else if (activity as! String == "Medium") {
-//                calcCalories *= 1.3
-//            }
-//            else {
-//                calcCalories *= 1.4
-//            }
-//        }
     }
     
     //hides navigation bar
     override func viewDidAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = view.backgroundColor
         navigationController?.navigationBar.isHidden = true
+        
+        
+        
+        //gets the personal data from firebase
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+        
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            self.userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
+
+        
+        calculateCalories()
+        
+        
+        
     }
+    
+    
+    
+    func calculateCalories(){
+        
+        var calcCalories = 0.0
+        
+        if self.userInfo?["BirthDate"] != nil{
+            //prints birthdate
+            print(self.userInfo?["BirthDate"] as! String)
+            
+            //sets birthdate as
+            var birthdate = self.userInfo?["BirthDate"] as! String
+            let age = Double(year) - Double(birthdate.split(separator: " ")[2])!
+            
+            
+            let weight = self.userInfo?["Weight"] as! Double
+            let height = self.userInfo?["Height"] as! Double
+            
+            if let sex = self.userInfo?["Sex"]{
+                if (sex as! String == "Female") {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age - 161
+                }
+                else {
+                    calcCalories = 10*(weight/2.20462)
+                    calcCalories += 6.25*(height/0.393701) - 5*age + 5
+                }
+            }
+            
+            if let activity = self.userInfo?["Activity"]{
+                if (activity as! String == "Low") {
+                    calcCalories *= 1.2
+                }
+                else if (activity as! String == "Medium") {
+                    calcCalories *= 1.3
+                }
+                else {
+                    calcCalories *= 1.4
+                }
+            }
+            
+            print(calcCalories)
+            
+            recomCalories.text = "Calories Remaining: \(NSString(format:"%.0f", calcCalories))"
+            
+        }
+            
+        else{
+            print("nil")
+        }
+    }
+    
+    
+    
+    
     
     
     //empty spaces before the first day of the month
@@ -185,18 +229,6 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         
-        
-        //show weekdays in different color in a disgusting way
-        //        switch indexPath.row{
-        //        case 5, 6, 12, 13, 19, 20, 26, 27, 33, 34:
-        //            if Int(cell.DateLabel.text!)! > 0 {
-        //                cell.DateLabel.textColor = UIColor.lightGray
-        //            }
-        //        default:
-        //            break
-        //        }
-        
-        
         //current date marked in red
         //        if month == Months[calendar.component(.month, from: date)-1] && year == calendar.component(.year, from: date) && indexPath.row + 1 + numberOfEmptyBox == day{
         //            cell.backgroundColor = UIColor.red
@@ -217,6 +249,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         //            cell?.backgroundColor = UIColor.clear
         //        }
         cell?.backgroundColor=UIColor.red
+        
+        calculateCalories()
         
         
         //do display nutrient info stuff here

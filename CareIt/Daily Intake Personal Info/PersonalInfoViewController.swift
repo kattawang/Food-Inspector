@@ -228,7 +228,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         if !userInfo.isEmpty{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MM yyyy"
-            //birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
+            birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
         }
     }
     
