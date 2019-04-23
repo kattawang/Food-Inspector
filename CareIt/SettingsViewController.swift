@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     
     var logoutButton = UIButton()
     var personalInfoButton = UIButton()
+    var warningButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,28 @@ class SettingsViewController: UIViewController {
         logoutButton.addTarget(self, action: #selector(logoutTouchedUp), for: .touchUpInside)
         logoutButton.backgroundColor=UIColor(red: 211.65/255, green: 0/255, blue: 0/255, alpha: 1.0)
         logoutButton.setTitleColor(UIColor.white, for: .normal)
+        logoutButton.layer.cornerRadius = 20
         
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        logoutButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        logoutButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.size.height-180)/8).isActive = true
+        logoutButton.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
         logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
+        view.addSubview(warningButton)
+        warningButton.setTitle("User Warning", for: .normal)
+        warningButton.setTitleColor(UIColor.black, for: .normal)
+        warningButton.titleLabel?.font = UIFont(name: "Avenir Medium", size: 29)
+        warningButton.addTarget(self, action: #selector(warningTouchedUp), for: .touchUpInside)
+        warningButton.backgroundColor=UIColor(red: 211.65/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        warningButton.setTitleColor(UIColor.white, for: .normal)
+        warningButton.layer.cornerRadius = 20
+        
+        warningButton.translatesAutoresizingMaskIntoConstraints = false
+        warningButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        warningButton.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -(view.frame.size.height-180)/8).isActive = true
+        warningButton.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
+        warningButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         view.addSubview(personalInfoButton)
         personalInfoButton.setTitle("Personal Info", for: .normal)
@@ -41,12 +57,18 @@ class SettingsViewController: UIViewController {
         personalInfoButton.addTarget(self, action: #selector(personalInfoTouchedUp), for: .touchUpInside)
         personalInfoButton.backgroundColor=UIColor(red: 211.65/255, green: 0/255, blue: 0/255, alpha: 1.0)
         personalInfoButton.setTitleColor(UIColor.white, for: .normal)
+        personalInfoButton.layer.cornerRadius = 20
         
         personalInfoButton.translatesAutoresizingMaskIntoConstraints = false
         personalInfoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        personalInfoButton.bottomAnchor.constraint(equalTo: logoutButton.topAnchor, constant: -100).isActive = true
-        personalInfoButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        personalInfoButton.bottomAnchor.constraint(equalTo: warningButton.topAnchor, constant: -(view.frame.size.height-180)/8).isActive = true
+        personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
         personalInfoButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        let logoImageView = UIImageView(frame: CGRect(x: view.frame.width/8, y: view.frame.height/8, width: 3*view.frame.width/4, height: 3*view.frame.width/4))
+        logoImageView.image = UIImage(named: "red-apple.png")
+        self.view.addSubview(logoImageView)
+        
     }
     
     @objc func personalInfoTouchedUp(){
@@ -57,6 +79,11 @@ class SettingsViewController: UIViewController {
     @objc func logoutTouchedUp(){
         try! Auth.auth().signOut()
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func warningTouchedUp(){
+        navigationController?.navigationBar.isHidden = false
+        self.performSegue(withIdentifier: "toWarning", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
