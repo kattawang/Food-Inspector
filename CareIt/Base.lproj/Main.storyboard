@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJ9-Cg-KM9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +58,7 @@
                                     <segue destination="LO7-Wg-soH" kind="show" id="JM8-XR-cMF"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-apple" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-Is-ONd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Green Leaves" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-Is-ONd">
                                 <rect key="frame" x="10" y="89" width="355" height="258"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Inspector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdX-aF-Xah">
@@ -206,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TVZ-oa-0uu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1080"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1036"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-S6-Dja">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
@@ -267,14 +266,20 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cKH-2O-IMG">
+                                            <datePicker tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKH-2O-IMG">
                                                 <rect key="frame" x="27.5" y="303.5" width="320" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="afj-b1-MSd"/>
                                                     <constraint firstAttribute="width" constant="320" id="sij-Lg-E2N"/>
                                                 </constraints>
-                                                <date key="date" timeIntervalSinceReferenceDate="570477474.81577897">
-                                                    <!--2019-01-29 17:57:54 +0000-->
+                                                <date key="date" timeIntervalSinceReferenceDate="-347090525.18421936">
+                                                    <!--1990-01-01 17:57:54 +0000-->
+                                                </date>
+                                                <date key="minimumDate" timeIntervalSinceReferenceDate="-3187256400">
+                                                    <!--1900-01-01 11:00:00 +0000-->
+                                                </date>
+                                                <date key="maximumDate" timeIntervalSinceReferenceDate="567946800">
+                                                    <!--2018-12-31 11:00:00 +0000-->
                                                 </date>
                                             </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdp-3M-pZL">
@@ -321,7 +326,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi6-YH-hek">
                                                         <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
                                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Categories">
+                                                        <state key="normal" title="General Allergies">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -332,7 +337,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0p-VG-Ud6">
                                                         <rect key="frame" x="177.5" y="0.0" width="177.5" height="30"/>
-                                                        <state key="normal" title="All">
+                                                        <state key="normal" title="Additional Allergies">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
@@ -531,7 +536,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cv-WQ-GGj">
-                                <rect key="frame" x="287" y="37" width="37" height="36"/>
+                                <rect key="frame" x="287" y="81" width="37" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
@@ -539,13 +544,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAl-pZ-Y8l">
-                                <rect key="frame" x="163" y="40" width="49" height="27.5"/>
+                                <rect key="frame" x="163" y="84" width="49" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rR9-8l-JKa">
-                                <rect key="frame" x="51" y="37" width="36" height="36"/>
+                                <rect key="frame" x="51" y="81" width="36" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -553,7 +558,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="l0W-rs-IcE">
-                                <rect key="frame" x="19" y="93" width="337" height="23.5"/>
+                                <rect key="frame" x="19" y="137" width="337" height="23.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Foe-U5-8vk">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="23.5"/>
@@ -600,7 +605,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
-                                <rect key="frame" x="19" y="136.5" width="337" height="250"/>
+                                <rect key="frame" x="19" y="180.5" width="337" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="09D-Td-wGC"/>
@@ -717,11 +722,27 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings" selectedImage="Settings" id="2nX-GI-XXZ"/>
                     <connections>
                         <segue destination="lYa-ku-x7r" kind="show" identifier="toPersonalInfo" id="bfx-gl-GCF"/>
+                        <segue destination="F4g-j0-9RD" kind="show" identifier="toWarning" id="JIh-B5-mEV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh4-Wm-bTW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3852" y="-1261"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lB0-yf-X2u">
+            <objects>
+                <viewController id="F4g-j0-9RD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZHA-2D-vDU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7hq-YX-d4q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oud-ct-QRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4648" y="-1257"/>
         </scene>
         <!--Barcode Scanner-->
         <scene sceneID="bL1-5D-tjN">
@@ -731,7 +752,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeframe" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-ku-gCr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roundedBarcodeFrame" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-ku-gCr">
                                 <rect key="frame" x="66" y="219.5" width="243" height="243"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="243" id="Smv-ey-p8f"/>
@@ -799,7 +820,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DG7-lH-VEJ">
-                                <rect key="frame" x="210" y="418" width="94" height="29"/>
+                                <rect key="frame" x="209.5" y="418" width="94" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="1ri-dC-SIo"/>
                                     <constraint firstAttribute="height" constant="20" id="rmB-zv-fcK"/>
@@ -956,14 +977,14 @@
     <resources>
         <image name="Barcode" width="20" height="20"/>
         <image name="Calendar" width="20" height="20"/>
+        <image name="Green Leaves" width="1024" height="1024"/>
         <image name="Profile" width="20" height="20"/>
         <image name="Settings" width="20" height="20"/>
-        <image name="barcodeframe" width="1000" height="1000"/>
-        <image name="white-apple" width="1024" height="1024"/>
+        <image name="roundedBarcodeFrame" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="puz-H6-blj"/>
         <segue reference="At2-JN-b2R"/>
-        <segue reference="eEc-LK-c69"/>
+        <segue reference="bfx-gl-GCF"/>
     </inferredMetricsTieBreakers>
 </document>
