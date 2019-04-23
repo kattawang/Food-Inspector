@@ -40,7 +40,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHG-fv-Lmq">
                                 <rect key="frame" x="87.5" y="451" width="200" height="60"/>
-                                <color key="backgroundColor" white="0.54945203993055558" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.5534667969" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Q8q-sM-huA"/>
                                     <constraint firstAttribute="height" constant="60" id="Rc6-gR-Dwe"/>
@@ -314,14 +314,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AnI-ue-nfV">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AnI-ue-nfV">
                                                 <rect key="frame" x="10" y="62" width="355" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi6-YH-hek">
-                                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
-                                                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                                        <color key="backgroundColor" white="0.5534667969" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="General Allergies">
-                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <segue destination="wpk-86-Mdo" kind="popoverPresentation" identifier="allergyCategories" popoverAnchorView="bi6-YH-hek" id="At2-JN-b2R">
@@ -330,9 +330,10 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0p-VG-Ud6">
-                                                        <rect key="frame" x="177.5" y="0.0" width="177.5" height="30"/>
+                                                        <rect key="frame" x="185" y="0.0" width="170" height="30"/>
+                                                        <color key="backgroundColor" white="0.5534667969" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Additional Allergies">
-                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <segue destination="wpk-86-Mdo" kind="popoverPresentation" identifier="allAllergies" popoverAnchorView="F0p-VG-Ud6" id="y96-Jb-WL8">
@@ -356,7 +357,6 @@
                                                     <constraint firstAttribute="width" constant="275" id="N3O-LB-eJW"/>
                                                     <constraint firstAttribute="height" constant="30" id="uq7-5N-mAT"/>
                                                 </constraints>
-                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -704,6 +704,7 @@
                     <connections>
                         <outlet property="Calendar" destination="okU-dJ-ZvR" id="vCg-nV-Ddy"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
+                        <outlet property="calDescLabel" destination="y0t-1b-nI6" id="9EQ-IE-sjE"/>
                         <outlet property="recomCalories" destination="WkA-nH-Umo" id="nix-8n-2jO"/>
                     </connections>
                 </viewController>
@@ -738,13 +739,45 @@
                     <view key="view" contentMode="scaleToFill" id="ZHA-2D-vDU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER WARNING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONx-Ha-S5a">
+                                <rect key="frame" x="72.5" y="109" width="230" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                <color key="textColor" red="0.83137254900000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="caution" translatesAutoresizingMaskIntoConstraints="NO" id="pR0-OL-u4Q">
+                                <rect key="frame" x="39.5" y="459" width="296" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="181" id="MYF-x8-BWS"/>
+                                    <constraint firstAttribute="width" constant="296" id="kRQ-OK-zkm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRh-7z-JAV">
+                                <rect key="frame" x="16" y="231" width="343" height="205"/>
+                                <string key="text">If you have severe allergies, please make sure that you confirm the results of our Food Inspector app. We are not responsible if anything goes wrong.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KRh-7z-JAV" firstAttribute="centerX" secondItem="ZHA-2D-vDU" secondAttribute="centerX" id="4nO-vo-nd3"/>
+                            <constraint firstItem="7hq-YX-d4q" firstAttribute="trailing" secondItem="KRh-7z-JAV" secondAttribute="trailing" constant="16" id="Tej-IV-IrK"/>
+                            <constraint firstItem="ONx-Ha-S5a" firstAttribute="centerX" secondItem="ZHA-2D-vDU" secondAttribute="centerX" id="iM5-Mn-aVQ"/>
+                            <constraint firstItem="ONx-Ha-S5a" firstAttribute="top" secondItem="7hq-YX-d4q" secondAttribute="top" constant="45" id="jof-Bi-sm0"/>
+                            <constraint firstItem="7hq-YX-d4q" firstAttribute="bottom" secondItem="pR0-OL-u4Q" secondAttribute="bottom" constant="27" id="qcb-6y-jqJ"/>
+                            <constraint firstItem="KRh-7z-JAV" firstAttribute="leading" secondItem="ZHA-2D-vDU" secondAttribute="leading" constant="16" id="sqA-Tb-Jf5"/>
+                            <constraint firstItem="pR0-OL-u4Q" firstAttribute="centerX" secondItem="ZHA-2D-vDU" secondAttribute="centerX" id="uJi-ro-0FT"/>
+                            <constraint firstItem="KRh-7z-JAV" firstAttribute="centerY" secondItem="ZHA-2D-vDU" secondAttribute="centerY" id="v1G-Sy-3dY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7hq-YX-d4q"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oud-ct-QRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4648" y="-1257"/>
+            <point key="canvasLocation" x="4647.1999999999998" y="-1257.1214392803599"/>
         </scene>
         <!--Barcode Scanner-->
         <scene sceneID="bL1-5D-tjN">
@@ -812,8 +845,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-Sn-3GX">
-                                <rect key="frame" x="136" y="516" width="104" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-Sn-3GX">
+                                <rect key="frame" x="156" y="494" width="63" height="41"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                 <state key="normal" title="Button"/>
                             </button>
@@ -831,8 +864,8 @@
                                     <action selector="stepperTapped:" destination="TQp-ol-DgK" eventType="valueChanged" id="FB7-xN-c8n"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1 Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gO-IwO">
-                                <rect key="frame" x="66" y="419" width="100" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Serving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fj4-gO-IwO">
+                                <rect key="frame" x="77.5" y="417" width="100" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="elb-Ct-aWU"/>
                                 </constraints>
@@ -982,10 +1015,11 @@
         <image name="Green Leaves" width="1024" height="1024"/>
         <image name="Profile" width="20" height="20"/>
         <image name="Settings" width="20" height="20"/>
+        <image name="caution" width="1280" height="853"/>
         <image name="roundedBarcodeFrame" width="1000" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="puz-H6-blj"/>
+        <segue reference="Wv6-T5-sVV"/>
         <segue reference="At2-JN-b2R"/>
         <segue reference="bfx-gl-GCF"/>
     </inferredMetricsTieBreakers>
