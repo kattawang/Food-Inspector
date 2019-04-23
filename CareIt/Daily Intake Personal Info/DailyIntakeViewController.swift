@@ -18,6 +18,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var recomCalories: UILabel!
     
+    @IBOutlet weak var calDescLabel: UILabel!
+    
     let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var daysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
     

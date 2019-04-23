@@ -704,6 +704,7 @@
                     <connections>
                         <outlet property="Calendar" destination="okU-dJ-ZvR" id="vCg-nV-Ddy"/>
                         <outlet property="Month" destination="TAl-pZ-Y8l" id="p4z-oc-b2x"/>
+                        <outlet property="calDescLabel" destination="y0t-1b-nI6" id="9EQ-IE-sjE"/>
                         <outlet property="recomCalories" destination="WkA-nH-Umo" id="nix-8n-2jO"/>
                     </connections>
                 </viewController>
