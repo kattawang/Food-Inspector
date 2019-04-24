@@ -14,8 +14,8 @@ import UIKit
 class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
     
     var sexOptions = ["Male", "Female", "Other"]
-    var weightOptions = (0...1400).map{$0}
-    var heightOptions = (0...100).map{$0}
+    var weightOptions = (1...1400).map{$0}
+    var heightOptions = (1...100).map{$0}
     var activityLevelOptions = ["Low", "Medium", "High"]
     var sexChoice: String?
     var weightChoice: Int?
@@ -240,6 +240,9 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = view.backgroundColor
+        
+        weight.selectRow(99, inComponent: 0, animated: true)
+        height.selectRow(64, inComponent: 0, animated: true)
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let databaseRef = Database.database().reference().child("users\(uid)")
