@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
         personalInfoButton.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
         personalInfoButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        let logoImageView = UIImageView(frame: CGRect(x: view.frame.width/8, y: view.frame.height/64, width: 3*view.frame.width/4, height: 3*view.frame.width/4))
+        let logoImageView = UIImageView(frame: CGRect(x: (view.frame.width-5*view.frame.height/12)/2, y: 30, width: 5*view.frame.height/12, height: 5*view.frame.height/12))
         logoImageView.image = UIImage(named: "red-apple.png")
         self.view.addSubview(logoImageView)
         
