@@ -204,6 +204,10 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     
+    
+    
+    
+    
     //number of items in the collection view, should be current month - 1 to get month index, plus the first days
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //        print(DaysInMonths[month] + firstWeekDayOfMonth - 1)
@@ -252,6 +256,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     
     
+    
+    
     //did select cell: change cell background to red
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
@@ -265,6 +271,10 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         calculateCalories()
         
         //do display nutrient info stuff here
+        
+        print(calendar.component(.month, from: date)-1)
+        print(indexPath.row + 1 + firstWeekDayOfMonth)
+        
         if month == calendar.component(.month, from: date)-1 && year == calendar.component(.year, from: date) && indexPath.row + 1 + firstWeekDayOfMonth == day{
             calDescLabel.text = "Calories Remaining"
         }
