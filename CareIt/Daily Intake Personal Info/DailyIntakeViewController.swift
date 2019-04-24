@@ -14,7 +14,7 @@ import FirebaseDatabase
 let date = Date()
 let calendar = Calendar.current
 
-var month = calendar.component(.month, from: date)
+var month = calendar.component(.month, from: date) - 1
 var year = calendar.component(.year, from: date)
 var day = calendar.component(.day, from: date)
 
@@ -27,7 +27,11 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var calDescLabel: UILabel!
     
-
+    @IBOutlet weak var addCalBox: UITextField!
+    
+    @IBAction func addCalButon(_ sender: UIButton) {
+        calculateCalories()
+    }
     
     let Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var daysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
@@ -129,8 +133,14 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             
             print(calcCalories)
+//            if addCalBox.text != nil && addCalBox.text is Int{
+////                recomCalories.text = "\(NSString(format:"%.0f", calcCalories - addCalBox.text))"
+//                recomCalories.text = "\(Int(calcCalories) - Int(addCalBox.text))"
+//            }
+//            else{
+//               recomCalories.text = "\(NSString(format:"%.0f", calcCalories))"
+//            }
             
-            recomCalories.text = "\(NSString(format:"%.0f", calcCalories))"
             
         }
             
@@ -271,15 +281,21 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         calculateCalories()
         
         //do display nutrient info stuff here
-        
+        print(month)
         print(calendar.component(.month, from: date)-1)
-        print(indexPath.row + 1 + firstWeekDayOfMonth)
+        print(day)
+        print(firstWeekDayOfMonth)
+        print(indexPath.row)
         
-        if month == calendar.component(.month, from: date)-1 && year == calendar.component(.year, from: date) && indexPath.row + 1 + firstWeekDayOfMonth == day{
+        indexPath.row
+        
+        if month == calendar.component(.month, from: date)-1 && year == calendar.component(.year, from: date) && indexPath.row == day{
+            
             calDescLabel.text = "Calories Remaining"
         }
         else{
             calDescLabel.text = "Calories Consumed"
+            // if consumed, check if firebase has the date and pull, else put 0
         }
         
         
