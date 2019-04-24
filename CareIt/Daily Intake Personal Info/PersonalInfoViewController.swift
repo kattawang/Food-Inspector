@@ -36,6 +36,7 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
    
         
+    // userInfo["Allergies"]
     
     
     
