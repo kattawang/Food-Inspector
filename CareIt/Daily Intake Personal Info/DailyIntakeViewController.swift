@@ -61,7 +61,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         recomCalories.text = "No Date Selected"
         
-        print("\(month) \(day) \(year)")
+//        print("\(month) \(day) \(year)")
         
     }
     
@@ -130,7 +130,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
             
             print(calcCalories)
             
-            recomCalories.text = "Calories Remaining: \(NSString(format:"%.0f", calcCalories))"
+            recomCalories.text = "\(NSString(format:"%.0f", calcCalories))"
             
         }
             
@@ -264,8 +264,14 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         calculateCalories()
         
-//        if 
         //do display nutrient info stuff here
+        if month == calendar.component(.month, from: date)-1 && year == calendar.component(.year, from: date) && indexPath.row + 1 + firstWeekDayOfMonth == day{
+            calDescLabel.text = "Calories Remaining"
+        }
+        else{
+            calDescLabel.text = "Calories Consumed"
+        }
+        
         
     }
     
