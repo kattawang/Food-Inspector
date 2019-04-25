@@ -27,6 +27,7 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var calDescLabel: UILabel!
     
+    //as an outlet?
     @IBOutlet weak var addCalBox: UITextField!
     
     @IBAction func addCalButon(_ sender: UIButton) {
@@ -41,6 +42,10 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     //for getting stuff from firebase
     var userInfo: [String: Any]? = [:]
     
+    //daily recommended calories, calculated from formula
+    var calcCalories = 0.0
+    //each food consumed adds to the consumed calories to be subtracted from calcCalories
+    var consumedCalories = 0.0
     
     
     override func viewDidLoad() {
@@ -95,17 +100,15 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func calculateCalories(){
         
-        var calcCalories = 0.0
-        
         if self.userInfo?["BirthDate"] != nil{
             //prints birthdate
-            print(self.userInfo?["BirthDate"] as! String)
+//            print(self.userInfo?["BirthDate"] as! String)
             
-            //sets birthdate as
+            //sets birthdate as String
             var birthdate = self.userInfo?["BirthDate"] as! String
             let age = Double(year) - Double(birthdate.split(separator: " ")[2])!
             
-            
+            //pulls info from firebase for below calculations
             let weight = self.userInfo?["Weight"] as! Double
             let height = self.userInfo?["Height"] as! Double
             
@@ -132,14 +135,26 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
             }
             
-            print(calcCalories)
-//            if addCalBox.text != nil && addCalBox.text is Int{
-////                recomCalories.text = "\(NSString(format:"%.0f", calcCalories - addCalBox.text))"
-//                recomCalories.text = "\(Int(calcCalories) - Int(addCalBox.text))"
-//            }
-//            else{
-//               recomCalories.text = "\(NSString(format:"%.0f", calcCalories))"
-//            }
+            
+            //add calories manually
+//            print(calcCalories)
+//            print(addCalBox.text)
+            //check to see if textbox enter can be converted into an int
+            if addCalBox.text != nil{
+//                var manual = addCalBox!.text
+                  print(addCalBox.text)
+//                consumedCalories += Double(manual!)!
+////                print(manual)
+            }
+
+            
+            //can set the recomCalories label to the calcCalories - consumed
+            
+            //            if addCalBox.text != nil && addCalBox.text is Int{
+            //
+            ////                recomCalories.text = "\(NSString(format:"%.0f", calcCalories - addCalBox.text))"
+            //                recomCalories.text = "\(Int(calcCalories) - Int(addCalBox.text))"
+            //            }
             
             
         }
@@ -147,6 +162,26 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         else{
             print("nil")
         }
+        
+        //copied from personal info
+        //getting the uid and setting that as the reference for the child in the database
+        // so that each user's data can be pulled by their uid
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let database = Database.database().reference().child("users\(uid)")
+        
+        // the user's info gets stored in this dictionary
+        var userObject: [String: Any] = [:]
+        
+//        if let currentDayCalories = calcCalories
+        
+        //adds to firebase
+            userObject["\(month) \(day) \(year)"] = consumedCalories
+        
+        //test case for previous day
+        userObject["3 23 2019"] = 5.0
+
+        
+        
     }
     
     
@@ -287,15 +322,35 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         print(firstWeekDayOfMonth)
         print(indexPath.row)
         
-        indexPath.row
         
         if month == calendar.component(.month, from: date)-1 && year == calendar.component(.year, from: date) && indexPath.row == day{
             
-            calDescLabel.text = "Calories Remaining"
+            calDescLabel.text = "Calories Remaining Today:"
+            recomCalories.text = "\(NSString(format:"%.0f", calcCalories - consumedCalories))"
+            //or pull from firebase
         }
         else{
-            calDescLabel.text = "Calories Consumed"
+            calDescLabel.text = "Calories Consumed:"
             // if consumed, check if firebase has the date and pull, else put 0
+            
+            //month day year (space separated)
+            
+            
+            //if firebase has this date
+            if self.userInfo?["\(calendar.component(.month, from: date)-1) \(indexPath.row) \(calendar.component(.year, from: date))"] != nil{
+                //prints birthdate
+                //            print(self.userInfo?["BirthDate"] as! String)
+                
+                //sets birthdate as String
+                let ca = self.userInfo?["\(calendar.component(.month, from: date)-1) \(indexPath.row) \(calendar.component(.year, from: date))"] as! Double
+                recomCalories.text = "\(calcCalories - ca)"
+            }
+            else{
+                recomCalories.text = "No activity logged"
+            }
+            
+            
+            
         }
         
         
