@@ -41,15 +41,20 @@ class FoodScanViewController: UIViewController {
             
             self.titleLabel.lineBreakMode = .byWordWrapping
             self.titleLabel.numberOfLines = 0
-            self.titleLabel.text = sanitizeTitle(food.desc.name)            
-            let allergies = UserAllergies.userIsAllergicTo(food)
+            self.titleLabel.text = sanitizeTitle(food.desc.name)
+            var allergies: [String] = []
+            UserAllergies.userIsAllergicTo(food) {matches in
+                print(matches)
+                allergies = matches
+                if allergies.count != 0 {
+                    self.allergyView(allergies)
+                }
+                else {
+                    self.okayView()
+                }
+            }
             
-            if allergies.count != 0 {
-                allergyView(allergies)
-            }
-            else {
-                okayView()
-            }
+            
         }
         else {
             self.dismiss(animated: true, completion: nil)
@@ -64,18 +69,31 @@ class FoodScanViewController: UIViewController {
 
     
     func allergyView(_ allergies: [String]) {
-        print("we in not ok")
         let alertLabel = UILabel()
         alertLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         alertLabel.text = "Unsafe to Eat ☠"
         alertLabel.translatesAutoresizingMaskIntoConstraints = false
+        goodBadView.addSubview(alertLabel)
+        goodBadView.backgroundColor = .red
         alertLabel.centerXAnchor.constraint(equalTo: goodBadView.centerXAnchor).isActive = true
-        alertLabel.centerYAnchor.constraint(equalTo: goodBadView.topAnchor, constant: 10).isActive = true
+        alertLabel.topAnchor.constraint(equalTo: goodBadView.topAnchor, constant: 30).isActive = true
+        
+        let allergyLabel = UILabel()
+        allergyLabel.font = UIFont(name: "Helvetica Neue", size: 24)
+        allergyLabel.text = allergies.reduce("Matches:\n", {$0 + "\n" + $1})
+        allergyLabel.textAlignment = .center
+        allergyLabel.numberOfLines = 0
+        allergyLabel.translatesAutoresizingMaskIntoConstraints = false
+        goodBadView.addSubview(allergyLabel)
+        
+        allergyLabel.widthAnchor.constraint(equalToConstant: goodBadView.frame.width).isActive = true
+        allergyLabel.centerXAnchor.constraint(equalTo: goodBadView.centerXAnchor).isActive = true
+        allergyLabel.topAnchor.constraint(equalTo: alertLabel.bottomAnchor, constant: 40).isActive = true
+        
         view.backgroundColor = .red
     }
     
     func okayView() {
-        print("we in ok")
         let okayLabel = UILabel()
         okayLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         okayLabel.text = "Safe to Eat 🍴"
