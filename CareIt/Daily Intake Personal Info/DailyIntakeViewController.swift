@@ -168,20 +168,18 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         // so that each user's data can be pulled by their uid
         guard let uid = Auth.auth().currentUser?.uid else {return}
         let database = Database.database().reference().child("users\(uid)")
+        var userInfo: [String:Any] = [:]
+        let databaseRef = Database.database().reference().child("users\(uid)")
         
         // the user's info gets stored in this dictionary
-        var userObject: [String: Any] = [:]
         
-//        if let currentDayCalories = calcCalories
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            userInfo = snapshot.value as? [String: Any] ?? [:]
+        })
         
-        //adds to firebase
-            userObject["\(month) \(day) \(year)"] = consumedCalories
+        userInfo["Calories"] = calcCalories
         
-        //test case for previous day
-        userObject["3 23 2019"] = 5.0
-
-        
-        
+        database.setValue(userInfo)
     }
     
     
