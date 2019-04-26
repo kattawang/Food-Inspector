@@ -65,6 +65,7 @@ class FoodScanViewController: UIViewController {
         super.viewDidLoad()
         stepper.maximumValue = 100
         stepper.minimumValue = 1
+        print(getCalories())
     }
 
     
@@ -111,6 +112,34 @@ class FoodScanViewController: UIViewController {
         }
         
         self.doneButton.titleLabel?.text = "Eat"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! DailyIntakeViewController
+        
+        destination.consumedCalories += Double(getCalories())
+    }
+    
+    func getCalories() -> Int {
+        var calories = 0
+        
+        if let food = self.food{
+            for nutrient in food.nutrients{
+                if nutrient.name == "Energy"{
+                    return Int(nutrient.measures[0].value) ?? 0
+                }
+                else if nutrient.name == "Protein"{
+                    calories += 4*(Int(nutrient.measures[0].value) ?? 0)
+                }
+                else if nutrient.name == "Carbohydrate, by difference"{
+                    calories += 4*(Int(nutrient.measures[0].value) ?? 0)
+                }
+                else if nutrient.name == "Total lipid (fat)"{
+                    calories += 9*(Int(nutrient.measures[0].value) ?? 0)
+                }
+            }
+        }
+        return calories
     }
     
     
