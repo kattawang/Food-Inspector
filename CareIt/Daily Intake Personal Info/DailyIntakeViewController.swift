@@ -70,6 +70,8 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
         
         recomCalories.text = "No Date Selected"
         
+        addCalBox.leftAnchor.constraint(equalTo: view.leftAnchor, constant: (view.frame.width-200)/2).isActive = true
+        
 //        print("\(month) \(day) \(year)")
         
     }

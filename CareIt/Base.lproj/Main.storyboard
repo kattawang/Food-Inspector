@@ -561,7 +561,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
-                                <rect key="frame" x="19" y="180.5" width="337" height="260"/>
+                                <rect key="frame" x="19" y="180.5" width="337" height="247"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="0.0" id="4WN-gs-ZYU">
                                     <size key="itemSize" width="40" height="40"/>
@@ -656,7 +656,7 @@
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMr-5M-x16">
-                                <rect key="frame" x="97" y="451" width="97" height="30"/>
+                                <rect key="frame" x="97" y="438" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="vub-3k-ZZi"/>
                                 </constraints>
@@ -665,7 +665,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj0-hZ-5k0">
-                                <rect key="frame" x="202" y="445" width="95" height="36"/>
+                                <rect key="frame" x="202" y="432" width="95" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Add calories"/>
                                 <connections>
@@ -680,12 +680,12 @@
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="leading" secondItem="HcX-kb-gIB" secondAttribute="leading" id="67C-fK-tzI"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="8Fn-hl-qb3"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="top" secondItem="y0t-1b-nI6" secondAttribute="bottom" constant="15" id="Ay1-kb-u1f"/>
-                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="XMr-5M-x16" secondAttribute="bottom" constant="2" id="K0s-ad-GQ2"/>
+                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="XMr-5M-x16" secondAttribute="bottom" constant="15" id="K0s-ad-GQ2"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="19" id="Luu-wo-DLI"/>
                             <constraint firstItem="okU-dJ-ZvR" firstAttribute="centerX" secondItem="3dS-CW-mlP" secondAttribute="centerX" id="M4A-h1-fAy"/>
                             <constraint firstAttribute="trailing" secondItem="y0t-1b-nI6" secondAttribute="trailing" id="Pnz-YC-DQl"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="top" secondItem="0Cv-WQ-GGj" secondAttribute="bottom" constant="20" id="T8k-Nn-j9H"/>
-                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="lj0-hZ-5k0" secondAttribute="bottom" constant="2" id="YT2-wN-EMx"/>
+                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="lj0-hZ-5k0" secondAttribute="bottom" constant="15" id="YT2-wN-EMx"/>
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="a4s-c6-Mk5"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="auy-YD-jJy"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="okU-dJ-ZvR" secondAttribute="trailing" constant="19" id="cVd-mo-mi4"/>
