@@ -563,25 +563,22 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="okU-dJ-ZvR">
                                 <rect key="frame" x="19" y="180.5" width="337" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="KlV-sf-Iyy"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="20" id="4WN-gs-ZYU">
-                                    <size key="itemSize" width="31" height="40"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="0.0" id="4WN-gs-ZYU">
+                                    <size key="itemSize" width="40" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="Wa5-EN-JID" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="31" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2E-Nt-FOd">
-                                                    <rect key="frame" x="11" y="8.5" width="9.5" height="23.5"/>
+                                                    <rect key="frame" x="16" y="8" width="9.5" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -592,33 +589,9 @@
                                             <constraint firstItem="Z2E-Nt-FOd" firstAttribute="centerX" secondItem="Wa5-EN-JID" secondAttribute="centerX" id="GSK-qb-Jf5"/>
                                             <constraint firstItem="Z2E-Nt-FOd" firstAttribute="centerY" secondItem="Wa5-EN-JID" secondAttribute="centerY" id="cff-ts-4W5"/>
                                         </constraints>
-                                        <size key="customSize" width="31" height="40"/>
+                                        <size key="customSize" width="40" height="40"/>
                                         <connections>
                                             <outlet property="DateLabel" destination="Z2E-Nt-FOd" id="Kbm-Oi-Xr6"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar2" id="mjO-he-ZCe" customClass="DateCollectionViewCell" customModule="CareIt" customModuleProvider="target">
-                                        <rect key="frame" x="51" y="0.0" width="31" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="31" height="40"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7k7-cv-SLJ">
-                                                    <rect key="frame" x="11" y="8.5" width="9.5" height="23.5"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="7k7-cv-SLJ" firstAttribute="centerX" secondItem="mjO-he-ZCe" secondAttribute="centerX" id="Ami-Ib-EyE"/>
-                                            <constraint firstItem="7k7-cv-SLJ" firstAttribute="centerY" secondItem="mjO-he-ZCe" secondAttribute="centerY" id="oGQ-Zx-LKL"/>
-                                        </constraints>
-                                        <size key="customSize" width="31" height="40"/>
-                                        <connections>
-                                            <outlet property="DateLabel" destination="7k7-cv-SLJ" id="YXi-dn-5AX"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -682,16 +655,17 @@
                                     <constraint firstItem="Vzn-X6-yys" firstAttribute="width" secondItem="DN2-rO-CWP" secondAttribute="width" id="hYm-Np-u7i"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMr-5M-x16">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XMr-5M-x16">
                                 <rect key="frame" x="97" y="451" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="vub-3k-ZZi"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj0-hZ-5k0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj0-hZ-5k0">
                                 <rect key="frame" x="202" y="451" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add calories"/>
                                 <connections>
                                     <action selector="addCalButon:" destination="jy6-W5-CHp" eventType="touchUpInside" id="jmf-Rv-DvS"/>
@@ -700,14 +674,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XMr-5M-x16" firstAttribute="top" secondItem="okU-dJ-ZvR" secondAttribute="bottom" constant="10.5" id="1y6-8W-wnK"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="bottom" secondItem="WkA-nH-Umo" secondAttribute="bottom" constant="100" id="58k-qN-dHn"/>
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="leading" secondItem="HcX-kb-gIB" secondAttribute="leading" id="67C-fK-tzI"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="8Fn-hl-qb3"/>
                             <constraint firstItem="WkA-nH-Umo" firstAttribute="top" secondItem="y0t-1b-nI6" secondAttribute="bottom" constant="15" id="Ay1-kb-u1f"/>
+                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="XMr-5M-x16" secondAttribute="bottom" constant="2" id="K0s-ad-GQ2"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="19" id="Luu-wo-DLI"/>
                             <constraint firstItem="okU-dJ-ZvR" firstAttribute="centerX" secondItem="3dS-CW-mlP" secondAttribute="centerX" id="M4A-h1-fAy"/>
                             <constraint firstAttribute="trailing" secondItem="y0t-1b-nI6" secondAttribute="trailing" id="Pnz-YC-DQl"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="top" secondItem="0Cv-WQ-GGj" secondAttribute="bottom" constant="20" id="T8k-Nn-j9H"/>
+                            <constraint firstItem="y0t-1b-nI6" firstAttribute="top" secondItem="lj0-hZ-5k0" secondAttribute="bottom" constant="2" id="YT2-wN-EMx"/>
                             <constraint firstItem="y0t-1b-nI6" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="a4s-c6-Mk5"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="auy-YD-jJy"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="okU-dJ-ZvR" secondAttribute="trailing" constant="19" id="cVd-mo-mi4"/>
@@ -715,9 +692,11 @@
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="51" id="fCg-N4-tWn"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="l0W-rs-IcE" secondAttribute="trailing" constant="19" id="gay-0G-Q6k"/>
                             <constraint firstItem="3dS-CW-mlP" firstAttribute="trailing" secondItem="0Cv-WQ-GGj" secondAttribute="trailing" constant="51" id="hms-8L-bJw"/>
+                            <constraint firstItem="XMr-5M-x16" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="97" id="iJR-iT-fkL"/>
                             <constraint firstItem="rR9-8l-JKa" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="17" id="ijD-zS-kTj"/>
                             <constraint firstItem="l0W-rs-IcE" firstAttribute="centerX" secondItem="HcX-kb-gIB" secondAttribute="centerX" id="mXH-ek-rGd"/>
                             <constraint firstItem="okU-dJ-ZvR" firstAttribute="top" secondItem="l0W-rs-IcE" secondAttribute="bottom" constant="20" id="ngT-Dr-it5"/>
+                            <constraint firstItem="lj0-hZ-5k0" firstAttribute="leading" secondItem="XMr-5M-x16" secondAttribute="trailing" constant="8" id="npz-R6-Xnr"/>
                             <constraint firstItem="okU-dJ-ZvR" firstAttribute="leading" secondItem="3dS-CW-mlP" secondAttribute="leading" constant="19" id="uOd-xW-d7L"/>
                             <constraint firstItem="TAl-pZ-Y8l" firstAttribute="top" secondItem="3dS-CW-mlP" secondAttribute="top" constant="20" id="vWC-su-lfg"/>
                         </constraints>

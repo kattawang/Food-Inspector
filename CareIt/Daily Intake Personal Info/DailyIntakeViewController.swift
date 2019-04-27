@@ -18,7 +18,7 @@ var month = calendar.component(.month, from: date) - 1
 var year = calendar.component(.year, from: date)
 var day = calendar.component(.day, from: date)
 
-class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var Calendar: UICollectionView!
     
     @IBOutlet weak var Month: UILabel!
@@ -297,9 +297,12 @@ class DailyIntakeViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-    
-    
-    
+    //Formats cells in calendar to different devices
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width/8
+        return CGSize(width: width, height: width)
+        
+    }
     
     //did select cell: change cell background to red
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
