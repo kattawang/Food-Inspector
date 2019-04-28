@@ -25,7 +25,8 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     var allergies: [String] = []
     var userInfo: [String : Any] = [:]
     let defaults = UserDefaults.standard
-    
+    var addedallergies: [String] = []
+    var defaultallergies = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
     @IBOutlet weak var sex: UIPickerView!
     @IBOutlet weak var birthday: UIDatePicker!
     @IBOutlet weak var weight: UIPickerView!
@@ -42,20 +43,11 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     @IBAction func doneAllergyTextField(_ sender: Any)  {
         
-        if addAllergyTextField.hasText{
+        if(addAllergyTextField.hasText){
             
-        
-        var x: [String] = defaults.stringArray(forKey: "addAllergies") ?? [String]()
-        
-        x.append( addAllergyTextField.text!)
-        
-        defaults.set(x, forKey: "addAllergies")
-        
-        addAllergyTextField.text = ""
-        
-        
+            addedallergies.append( addAllergyTextField.text!)
+            addAllergyTextField.text = ""
         }
-        
      
         
     }
@@ -293,16 +285,35 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
                 myViewController.allAllergySection = false
                 myViewController.tableViewData = ["Dairy", "Nuts", "Gluten", "Meat", "Grains", "Fruits", "Vegetables", "Seafood"]
             }
+            
         }
         else if segue.identifier == "allAllergies" {
             if let navigationVC = segue.destination as? UINavigationController, let myViewController = navigationVC.topViewController as? AllergyTableViewController {
+                
                 myViewController.allAllergySection = true
-                myViewController.tableViewData = defaults.stringArray(forKey: "addAllergies") ?? [String]()
+                
+                if (userInfo["Allergies"] != nil){
+                  
+                    addedallergies.append(contentsOf: userInfo["Allergies"] as! [String])
+                    
+                    for i in defaultallergies{
+                        
+                    while addedallergies.contains(i) {
+                        
+                        if let itemToRemoveIndex = addedallergies.index(of: i) {
+                            addedallergies.remove(at: itemToRemoveIndex)
+                        }
+                }
+                    }
+                
+               
             
             }
+                 myViewController.tableViewData = addedallergies
         }
         
     }
     
 }
-
+    
+}

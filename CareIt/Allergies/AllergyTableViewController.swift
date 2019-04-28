@@ -30,7 +30,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
     
     
     func previouslyselected(){
-        print("boi")
+       
         if allAllergySection == false{
             let savedArrayIndexes = defaults.object(forKey: "SavedAllergiesIndex") as? [Int] ?? [Int]()
             
@@ -40,14 +40,13 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             }
         }
         else{
-            let savedArrayIndexes = defaults.object(forKey: "SavedAllAllergiesIndex") as? [Int] ?? [Int]()
-            
-            for i in savedArrayIndexes{
-                
+            for i in 0 ..< tableViewData.count{
                 
                 tableView.cellForRow(at: [0,i])?.accessoryType = UITableViewCellAccessoryType.checkmark
+                
             }
         }
+        
     }
     
     
@@ -65,20 +64,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
             if allAllergySection == false{
                 defaults.set(selectedAllergiesIndex, forKey: "SavedAllergiesIndex")
             }
-            else{
-                defaults.set(selectedAllergiesIndex, forKey: "SavedAllAllergiesIndex")
-                
-                
-            }
-        }
-        if allAllergySection == true{
             
-            var x = PersonalInfoViewController()
-            
-            x.defaults.removeObject(forKey: "addAllergies")
-            
-            x.defaults.set(tableViewData, forKey: "addAllergies")
-           
         }
         
         
@@ -212,13 +198,7 @@ class AllergyTableViewController: UITableViewController, UISearchResultsUpdating
         
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if allAllergySection == true{
-            self.tableViewData.remove(at: indexPath.row)
-       
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
+   
     
 }
 
