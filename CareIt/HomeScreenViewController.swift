@@ -117,6 +117,10 @@ class HomeScreenViewController: UIViewController {
     
     @objc func logoutTouchedUp() {
         //signs the user out and uses the navigation controller to segue back to the launch screen
+        
+        var x = AllergyTableViewController()
+        x.defaults.removeObject(forKey: "SavedAllergiesIndex")
+    
         try! Auth.auth().signOut()
         navigationController?.popToRootViewController(animated: true)
     }
