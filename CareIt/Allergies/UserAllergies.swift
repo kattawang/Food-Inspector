@@ -12,9 +12,8 @@ import FirebaseDatabase
 
 class UserAllergies {
     
-    static func userIsAllergicTo(_ food: Food) -> [String]{
-        var userInfo: [String: Any]? = [:]
-        var allergies: [String] = []
+    static func userIsAllergicTo(_ food: Food, completion: @escaping (_ matches: [String]) -> Void){
+        var userInformation: [String: Any]? = [:]
         
         //this gets the user's allergies from Firebase
         guard let uid = Auth.auth().currentUser?.uid else {fatalError()}
@@ -42,10 +41,22 @@ class UserAllergies {
                     conflictingAllergies.append(ingredient)
                 }
             }
-        }
-        
-        return conflictingAllergies
+            completion(conflictingAllergies)
+            
+        })
+    
     }
     
-}
+    static func getAllergies(_ completion: @escaping(_ allergies: [String]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else {fatalError()}
+        let databaseRef = Database.database().reference().child("users\(uid)")
+        databaseRef.observeSingleEvent(of: .value, with: {snapshot in
+            let userInformation = snapshot.value as? [String: Any] ?? [:]
+            //uses the user allergies from firebase to get more detailed list of allergies
+            guard let userAllergies = userInformation["Allergies"] else {print("abort"); return}
+            let allergies = AllergyManipulation.getAllergyList(userAllergies as! [String])
+            completion(allergies)
+        })
+    }
 
+}

@@ -51,9 +51,6 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
      
         
     }
-  
-    
-    
     
     @IBAction func backToPersonalInfoViewController(_ segue: UIStoryboardSegue) {
     }
@@ -211,6 +208,11 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
         else{
             activityRow = 0
         }
+        
+        if !userInfo.isEmpty && userInfo["Allergies"] != nil{
+            allergies = userInfo["Allergies"] as! [String]
+        }
+        
         activityChoice = activityLevelOptions[activityRow]
         
         weight.selectRow(weightRow, inComponent: 0, animated: false)
@@ -223,12 +225,17 @@ class PersonalInfoViewController: UIViewController, UIPickerViewDataSource, UIPi
             dateFormatter.dateFormat = "dd MM yyyy"
             birthday.setDate(dateFormatter.date(from: userInfo["BirthDate"] as! String) ?? Date(), animated: false)
         }
+        
+        firstLoad = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !firstLoad{
+            update()
+        }
     }
     
     override func viewDidLoad() {
-        
-        
-        
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = view.backgroundColor
